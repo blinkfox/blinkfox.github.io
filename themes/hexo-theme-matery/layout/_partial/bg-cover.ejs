@@ -1,0 +1,23 @@
+<div class="bg-cover" style="background-image: url('/medias/cover.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                <div class="brand">
+                    <div class="title center-align"><%- config.title %></div>
+                    <div class="description center-align">
+                    <% if (config.description && config.description.length > 0) { %>
+                        <%= config.description %>
+                    <% } else { %>
+                        Never really desperate, only the lost of the soul.
+                    <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Dynamically switch banner pictures every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>

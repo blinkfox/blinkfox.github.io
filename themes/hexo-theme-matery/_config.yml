@@ -1,0 +1,39 @@
+# main menu navigation
+menu:
+  首页: /
+  标签: /tags
+  归档: /archives
+
+# index page dream text
+dream: 现实的抽象是语言，语言的抽象是程序，程序的抽象是数理逻辑，数理逻辑的抽象是超越认知的真理。
+
+# Miscelaneous
+favicon: /favicon.png
+logo: /medias/logo.png
+
+# posts feature images
+featureImages: 
+- /medias/featureimages/0.jpg
+- /medias/featureimages/1.jpg
+- /medias/featureimages/2.jpg
+- /medias/featureimages/3.jpg
+- /medias/featureimages/4.jpg
+- /medias/featureimages/5.jpg
+- /medias/featureimages/6.jpg
+- /medias/featureimages/7.jpg
+- /medias/featureimages/8.jpg
+- /medias/featureimages/9.jpg
+- /medias/featureimages/10.jpg
+- /medias/featureimages/11.jpg
+- /medias/featureimages/12.jpg
+- /medias/featureimages/13.jpg
+- /medias/featureimages/14.jpg
+- /medias/featureimages/15.jpg
+- /medias/featureimages/16.jpg
+- /medias/featureimages/17.jpg
+- /medias/featureimages/18.jpg
+- /medias/featureimages/19.jpg
+- /medias/featureimages/20.jpg
+- /medias/featureimages/21.jpg
+- /medias/featureimages/22.jpg
+- /medias/featureimages/23.jpg

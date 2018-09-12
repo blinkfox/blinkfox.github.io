@@ -1,0 +1,216 @@
+<%
+var hashCode = function(str) {
+    if (!str && str.length === 0) {
+        return 0;
+    }
+
+    var hash = 0;
+    for (var i = 0, len = str.length; i < len; i++) {
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+    }
+    return hash;
+};
+
+var featureimg = '/medias/featureimages/0.jpg';
+var featureImages = theme.featureImages;
+%>
+
+<article id="articles" class="container prev-next articles">
+    <div class="row article-row">
+        <% if (page.prev) { %>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge"><%= __('prev') %></div>
+            <div class="card">
+                <a href="<%- url_for(page.prev.path) %>">
+                    <div class="card-image">
+                        <% if (page.prev.img) { %>
+                        <img src="<%= page.prev.img %>" class="responsive-img" alt="<%- page.prev.title %>">
+                        <% } else { %>
+                        <%
+                            var len = featureImages.length;
+                            var num = Math.abs(hashCode(page.prev.title) % len);
+                            featureimg = featureImages[num];
+                        %>
+                        <img src="<%= featureimg %>" class="responsive-img" alt="<%- page.prev.title %>">
+                        <% } %>
+                        <span class="card-title"><%- page.prev.title %></span>
+                    </div>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            <%- strip_html(page.prev.content).substring(0, 120) %>
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-calendar fa-fw"></i><%= date(page.prev.date, config.date_format) %>
+                            </span>
+                            <span class="publish-author">
+                                <i class="fa fa-user fa-fw"></i>
+                                <% if(page.prev.author && page.prev.author.length > 0) { %>
+                                    <%= page.prev.author %>
+                                <% } else { %>
+                                    <%= config.author %>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+                    <% if(page.prev.tags && page.prev.tags.length) { %>
+                    <div class="card-action article-tags">
+                        <% page.prev.tags.forEach(tag => { %>
+                        <a href="<%- url_for('/tags/#' + tag.name) %>" target="_blank">
+                            <span class="chip bg-color"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </a>
+            </div>
+        </div>
+        <% } else { %>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge"><%= __('curr') %></div>
+            <div class="card">
+                <a href="<%- url_for(page.path) %>">
+                    <div class="card-image">
+                        <% if (page.img) { %>
+                        <img src="<%= page.img %>" class="responsive-img" alt="<%- page.title %>">
+                        <% } else { %>
+                        <%
+                            var len = featureImages.length;
+                            var num = Math.abs(hashCode(page.title) % len);
+                            featureimg = featureImages[num];
+                        %>
+                        <img src="<%= featureimg %>" class="responsive-img" alt="<%- page.title %>">
+                        <% } %>
+                        <span class="card-title"><%- page.title %></span>
+                    </div>
+
+                    <div class="card-content article-content">
+                        <div class="summary"><%- strip_html(page.content).substring(0, 120) %></div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-calendar fa-fw"></i><%= date(page.date, config.date_format) %>
+                            </span>
+                            <span class="publish-author">
+                                <i class="fa fa-user fa-fw"></i>
+                                <% if(page.author && page.author.length > 0) { %>
+                                    <%= page.author %>
+                                <% } else { %>
+                                    <%= config.author %>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+
+                    <% if(page.tags && page.tags.length) { %>
+                    <div class="card-action article-tags">
+                        <% page.tags.forEach(tag => { %>
+                        <a href="<%- url_for('/tags/#' + tag.name) %>" target="_blank">
+                            <span class="chip bg-color"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </a>
+            </div>
+        </div>
+        <% } %>
+        <% if (page.next) { %>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge"><%= __('next') %></div>
+            <div class="card">
+                <a href="<%- url_for(page.next.path) %>">
+                    <div class="card-image">
+                        <% if (page.next.img) { %>
+                        <img src="<%= page.next.img %>" class="responsive-img" alt="<%- page.next.title %>">
+                        <% } else { %>
+                        <%
+                            var len = featureImages.length;
+                            var num = Math.abs(hashCode(page.next.title) % len);
+                            featureimg = featureImages[num];
+                        %>
+                        <img src="<%= featureimg %>" class="responsive-img" alt="<%- page.next.title %>">
+                        <% } %>
+                        <span class="card-title"><%- page.next.title %></span>
+                    </div>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            <%- strip_html(page.next.content).substring(0, 120) %>
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-calendar fa-fw"></i><%= date(page.next.date, config.date_format) %>
+                            </span>
+                            <span class="publish-author">
+                                <i class="fa fa-user fa-fw"></i>
+                                <% if(page.next.author && page.next.author.length > 0) { %>
+                                    <%= page.next.author %>
+                                <% } else { %>
+                                    <%= config.author %>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+                    <% if(page.next.tags && page.next.tags.length) { %>
+                    <div class="card-action article-tags">
+                        <% page.next.tags.forEach(tag => { %>
+                        <a href="<%- url_for('/tags/#' + tag.name) %>" target="_blank">
+                            <span class="chip bg-color"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </a>
+            </div>
+        </div>
+        <% } else { %>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge"><%= __('curr') %></div>
+            <div class="card">
+                <a href="<%- url_for(page.path) %>">
+                    <div class="card-image">
+                        <% if (page.img) { %>
+                        <img src="<%= page.img %>" class="responsive-img" alt="<%- page.title %>">
+                        <% } else { %>
+                        <%
+                            var len = featureImages.length;
+                            var num = Math.abs(hashCode(page.title) % len);
+                            featureimg = featureImages[num];
+                        %>
+                        <img src="<%= featureimg %>" class="responsive-img" alt="<%- page.title %>">
+                        <% } %>
+                        <span class="card-title"><%- page.title %></span>
+                    </div>
+
+                    <div class="card-content article-content">
+                        <div class="summary"><%- strip_html(page.content).substring(0, 120) %></div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-calendar fa-fw"></i><%= date(page.date, config.date_format) %>
+                            </span>
+                            <span class="publish-author">
+                                <i class="fa fa-user fa-fw"></i>
+                                <% if(page.author && page.author.length > 0) { %>
+                                    <%= page.author %>
+                                <% } else { %>
+                                    <%= config.author %>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+
+                    <% if(page.tags && page.tags.length) { %>
+                    <div class="card-action article-tags">
+                        <% page.tags.forEach(tag => { %>
+                        <a href="<%- url_for('/tags/#' + tag.name) %>" target="_blank">
+                            <span class="chip bg-color"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </a>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</article>
