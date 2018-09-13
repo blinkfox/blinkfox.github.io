@@ -15,7 +15,7 @@ after_script:
   - git config user.email "chenjiayin1990@163.com"
   - git add .
   - git commit -a -m "Auto update docs by Travis CI."
-  - git push --force --quiet "https://${github-token}@${gh-ref}" master:master
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
 branches:
   only:
@@ -23,4 +23,4 @@ branches:
 
 env:
  global:
-   - gh-ref: github.com/blinkfox/blinkfox.github.io.git
+   - GH_REF: github.com/blinkfox/blinkfox.github.io.git
