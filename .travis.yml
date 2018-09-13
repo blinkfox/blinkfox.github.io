@@ -1,0 +1,26 @@
+language: node_js
+node_js: stable
+
+install:
+  - npm install hexo
+
+script:
+  - hexo clean
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "blinkfox"
+  - git config user.email "chenjiayin1990@163.com"
+  - git add .
+  - git commit -a -m "Auto update docs by Travis CI."
+  - git push --force --quiet "https://${github-token}@${gh-ref}" master:master
+
+branches:
+  only:
+    - hexo
+
+env:
+ global:
+   - gh-ref: github.com/blinkfox/blinkfox.github.io.git
