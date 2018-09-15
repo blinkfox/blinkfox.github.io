@@ -4,7 +4,7 @@
 
 # Site
 title: 闪烁之狐
-subtitle:
+subtitle: 闪烁之狐
 description: 从来没有真正的绝境，只有心灵的迷途
 keywords: 闪烁之狐, Blinkfox
 author: blinkfox
@@ -90,3 +90,7 @@ deploy:
 search:
   path: search.xml
   field: post
+
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'

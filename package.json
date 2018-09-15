@@ -13,6 +13,7 @@
     "hexo-generator-index": "^0.2.1",
     "hexo-generator-search": "^2.2.5",
     "hexo-generator-tag": "^0.2.0",
+    "hexo-permalink-pinyin": "^1.0.0",
     "hexo-prism-plugin": "^2.3.0",
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-marked": "^0.3.2",
