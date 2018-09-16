@@ -20,6 +20,11 @@ gitment:
     clientId: 2e56c9f3a90b6e8fb4f0
     clientSecret: ba491ea79bbff85ec80b88db79e210b474a9cbc8
 
+# disqus config, default disabled
+disqus:
+  enable: false
+  shortname: blinkfox
+
 # posts feature images
 featureImages: 
 - /medias/featureimages/0.jpg
