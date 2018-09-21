@@ -44,38 +44,48 @@ yearArr.forEach(function(year) {
 
 <%- partial('_partial/bg-cover') %>
 
-<main class="content">    
+<main class="content">
+    <% if (theme.postCalendar) { %>
+    <%- partial('_partial/post-calendar') %>
+    <% } %>
+
     <div id="cd-timeline" class="container">
         <% Object.keys(archivesList).reverse().forEach(function(year){  %>
         <div class="cd-timeline-img year bg-color">
             <span><%= year %></span>
         </div>
-        <% Object.keys(archivesList[year]).forEach(function(month, abc){  %>
+        <% Object.keys(archivesList[year]).forEach(function(month){  %>
         <div class="cd-timeline-img month bg-color">
             <span><%= month %></span>
         </div>
         <% archivesList[year][month].map(function(post){  %>
         <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img cd-picture">
-                <% if (post.img) { %>
-                <div class="img-item" data-src="<%= post.img %>">
-                    <img src="<%= post.img %>" class="responsive-img" alt="<%- post.title %>"/>
-                </div>
-                <% } else { %>
-                <%
-                    var len = theme.featureImages.length;
-                    var num = Math.abs(hashCode(post.title) % len);
-                    var featureimg = theme.featureImages[num];
-                %>
-                <div class="img-item" data-src="<%= featureimg %>">
-                    <img src="<%= featureimg %>" class="responsive-img thumbnail-img" alt="<%- post.title %>"/>
-                </div>
-                <% } %>
+            <div class="cd-timeline-img day bg-color">
+                <span><%= date(post.date, 'YYYY-MM-DD').substring(8, 10) %></span>
             </div>
             <div class="cd-timeline-content">
-                <a href="<%- config.root %><%- post.path %>">
-                    <div class="article-title"><%- post.title ? post.title : __('untitled') %></div>
-                </a>
+                <div class="row valign-wrapper">
+                    <div class="col m4 s4">
+                        <% if (post.img) { %>
+                        <div class="img-item" data-src="<%= post.img %>">
+                            <img src="<%= post.img %>" class="archive-img" alt="<%- post.title %>"/>
+                        </div>
+                        <% } else { %>
+                        <%
+                            var len = theme.featureImages.length;
+                            var num = Math.abs(hashCode(post.title) % len);
+                            var featureimg = theme.featureImages[num];
+                        %>
+                        <div class="img-item" data-src="<%= featureimg %>">
+                            <img src="<%= featureimg %>" class="archive-img thumbnail-img" alt="<%- post.title %>"/>
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="col m8 s8 article-title">
+                        <a href="<%- config.root %><%- post.path %>"><%- post.title ? post.title : __('untitled') %></a>
+                        <div class="summary"><%- strip_html(post.content).substring(0, 80) %></div>
+                    </div>
+                </div>
                 <div class="tags">
                     <% if(post.tags && post.tags.length) { %>
                     <% post.tags.forEach(tag => { %>
