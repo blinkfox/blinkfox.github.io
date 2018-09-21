@@ -2,7 +2,7 @@
 title: Java面向对象设计之代理模式
 date: 2018-09-20 21:50:00
 author: blinkfox
-# img: http://static.blinkfox.com/hexoblog_20180914_factory.jpg
+img: http://static.blinkfox.com/hexoblog_20180920_proxy.jpg
 tags:
   - Java
   - 设计模式
