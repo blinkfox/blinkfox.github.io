@@ -1,6 +1,6 @@
 ---
 title: Hexo博客主题之hexo-theme-matery的介绍
-date: 2018-09-18 00:36:00
+date: 2018-09-28 13:34:00
 author: blinkfox
 tags:
   - Hexo
@@ -16,13 +16,29 @@ tags:
 - 每天动态切换`Banner`图片
 - 瀑布流式的博客文章列表(文章无特色图片时会有`24`张漂亮的图片代替)
 - 时间轴式的归档页
-- [Gitment](https://imsun.github.io/gitment/)评论模块
+- [Gitment](https://imsun.github.io/gitment/)和[Disqus](https://disqus.com/)评论模块
+
+## 后续开发计划
+
+- [x] 重构标签页为**可分页**
+- [x] 重构归档页为**可分页**
+- [ ] 增加分类页
+- [ ] 增加关于我页面
+- [ ] 集成[Gitalk](https://gitalk.github.io/)
+- [ ] 右上角实现`fork me on github`
+- [ ] 添加`RSS`
+- [ ] 网站底部加上访问量等统计功能
+- [ ] 首页设计和添加置顶文章
+- [ ] 文章结束后增加**打赏**功能
+- [ ] 为博客添加萌萌的**宠物**或者**成长树**等
+
+> 欢迎贡献!
 
 ## 下载
 
 当你看到这里的时候，应该已经有一个自己的[Hexo](https://hexo.io/zh-cn/)博客了，如果还没有的话，不妨使用 Hexo 和[Markdown](https://www.appinn.com/markdown/)来写博客和文章。
 
-点击[这里](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/develop.zip)下载最新稳定版的代码，解压缩后，将`hexo-theme-matery`的文件夹复制到你 Hexo 的`themes`文件夹中即可。当然你也可以在你的`themes`文件夹下使用`Git clone`命令来下载:
+点击 [这里](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master) 下载`master`分支的最新稳定版的代码，解压缩后，将`hexo-theme-matery`的文件夹复制到你 Hexo 的`themes`文件夹中即可。当然你也可以在你的`themes`文件夹下使用`Git clone`命令来下载:
 
 ```bash
 git clone https://github.com/blinkfox/hexo-theme-matery.git
@@ -120,16 +136,16 @@ permalink_pinyin:
 
 其中，社交图标（如：`fa-github`）你可以在[Font Awesome](https://fontawesome.com/icons)中搜索找到。以下是常用社交图标的标识，供你参考：
 
-- Facebook: fa-facebook
-- Twitter: fa-twitter
-- Google-plus: fa-google-plus
-- Linkedin: fa-linkedin
-- Tumblr: fa-tumblr
-- Medium: fa-medium
-- Slack: fa-slack
-- 新浪微博: fa-weibo
-- 微信: fa-wechat
-- QQ: fa-qq
+- Facebook: `fa-facebook`
+- Twitter: `fa-twitter`
+- Google-plus: `fa-google-plus`
+- Linkedin: `fa-linkedin`
+- Tumblr: `fa-tumblr`
+- Medium: `fa-medium`
+- Slack: `fa-slack`
+- 新浪微博: `fa-weibo`
+- 微信: `fa-wechat`
+- QQ: `fa-qq`
 
 > **注意**: 本主题中使用的`Font Awesome`版本为`4.5.0`。
 
@@ -209,20 +225,12 @@ tags:
     color: #0f9d58 !important;
 }
 
-/* 首页、标签页、归档页的 banner 蒙板层颜色，主题中是紫色和半透明的效果，你可以根据需要来修改蒙板颜色和透明度. */
-.bg-cover:after {
-    background: rgba(101, 47, 142, 0.75);
-    background: linear-gradient(45deg, rgba(101, 47, 142, 0.75) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.75) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -webkit-linear-gradient(135deg, rgba(101, 47, 142, 0.75) 0%, rgba(125, 46, 185, 0.45) 100%);
+@-webkit-keyframes rainbow {
+   /* 动态切换背景颜色. */
 }
 
-/* 文章页的 banner 蒙板层颜色，主题中是紫色和半透明的效果，你可以根据需要来修改蒙板颜色和透明度. */
-.post-cover:after {
-    background: rgba(101, 47, 142, 0.8);
-    background: linear-gradient(45deg, rgba(101, 47, 142, 0.8) 0%, rgba(125, 46, 185, 0.6) 100%);
-    background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.8) 0%, rgba(125, 46, 185, 0.6) 100%);
-    background: -webkit-linear-gradient(135deg, rgba(101, 47, 142, 0.8) 0%, rgba(125, 46, 185, 0.6) 100%);
+@keyframes rainbow {
+    /* 动态切换背景颜色. */
 }
 ```
 
