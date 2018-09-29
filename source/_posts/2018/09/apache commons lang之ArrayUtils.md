@@ -1,5 +1,5 @@
 ---
-title: apache commons lang之ArrayUtils
+title: Apache Commons Lang之ArrayUtils
 date: 2018-09-28 23:09:00
 author: blinkfox
 img: http://static.blinkfox.com/image_20180928.jpg
