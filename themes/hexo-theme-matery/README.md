@@ -2,7 +2,7 @@
 
 [![HitCount](http://hits.dwyl.io/blinkfox/hexo-theme-matery.svg)](http://hits.dwyl.io/blinkfox/hexo-theme-matery) [![GitHub issues](https://img.shields.io/github/issues/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/issues) [![GitHub license](https://img.shields.io/github/license/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/blob/master/LICENSE) [![Download](https://img.shields.io/badge/downloads-master-green.svg)](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master) [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg)](http://hexo.io) [![GitHub forks](https://img.shields.io/github/forks/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/network) [![GitHub stars](https://img.shields.io/github/stars/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/stargazers)
 
-[中文文档](README_CN.md) | [DEMO](https://blinkfox.github.io/)
+[中文说明](README_CN.md) | [DEMO](https://blinkfox.github.io/)
 
 > This is a Hexo blog theme with 'Material Design' and responsive design.
 
@@ -19,12 +19,15 @@
 ## Next development plans
 
 - [x] Refactoring tags page as **paginable**
-- [ ] Refactoring Archives page as **paginable**
+- [x] Refactoring Archives page as **paginable**
 - [ ] Add category page
 - [ ] Add about me page
+- [ ] Add 404 page
+- [ ] Beautify the scroll bar
 - [ ] Integrated [Gitalk](https://gitalk.github.io/) comment
 - [ ] Add `fork me on github` in the upper right corner
 - [ ] Add the `RSS` link
+- [ ] Add post detatil of `TOC`
 - [ ] At the bottom of the site, add statistics such as traffic
 - [ ] design Index Page and support to add top posts
 - [ ] Add **rewards** function after the posts ends
@@ -48,9 +51,15 @@ git clone https://github.com/blinkfox/hexo-theme-matery.git
 
 Modify the value of `theme` in `_config.yml` of Hexo's root folder: `theme: hexo-theme-matery`.
 
-### config tags page
+#### Suggestions for other changes to the `_config.yml`:
+ 
+- Please modify the value of `url` of `_config.yml` to your website's main `URL` (eg `http://xxx.github.io`).
+- Recommended modify the value of the two 'per_page` to be a multiple of `6`, such as: `12`, `18`, etc. so that the posts list can be displayed well under each screen.
+- If you are a Chinese user, it is recommended to change the value of `language` to `zh-CN`.
 
-`tags`page is to show all of tags.If the `source` directory of your blog doesn't have `tags/index.md` file,you need to new one like this:
+### new tags page
+
+`tags`page is to show all of tags. If the `source` directory of your blog doesn't have `tags/index.md` file,you need to new one like this:
 
 ```bash
 hexo new page "tags"
@@ -63,6 +72,23 @@ title: tags
 date: 2018-09-10 18:23:38
 type: "tags"
 layout: "tags"
+```
+
+### new categories page
+
+`categories`page is to show all of categories. If the `source` directory of your blog doesn't have `categories/index.md` file, you need to new one like this:
+
+```bash
+hexo new page "categories"
+```
+
+to edit your new page files`/source/tags/index.md` ,you need somethings as follows:
+
+```yml
+title: categories
+date: 2018-09-30 17:25:30
+type: "categories"
+layout: "categories"
 ```
 
 ### Code highlight
@@ -157,6 +183,7 @@ title: typora-vue-theme Theme introduction
 date: 2018-09-07 09:25:00
 author: Qi Zhao
 img: /source/images/xxx.jpg # or:http://xxx.com/xxx.jpg
+categories: Markdown
 tags:
   - Typora
   - Markdown
