@@ -3,6 +3,7 @@ title: JavaScript基础教程
 date: 2018-09-14 00:12:00
 author: blinkfox
 img: http://static.blinkfox.com/hexoblog_20180914_js.jpg
+categories: 前端
 tags:
   - JavaScript
   - 转载

@@ -3,6 +3,9 @@ title: Java面向对象设计之装饰模式
 date: 2018-09-14 00:30:00
 author: blinkfox
 img: http://static.blinkfox.com/hexoblog_20180914_decorator.jpg
+categories: 
+  - Java
+  - 软件设计
 tags:
   - 设计模式
   - Java

@@ -2,6 +2,7 @@
 title: Spring基础介绍
 date: 2018-09-17 22:32:00
 author: blinkfox
+categories: Java
 tags:
   - Spring
   - Java

@@ -2,8 +2,10 @@
 title: MVEL 2.x语法指南
 date: 2018-09-18 23:00:00
 author: blinkfox
+categories: Java
 tags:
   - Java
+  - MVEL
 ---
 
 # MVEL 2.x语法指南

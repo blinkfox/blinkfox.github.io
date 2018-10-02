@@ -2,6 +2,7 @@
 title: Hexo博客主题之hexo-theme-matery的介绍
 date: 2018-09-28 13:34:00
 author: blinkfox
+categories: 前端
 tags:
   - Hexo
 ---
