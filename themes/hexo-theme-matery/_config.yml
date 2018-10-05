@@ -96,15 +96,27 @@ myGallery:
 # 设置在归档页面中是否显示'文章日历'控件
 postCalendar: true
 
-# the Gitment config，default disabled
-# Gitment评论模块的配置，默认为不激活
-gitment:
+# the Gitalk config，default disabled
+# Gitalk 评论模块的配置，默认为不激活
+gitalk:
   enable: true
   owner: blinkfox
   repo: blinkfox.github.io
   oauth:
     clientId: 2e56c9f3a90b6e8fb4f0
     clientSecret: ba491ea79bbff85ec80b88db79e210b474a9cbc8
+  admin:
+    - blinkfox
+
+# the Gitment config，default disabled
+# Gitment 评论模块的配置，默认为不激活
+gitment:
+  enable: false
+  owner:
+  repo:
+  oauth:
+    clientId:
+    clientSecret:
 
 # disqus config, default disabled
 # Disqus评论模块的配置，默认为不激活
