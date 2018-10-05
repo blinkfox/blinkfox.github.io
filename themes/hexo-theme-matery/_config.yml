@@ -1,23 +1,103 @@
-# main menu navigation
+# main menu navigation url and icon
+# 配置菜单导航的名称、路径和图标icon.
 menu:
-  首页: /
-  标签: /tags
-  分类: /categories
-  归档: /archives
+  首页:
+    url: /
+    icon: fa-home
+  标签:
+    url: /tags
+    icon: fa-tags
+  分类:
+    url: /categories
+    icon: fa-bookmark
+  归档:
+    url: /archives
+    icon: fa-archive
+  关于:
+    url: /about
+    icon: fa-user-circle-o
 
 # index page dream text,
+# 配置首页显示"梦想"的语句.
 dream:
   enable: true
   text: 现实的抽象是语言，语言的抽象是程序，程序的抽象是数理逻辑，数理逻辑的抽象是超越认知的真理。
 
-# show post-calendar
-postCalendar: true
-
-# Miscelaneous
+# Configure website favicon and LOGO
+# 配置网站favicon和网站LOGO
 favicon: /favicon.png
 logo: /medias/logo.png
 
-# the gitment config
+# profile in about page, including avatars, career, and personal introductions.
+# 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
+profile:
+  avatar: /medias/avatar.jpg
+  career: Software Engineer
+  introduction: 也许思维是神性的残留，在纯思的世界里更容易认知事物的本质，却也真的冰冷无情。相比之下，也许真的是诗词更有价值，可惜的是就搞这个的真没战斗力，很容易被KO。对个人而言倒是真适合在两者间找个均衡，惟其如此，才能既不失了智慧，也不失了情趣。
+
+# config my projects informations in about page.
+# If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
+# 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
+myProjects:
+  enable: true
+  data:
+    hexo-theme-matery:
+      icon: fa-meetup
+      iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
+      url: http://github.com/blinkfox/hexo-theme-matery
+      desc: 一个采用 Material Design 和响应式设计的 Hexo 博客主题。
+    zealt:
+        icon: fa-database
+        iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
+        url: https://github.com/blinkfox/zealot
+        desc: 一个轻量级的SQL和参数动态生成工具库
+    typora-vue-theme:
+        icon: fa-file-text-o
+        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
+        url: https://github.com/blinkfox/typora-vue-theme
+        desc: 这是 Typora Markdown 编辑器的类似 Vue 文档风格的主题。
+
+# config my skills informations in about page.
+# If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
+# 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
+mySkills:
+  enable: true
+  data:
+    Java:
+      background: 'linear-gradient(to bottom right, #FF0066 0%, #FF00CC 100%)'
+      percent: 85%
+    JavaScript:
+      background: 'linear-gradient(to bottom right, #9900FF 0%, #CC66FF 100%)'
+      percent: 80%
+    HTML5:
+      background: 'linear-gradient(to bottom right, #2196F3 0%, #42A5F5 100%)'
+      percent: 80%
+    CSS:
+      background: 'linear-gradient(to bottom right, #00BCD4 0%, #80DEEA 100%)'
+      percent: 70%
+    SQL:
+      background: 'linear-gradient(to bottom right, #4CAF50 0%, #81C784 100%)'
+      percent: 90%
+    程序设计:
+      background: 'linear-gradient(to bottom right, #FFEB3B 0%, #FFF176 100%)'
+      percent: 75%
+
+# config gallery of my photos in about page.
+# If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
+# 在“关于”页面配置"我的相册"图片，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
+myGallery:
+  enable: true
+  data:
+    - /medias/featureimages/0.jpg
+    - /medias/featureimages/1.jpg
+    - /medias/featureimages/2.jpg
+
+# Whether to display post-calender in the `archive` page
+# 设置在归档页面中是否显示'文章日历'控件
+postCalendar: true
+
+# the Gitment config，default disabled
+# Gitment评论模块的配置，默认为不激活
 gitment:
   enable: true
   owner: blinkfox
@@ -27,11 +107,13 @@ gitment:
     clientSecret: ba491ea79bbff85ec80b88db79e210b474a9cbc8
 
 # disqus config, default disabled
+# Disqus评论模块的配置，默认为不激活
 disqus:
   enable: false
   shortname: blinkfox
 
-# posts feature images
+# The post featured images that needs to be displayed when there is no image.
+# 无文章特色图片时需要显示的文章特色图片.
 featureImages: 
 - /medias/featureimages/0.jpg
 - /medias/featureimages/1.jpg

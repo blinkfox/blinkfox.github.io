@@ -1,3 +1,6 @@
+posts: Posts
+categories: Categories
+tags: Tags
 reprint: Reprint please specify
 curr: Current
 prev: Previous
@@ -9,3 +12,15 @@ postCategoryTitle: Post Categories
 categoryRadarTitle: Post Categories Radar Chart
 categoryNumber: Number of Categories
 categoryEmptyTip: Your posts has no categories information yet.
+postCharts: Post Charts
+postPublishChart: Post Publish Chart
+categoriesChart: Categories Chart
+top10TagsChart: TOP10 Tags Chart
+postsNumberName: Number of posts
+maximum: Maximum
+minimum: Minimum
+average: Average
+myProjects: My Projects
+mySkills: My Skills
+otherSkills: Other Skills
+gallery: Gallery
