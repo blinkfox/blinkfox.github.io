@@ -4,7 +4,7 @@ date: 2018-09-14 00:20:00
 author: blinkfox
 img: http://static.blinkfox.com/hexoblog_20140914_strategy.jpg
 categories: 
-  - Java
+  - 后端
   - 软件设计
 tags:
   - 设计模式

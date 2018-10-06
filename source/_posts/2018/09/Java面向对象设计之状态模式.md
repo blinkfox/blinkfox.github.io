@@ -4,7 +4,7 @@ date: 2018-09-21 23:44:00
 author: blinkfox
 img: http://static.blinkfox.com/hexoblog_20180921_state.jpg
 categories: 
-  - Java
+  - 后端
   - 软件设计
 tags:
   - Java
