@@ -28,6 +28,11 @@ dream:
 favicon: /favicon.png
 logo: /medias/logo.png
 
+# Whether to activate the Post TOC.
+# 是否激活文章 TOC 功能.
+toc:
+  enable: false
+
 # profile in about page, including avatars, career, and personal introductions.
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
@@ -123,6 +128,13 @@ gitment:
 disqus:
   enable: false
   shortname: blinkfox
+
+# Whether to display fork me on github icon and link, default false
+# 配置是否在 header 中显示 fork me on github 的图标，默认为false.
+githubLink:
+  enable: true
+  url: https://github.com/blinkfox/hexo-theme-matery
+  title: Fork Me
 
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
