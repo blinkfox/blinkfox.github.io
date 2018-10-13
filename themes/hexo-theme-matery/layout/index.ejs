@@ -1,3 +1,10 @@
+<style type="text/css">
+    /* don't remove. */
+    .index-cover {
+        height: 95vh;
+    }
+</style>
+
 <%- partial('_partial/bg-cover') %>
 
 <main class="content">
@@ -10,6 +17,10 @@
             </div>
         </div>
     </div>
+    <% } %>
+
+    <% if (page.current === 1) { %>
+    <%- partial('_widget/recommend') %>
     <% } %>
 
     <%

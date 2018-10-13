@@ -9,14 +9,14 @@
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .container {
-        width: 85%;
+        width: 90%;
     }
 }
 
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
     .container {
-        width: 80%;
+        width: 85%;
         max-width: 1125px;
     }
     .post-container {
@@ -147,7 +147,7 @@ mark {
 }
 
 .card {
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
 }
 
@@ -278,6 +278,18 @@ header .side-nav .social-link {
     padding: 0 12px;
 }
 
+.cover-social-link {
+    position: relative;
+    top: 20vh;
+    text-align: center;
+}
+
+.cover-social-link a {
+    padding: 0 15px;
+    font-size: 1.35rem;
+    color: #fff;
+}
+
 header .go-back {
     float: left;
     position: relative;
@@ -336,15 +348,17 @@ header .go-back i {
 
 .bg-cover .title {
     font-size: 4rem;
-    font-weight: 600;
-    line-height: 1.15em;
+    font-weight: 700;
+    line-height: 1.85em;
     margin-bottom: 20px;
     position: relative;
 }
 
 .bg-cover .description {
-    font-size: 1.313rem;
+    font-size: 1.25rem;
+    font-weight: 300;
     line-height: 1.4em;
+    color: #eee;
 }
 
 .bg-cover .post-title {
@@ -354,92 +368,217 @@ header .go-back i {
 @-webkit-keyframes rainbow {
     0%,
     100% {
-        background: rgba(156, 39, 176, 0.5);
-        background: linear-gradient(45deg, rgba(156, 39, 176, 0.5) 0%, rgba(156, 39, 176, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.5) 0%, rgba(156, 39, 176, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.5) 0%, rgba(156, 39, 176, 0.4) 100%);
+        background: rgba(156, 39, 176, 0.75);
+        background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
     }
     16% {
-        background: rgba(186, 104, 200, 0.5);
-        background: linear-gradient(45deg, rgba(186, 104, 200, 0.5) 0%, rgba(186, 104, 200, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(186, 104, 200, 0.5) 0%, rgba(186, 104, 200, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(186, 104, 200, 0.5) 0%, rgba(186, 104, 200, 0.4) 100%);
+        background: rgba(132, 13, 121, 0.75);
+        background: linear-gradient(45deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
     }
     32% {
-        background: rgba(206, 147, 216, 0.5);
-        background: linear-gradient(45deg, rgba(206, 147, 216, 0.5) 0%, rgba(206, 147, 216, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(206, 147, 216, 0.5) 0%, rgba(206, 147, 216, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(206, 147, 216, 0.5) 0%, rgba(206, 147, 216, 0.4) 100%);
+        background: rgba(239, 83, 80, 0.75);
+        background: linear-gradient(45deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
     }
     48% {
-        background: rgba(229, 115, 115, 0.5);
-        background: linear-gradient(45deg, rgba(229, 115, 115, 0.5) 0%, rgba(229, 115, 115, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(229, 115, 115, 0.5) 0%, rgba(229, 115, 115, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(229, 115, 115, 0.5) 0%, rgba(229, 115, 115, 0.4) 100%);
+        background: rgba(255, 87, 34, 0.75);
+        background: linear-gradient(45deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
     }
     64% {
-        background: rgba(255, 112, 66, 0.5);
-        background: linear-gradient(45deg, rgba(255, 112, 66, 0.5) 0%, rgba(255, 112, 66, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(255, 112, 66, 0.5) 0%, rgba(255, 112, 66, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(255, 112, 66, 0.5) 0%, rgba(255, 112, 66, 0.4) 100%);
+        background: rgba(255, 160, 0, 0.75);
+        background: linear-gradient(45deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 112, 66, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
     }
     80% {
-        background: rgba(233, 30, 99, 0.5);
-        background: linear-gradient(45deg, rgba(233, 30, 99, 0.5) 0%, rgba(233, 30, 99, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.5) 0%, rgba(233, 30, 99, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.5) 0%, rgba(233, 30, 99, 0.4) 100%);
+        background: rgba(233, 30, 99, 0.75);
+        background: linear-gradient(45deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
 }
 
 @keyframes rainbow {
     0%,
     100% {
-        background: rgba(156, 39, 176, 0.5);
-        background: linear-gradient(45deg, rgba(156, 39, 176, 0.5) 0%, rgba(156, 39, 176, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.5) 0%, rgba(156, 39, 176, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.5) 0%, rgba(156, 39, 176, 0.4) 100%);
+        background: rgba(156, 39, 176, 0.75);
+        background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
     }
     16% {
-        background: rgba(186, 104, 200, 0.5);
-        background: linear-gradient(45deg, rgba(186, 104, 200, 0.5) 0%, rgba(186, 104, 200, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(186, 104, 200, 0.5) 0%, rgba(186, 104, 200, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(186, 104, 200, 0.5) 0%, rgba(186, 104, 200, 0.4) 100%);
+        background: rgba(132, 13, 121, 0.75);
+        background: linear-gradient(45deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
     }
     32% {
-        background: rgba(206, 147, 216, 0.5);
-        background: linear-gradient(45deg, rgba(206, 147, 216, 0.5) 0%, rgba(206, 147, 216, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(206, 147, 216, 0.5) 0%, rgba(206, 147, 216, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(206, 147, 216, 0.5) 0%, rgba(206, 147, 216, 0.4) 100%);
+        background: rgba(239, 83, 80, 0.75);
+        background: linear-gradient(45deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
     }
     48% {
-        background: rgba(229, 115, 115, 0.5);
-        background: linear-gradient(45deg, rgba(229, 115, 115, 0.5) 0%, rgba(229, 115, 115, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(229, 115, 115, 0.5) 0%, rgba(229, 115, 115, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(229, 115, 115, 0.5) 0%, rgba(229, 115, 115, 0.4) 100%);
+        background: rgba(255, 87, 34, 0.75);
+        background: linear-gradient(45deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
     }
     64% {
-        background: rgba(255, 112, 66, 0.5);
-        background: linear-gradient(45deg, rgba(255, 112, 66, 0.5) 0%, rgba(255, 112, 66, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(255, 112, 66, 0.5) 0%, rgba(255, 112, 66, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(255, 112, 66, 0.5) 0%, rgba(255, 112, 66, 0.4) 100%);
+        background: rgba(255, 160, 0, 0.75);
+        background: linear-gradient(45deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 112, 66, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
     }
     80% {
-        background: rgba(233, 30, 99, 0.5);
-        background: linear-gradient(45deg, rgba(233, 30, 99, 0.5) 0%, rgba(233, 30, 99, 0.4) 100%);
-        background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.5) 0%, rgba(233, 30, 99, 0.4) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.5) 0%, rgba(233, 30, 99, 0.4) 100%);
+        background: rgba(233, 30, 99, 0.75);
+        background: linear-gradient(45deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
+}
+
+.recommend {
+    margin-top: 20px;
 }
 
 .notice {
     margin-top: -40px;
 }
 
+.notice .card {
+    border-radius: 5px;
+}
+
+.recommend .card .card-content {
+    padding: 20px 40px;
+}
+
 @media only screen and (min-width: 1418px) {
     .notice {
-        margin-top: -40px;
+        margin-top: 30px;
         padding: 0 0.75rem;
     }
+
+    .recommend {
+        margin-top: 20px;
+        padding: 0 0.75rem;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .recommend .card .card-content {
+        padding: 10px 10px;
+    }
+}
+
+/*中等屏幕下(平板类)的样式*/
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+    .recommend .card .card-content {
+        padding: 20px 20px;
+    }
+}
+
+.recommend .row .col {
+    padding: 0 1.25rem;
+}
+
+.recommend .title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+}
+
+.recommend .post-card:before {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: "";
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 10px;
+}
+
+.recommend .post-card {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    max-height: 300px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    border: 0;
+    border-radius: 10px;
+    color: rgba(0, 0, 0, .87);
+    background: #fff 50%;
+    background-size: cover;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+}
+
+.recommend .post-card .post-body {
+    position: relative;
+    margin: 0 auto;
+    padding: 1.8rem 1.25rem;
+    z-index: 2;
+}
+
+.recommend .post-card .post-categories {
+    margin: 10px auto;
+}
+
+.recommend .post-card .post-categories .category {
+    padding: 0 8px;
+    color: hsla(0, 0%, 100%, .7) !important;
+    font-size: .75rem;
+    font-weight: 500;
+}
+
+.recommend .post-card a {
+    color: #fff;
+}
+
+.recommend .post-card .post-title {
+    height: 48px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.recommend .post-card .post-description {
+    margin: 20px auto;
+    max-width: 500px;
+    height: 65px;
+    max-height: 65px;
+    font-size: 14px;
+    color: hsla(0, 0%, 100%, .7) !important;
+}
+
+.recommend .post-card .read-more {
+    height: 40px;
+    margin: .6rem 1px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 40px;
+    color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 2px 0 rgba(244, 67, 54, .14), 0 3px 1px -2px rgba(244, 67, 54, .2), 0 1px 5px 0 rgba(244, 67, 54, .12);
+}
+
+.recommend .post-card .read-more .icon {
+    font-size: 1.05rem;
+    padding-right: 10px;
 }
 
 .archive-calendar {

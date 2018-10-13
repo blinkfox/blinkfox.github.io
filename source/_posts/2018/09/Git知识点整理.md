@@ -3,6 +3,7 @@ title: Git知识点整理
 date: 2018-09-24 21:50:00
 author: blinkfox
 img: http://static.blinkfox.com/hexoblog_20180924_git.jpg
+top: true
 categories: 软件工具
 tags: Git
 ---
