@@ -6,7 +6,6 @@ img: http://static.blinkfox.com/hexoblog_20180914_js.jpg
 categories: 前端
 tags:
   - JavaScript
-  - 转载
 ---
 
 ## 一、JavaScript介绍
