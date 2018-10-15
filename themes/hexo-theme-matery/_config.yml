@@ -49,7 +49,7 @@ reward:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.jpg
-  career: Software Engineer
+  career: 软件工程师
   introduction: 也许思维是神性的残留，在纯思的世界里更容易认知事物的本质，却也真的冰冷无情。相比之下，也许真的是诗词更有价值，可惜的是就搞这个的真没战斗力，很容易被KO。对个人而言倒是真适合在两者间找个均衡，惟其如此，才能既不失了智慧，也不失了情趣。
 
 # config my projects informations in about page.
