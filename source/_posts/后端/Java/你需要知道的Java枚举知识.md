@@ -1,8 +1,8 @@
 ---
 title: 你需要知道的Java枚举知识
-date: 2018-10-24 23:10:00
+date: 2018-10-27 23:20:00
 author: blinkfox
-#img: http://static.blinkfox.com/20181024-collections.jpg
+img: http://static.blinkfox.com/20181027.jpg
 top: true
 categories: 后端
 tags:
