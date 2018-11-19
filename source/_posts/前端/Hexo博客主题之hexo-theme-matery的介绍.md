@@ -28,7 +28,6 @@ tags:
 - [x] 重构归档页为**可分页**
 - [x] 增加分类页
 - [x] 增加关于我页面
-- [ ] 美化滚动条
 - [x] 集成[Gitalk](https://gitalk.github.io/)
 - [x] 右上角实现`fork me on github`
 - [x] 添加`RSS`
@@ -73,10 +72,12 @@ hexo new page "categories"
 编辑你刚刚新建的页面文件`/source/categories/index.md`，至少需要以下内容：
 
 ```yml
+---
 title: categories
 date: 2018-09-30 17:25:30
 type: "categories"
 layout: "categories"
+---
 ```
 
 ### 新建标签 tags 页
@@ -90,10 +91,12 @@ hexo new page "tags"
 编辑你刚刚新建的页面文件`/source/tags/index.md`，至少需要以下内容：
 
 ```yml
+---
 title: tags
 date: 2018-09-30 18:23:38
 type: "tags"
 layout: "tags"
+---
 ```
 
 ### 新建关于我 about 页
@@ -107,10 +110,12 @@ hexo new page "about"
 编辑你刚刚新建的页面文件`/source/about/index.md`，至少需要以下内容：
 
 ```yml
+---
 title: about
 date: 2018-09-30 17:25:30
 type: "about"
 layout: "about"
+---
 ```
 
 ### 代码高亮
