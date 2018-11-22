@@ -3,7 +3,6 @@ title: Java集合框架知识整理
 date: 2018-10-24 23:10:00
 author: blinkfox
 img: http://static.blinkfox.com/20181024-collections.jpg
-top: true
 categories: 后端
 tags:
   - Java

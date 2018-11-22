@@ -3,6 +3,7 @@ title: GitLab CI/CD 介绍和使用
 date: 2018-11-22 23:30:00
 author: blinkfox
 img: http://static.blinkfox.com/gitlab-ci-machine.png
+top: true
 categories: 软件工具
 tags:
   - GitLab CI
@@ -98,7 +99,7 @@ GitLab 中默认开启了 Gitlab CI/CD 的支持，且使用[YAML](http://yaml.o
 
 下面是`.gitlab-ci.yml`文件的一个简单的`Hello World`示例：
 
-```yml
+```yaml
 # 定义 test 和 package 两个 Stages
 stages:
   - test
@@ -224,7 +225,7 @@ shell
 
 > **注**：我 Gitlab Runner 是安装在`Centos`环境中，并使用的`shell`执行器。
 
-```yml
+```yaml
 # 定义stages
 stages:
   - test
@@ -338,7 +339,7 @@ job由一列参数来定义 jobs 的行为：
 
 `extends`定义了一个使用`extends`的作业将继承的条目名称。它是使用[YAML锚点](https://docs.gitlab.com/ee/ci/yaml/README.html#anchors)的替代方案，并且更加灵活和可读：
 
-```yml
+```yaml
 .tests:
   script: rake test
   stage: test
@@ -361,7 +362,7 @@ rspec:
 
 这实际生成的是以下`rspec`作业：
 
-```yml
+```yaml
 rspec:
   script: rake rspec
   stage: test
@@ -393,7 +394,7 @@ stages中的元素顺序决定了对应job的执行顺序：
 
 接下仔细看看这个例子，它包含了3个 stage：
 
-```yml
+```yaml
 stages:
  - build
  - test
@@ -427,7 +428,7 @@ stages:
   
 在下面这个例子中，job 将只会运行以`issue-`开始的refs(分支)，然而`except`中设置将被跳过。
 
-```yml
+```yaml
 job:
   # use regexp
   only:
@@ -439,7 +440,7 @@ job:
 
 在下面这个例子中，job 将只会执行有`tags`的refs，或者通过`API`触发器明确地请求构建。
 
-```yml
+```yaml
 job:
   # use special keywords
   only:
@@ -449,7 +450,7 @@ job:
 
 下面这个例子将会为所有的分支执行job，但 master 分支除外。
 
-```yml
+```yaml
 job:
   only:
     - branches@gitlab-org/gitlab-ce
@@ -461,7 +462,7 @@ job:
 
 GItLab CI 允许在`.gitlab-ci.yml`文件中添加变量，并在 job 环境中起作用。因为这些配置是存储在 git 仓库中，所以**最好是存储项目的非敏感配置**，例如：
 
-```yml
+```yaml
 variables:
   DATABASE_URL:"postgres://postgres@postgres/my_database"
 ```
@@ -482,7 +483,7 @@ variables:
 
 缓存`binaries`和`.config`中的所有文件：
 
-```yml
+```yaml
 rspec:
   script: test
   cache:
@@ -493,7 +494,7 @@ rspec:
 
 缓存`git`中没有被跟踪的文件：
 
-```yml
+```yaml
 rspec:
   script: test
   cache:
@@ -502,7 +503,7 @@ rspec:
 
 缓存`binaries`下没有被`git`跟踪的文件：
 
-```yml
+```yaml
 rspec:
   script: test
   cache:
@@ -513,7 +514,7 @@ rspec:
 
 job 中优先级高于全局的。下面这个`rspec` job中将只会缓存`binaries/`下的文件：
 
-```yml
+```yaml
 cache:
   paths:
   - my/files
@@ -540,7 +541,7 @@ rspec:
 
 缓存每个job：
 
-```yml
+```yaml
 cache:
   key: "$CI_JOB_NAME"
   untracked: true
@@ -548,7 +549,7 @@ cache:
 
 缓存每个分支：
 
-```yml
+```yaml
 cache:
   key: "$CI_COMMIT_REF_NAME"
   untracked: true
@@ -556,7 +557,7 @@ cache:
 
 缓存每个 job 且每个分支：
 
-```yml
+```yaml
 cache:
   key: "$CI_JOB_NAME/$CI_COMMIT_REF_NAME"
   untracked: true
@@ -564,7 +565,7 @@ cache:
 
 缓存每个分支且每个stage：
 
-```yml
+```yaml
 cache:
   key: "$CI_JOB_STAGE/$CI_COMMIT_REF_NAME"
   untracked: true
@@ -572,7 +573,7 @@ cache:
 
 如果使用的Windows Batch(windows批处理)来跑脚本需要用%替代$：
 
-```yml
+```yaml
 cache:
   key: "%CI_JOB_STAGE%/%CI_COMMIT_REF_NAME%"
   untracked: true
@@ -586,7 +587,7 @@ cache:
 
 下面的这个例子中，job1和job2将会并列进行，如果job1失败了，它也不会影响进行中的下一个 stage，因为这里有设置了`allow_failure: true`。
 
-```yml
+```yaml
 job1:
   stage: test
   script:
@@ -619,7 +620,7 @@ job3:
 
 发送`binaries`和`.config`中的所有文件：
 
-```yml
+```yaml
 artifacts:
   paths:
   - binaries/
@@ -628,14 +629,14 @@ artifacts:
 
 发送所有没有被Git跟踪的文件：
 
-```yml
+```yaml
 artifacts:
   untracked: true
 ```
 
 发送没有被Git跟踪和`binaries`中的所有文件：
 
-```yml
+```yaml
 artifacts:
   untracked: true
   paths:
@@ -673,7 +674,7 @@ GitLab CI 的每个实例都有一个名为`Lint`的嵌入式调试工具。 你
 
 下面的这个例子是将所有文件从项目根目录移动到`public/`目录。`.public`工作流是`cp`，并且它不会循环复制`public/`本身。
 
-```yml
+```yaml
 pages:
   stage: deploy
   script:
