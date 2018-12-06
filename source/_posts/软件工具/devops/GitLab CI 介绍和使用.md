@@ -178,9 +178,9 @@ sudo gitlab-runner register
 # 输入注册命令
 sudo gitlab-runner register
 
-# 输入 GitLab 网站地址
+# 输入公司的 GitLab 网站地址
 Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com )
-http://gitlab.thunisoft.com/
+http://gitlab.xxxx.com/
 
 # 你项目仓库的token，token可以在 Settings -> CI/CD -> Runners settings 中找到.
 Please enter the gitlab-ci token for this runner

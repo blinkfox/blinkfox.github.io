@@ -29,7 +29,7 @@ tags:
 
 ## 一、Web Services Metadata
 
-`WebService`是一种独立于特定语言、特定平台，基于网络的、分布式的模块化组件。是一个能够使用`xml`消息通过网络来访问的接口，这个接口描述了一组可访问的操作。在Java6中，在想要发布为`WebService`的类上加上`@WebService`的注解，这个类的方法就变为`WebService`方法了，再通过`Endpoint.publish()`方法发布这个服务。到此，一个最简单的`WebService`搞定。运行`main`方法，在浏览器里输入`http://localhost:8080/com.thunisoft.sacweq.dataflow.organ.test.Hello?wsdl`，即可查看你WebService的WSDL信息。
+`WebService`是一种独立于特定语言、特定平台，基于网络的、分布式的模块化组件。是一个能够使用`xml`消息通过网络来访问的接口，这个接口描述了一组可访问的操作。在Java6中，在想要发布为`WebService`的类上加上`@WebService`的注解，这个类的方法就变为`WebService`方法了，再通过`Endpoint.publish()`方法发布这个服务。到此，一个最简单的`WebService`搞定。运行`main`方法，在浏览器里输入`http://localhost:8080/com.blinkfox.test.Hello?wsdl`，即可查看你WebService的WSDL信息。
 
 ```java
 import javax.jws.WebService;
@@ -60,7 +60,7 @@ public class Hello {
      * @param args
      */
     public static void main(String[] args) {
-        Endpoint.publish("http://localhost:8080/com.thunisoft.sacweq.dataflow.organ.test.Hello", new Hello());
+        Endpoint.publish("http://localhost:8080/com.blinkfox.test.Hello", new Hello());
         log.info("调用成功!");
     }
 
