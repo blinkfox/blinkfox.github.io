@@ -16,6 +16,9 @@ menu:
   关于:
     url: /about
     icon: fa-user-circle-o
+  友情链接:
+    url: /friends
+    icon: fa-address-book
 
 # index page dream text,
 # 配置首页显示"梦想"的语句.
@@ -54,6 +57,15 @@ reward:
   title: 你的赏识是我前进的动力
   wechat: /medias/reward/wechat.png
   alipay: /medias/reward/alipay.jpg
+
+# Whether to activate the mathjax, this is a global configuration, but the post still does not open the mathjax rendering.
+# Considering that the mathjax loading is time consuming,
+# you also need to add `mathjax: true` to the Front-matter of the post that needs to be rendered.
+# 是否激活mathjax数学公式，这是全局配置，但文章仍然不会都开启mathjax渲染，
+# 考虑到mathjax加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
+mathjax:
+  enable: false
+  cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # profile in about page, including avatars, career, and personal introductions.
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
@@ -157,12 +169,43 @@ livere:
   enable: false
   uid: MTAyMC80MDQyNS8xNjk1Mg==
 
+# The configuration of the Valine comment module is not activated by default.
+# To use it, activate the configuration item and set appId and appKey.
+# Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
+valine:
+  enable: false
+  appId:
+  appKey:
+  notify: false
+  verify: false
+  visitor: true
+  avatar: 'mm' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  pageSize: 10
+  placeholder: 'just go go' # Comment Box placeholder
+
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
 githubLink:
   enable: true
   url: https://github.com/blinkfox/hexo-theme-matery
   title: Fork Me
+
+# The password verification feature of read post. To use this feature,
+# activate the configuration item and write the 'password' key and Cipher in the post's Front-matter.
+# Note: In order to ensure that the original password will not be leaked to the web page,
+# the password of the article must be encrypted by 'SHA256' so that it will not be cracked.
+# 阅读文章的密码验证功能，如要使用此功能请激活该配置项，并在对应文章的Front-matter中写上'password'的键和加密后的密文即可.
+# 请注意：为了保证密码原文不会被泄露到网页中，文章的密码必须是通过'SHA256'加密的，这样就不会被破解.
+verifyPassword:
+  enable: false
+  promptMessage: 请输入访问本文章的密码
+  errorMessage: 密码错误，将返回主页！
+
+# Add google analytics configuration
+# 添加 Google Analytics 配置
+googleAnalytics:
+  enable: false
+  id:
 
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.

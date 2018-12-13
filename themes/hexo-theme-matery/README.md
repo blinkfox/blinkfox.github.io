@@ -1,12 +1,12 @@
 # hexo-theme-matery
 
-[![HitCount](http://hits.dwyl.io/blinkfox/hexo-theme-matery.svg)](http://hits.dwyl.io/blinkfox/hexo-theme-matery) [![GitHub issues](https://img.shields.io/github/issues/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/issues) [![GitHub license](https://img.shields.io/github/license/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/blob/master/LICENSE) [![Download](https://img.shields.io/badge/downloads-master-green.svg)](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master) [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg)](http://hexo.io) [![GitHub forks](https://img.shields.io/github/forks/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/network) [![GitHub stars](https://img.shields.io/github/stars/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/stargazers)
+[![HitCount](http://hits.dwyl.io/blinkfox/hexo-theme-matery.svg)](http://hits.dwyl.io/blinkfox/hexo-theme-matery) [![Gitter](https://img.shields.io/gitter/room/blinkfox/hexo-theme-matery.svg)](https://gitter.im/hexo-theme-matery/Lobby?utm_source=badge) [![GitHub issues](https://img.shields.io/github/issues/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/issues) [![GitHub license](https://img.shields.io/github/license/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/blob/master/LICENSE) [![Download](https://img.shields.io/badge/downloads-master-green.svg)](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master) [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg)](http://hexo.io) [![GitHub forks](https://img.shields.io/github/forks/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/network) [![GitHub stars](https://img.shields.io/github/stars/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/stargazers)
 
 [中文说明](README_CN.md) | [DEMO](https://blinkfox.github.io/)
 
 > This is a Hexo blog theme with 'Material Design' and responsive design.
 
-## Feature
+## Features
 
 - Simple and beautiful, and post is Beautiful and readable.
 - [Material Design](https://material.io/).
@@ -15,7 +15,14 @@
 - Blog posts list with waterflow(There will be 24 images if the articl dosn't have  featured pictures).
 - Archive page with timeline.
 - Tags page of the **word cloud** and categories page of the **radar chart**
-- Comment module of [Gitalk](https://gitalk.github.io/), [Gitment](https://imsun.github.io/gitment/) and [Disqus](https://disqus.com/).(Gitalk is recommended)
+- Rich 'About' page (including about me, posts charts, my projects, my skills, gallery etc.)
+- Friendly link page for customizable data
+- Support post topping and rewards
+- Support `MathJax`
+- TOC
+- Can be set to do password verification when reading a post
+- Comment module of [Gitalk](https://gitalk.github.io/), [Gitment](https://imsun.github.io/gitment/), [Valine](https://valine.js.org/) and [Disqus](https://disqus.com/).(Gitalk is recommended)
+- Integrated Google Analytics
 
 ## Next development plans
 
@@ -23,7 +30,7 @@
 - [x] Refactoring Archives page as **paginable**
 - [x] Add category page
 - [x] Add about me page
-- [ ] Beautify the scroll bar
+- [x] Read the post verification password
 - [x] Integrated [Gitalk](https://gitalk.github.io/) comment
 - [x] Add `fork me on github` in the upper right corner
 - [x] Add the `RSS` feed
@@ -32,6 +39,11 @@
 - [x] design Index Page and support to add top posts
 - [x] Add **rewards** function after the posts ends
 - ~~Add a cute **pet** or **growth tree** for blogs, etc.~~（Can be implemented using the [hexo-helper-live2d](https://github.com/EYHN/hexo-helper-live2d) plugin）
+- [x] Integrated [Valine](https://valine.js.org/)
+- [x] add the ability to read the post verification password
+- [x] added support for `MathJax`
+- [ ] Make a LOGO
+- [x] Add a friendship link page
 
 > Welcome to contribute!
 
@@ -67,11 +79,13 @@ hexo new page "categories"
 
 to edit your new page files`/source/categories/index.md`, you need somethings as follows:
 
-```yml
+```yaml
+---
 title: categories
 date: 2018-09-30 17:25:30
 type: "categories"
 layout: "categories"
+---
 ```
 
 ### new tags page
@@ -84,11 +98,13 @@ hexo new page "tags"
 
 to edit your new page files`/source/tags/index.md`, you need somethings as follows:
 
-```yml
+```yaml
+---
 title: tags
 date: 2018-09-10 18:23:38
 type: "tags"
 layout: "tags"
+---
 ```
 
 ### new about page
@@ -101,11 +117,57 @@ hexo new page "about"
 
 to edit your new page files`/source/about/index.md`, you need somethings as follows:
 
-```yml
+```yaml
+---
 title: about
 date: 2018-09-30 17:25:30
 type: "about"
 layout: "about"
+---
+```
+
+### new friends link page (Optional)
+
+The `friends` page is a page for displaying **Friendly Links** information. If you don't have a `friends/index.md` file in your blog's `source` directory, then you need to create a new one. The command is as follows:
+
+```bash
+hexo new page "friends"
+```
+
+编辑你刚刚新建的页面文件`/source/friends/index.md`，至少需要以下内容：
+Edit the file `/source/friends/index.md` you just created, at least you need the following:
+
+```yaml
+---
+title: friends
+date: 2018-12-12 21:25:30
+type: "friends"
+layout: "friends"
+---
+```
+
+Also, create a new `_data` directory in your blog's `source` directory and a new `friends.json` file in the `_data` directory. The contents of the file are as follows:
+
+```json
+[{
+    "avatar": "http://image.luokangyuan.com/1_qq_27922023.jpg",
+    "name": "MaJang",
+    "introduction": "I am not a master, just looking for the master's footsteps.",
+    "url": "http://luokangyuan.com/",
+    "title": "Read More"
+}, {
+    "avatar": "http://image.luokangyuan.com/4027734.jpeg",
+    "name": "Blinkfox",
+    "introduction": "Hello, I'm blinkfox, I like programming.",
+    "url": "https://blinkfox.github.io/",
+    "title": "Visit Blog"
+}, {
+    "avatar": "http://image.luokangyuan.com/avatar.jpg",
+    "name": "ja_rome",
+    "introduction": "Ordinary steps can also go out of the great journey.",
+    "url": "ttps://me.csdn.net/jlh912008548",
+    "title": "Read More"
+}]
 ```
 
 ### Code highlight
@@ -118,7 +180,7 @@ npm i -S hexo-prism-plugin
 
 Then,modify the value of `highlight.enable` to `false` in `_config.yml` file of Hexo root folder，and add the configuration of `prism` plugin as follows:
 
-```yml
+```yaml
 highlight:
   enable: false
 
@@ -139,7 +201,7 @@ npm install hexo-generator-search --save
 
 Add configuration of `_config.yml` file in Hexo root folder as follows：
 
-```yml
+```yaml
 search:
   path: search.xml
   field: post
@@ -157,7 +219,7 @@ npm i hexo-permalink-pinyin --save
 
 Add such configurations in `_config.yml` file of  Hexo:
 
-```yml
+```yaml
 permalink_pinyin:
   enable: true
   separator: '-' # default: '-'
@@ -175,7 +237,7 @@ npm install hexo-generator-feed --save
 
 Add configuration of `_config.yml` file in Hexo root folder as follows：
 
-```yml
+```yaml
 feed:
   type: atom
   path: atom.xml
@@ -218,13 +280,18 @@ You can search social icon such as `fa-github` in [Font Awesome](https://fontawe
 
 The following are post `Front-matter` example,and all content is **not required**.But we still suggest you write the value of `title`.Of course ,you'd better write all of these information.
 
-```yml
+```yaml
 ---
 title: typora-vue-theme Theme introduction
 date: 2018-09-07 09:25:00
 author: Qi Zhao
 img: /source/images/xxx.jpg # or:http://xxx.com/xxx.jpg
 top: true # If top value is true, it will be the homepage recommendation post
+# If you want to set the reading verification password for the post, 
+# you can set the password value, which must be encrypted with SHA256 to prevent others from seeing it.
+password: 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
+# Does this post open mathjax, Need to be activated in the theme's _config.yml.
+mathjax: false
 categories: Markdown
 tags:
   - Typora
@@ -232,21 +299,24 @@ tags:
 ---
 ```
 
-> **Note**: post's featured piature will take remainder if not writing the `img` property,and chose the featured picture of theme to let all of post's picture **have their own characteristics**.
+> **Note**: 
+> 1. post's featured piature will take remainder if not writing the `img` property,and chose the featured picture of theme to let all of post's picture **have their own characteristics**.
+> 2. The value of `date` should try to ensure that each article is unique, because `Gitalk` and `Gitment` recognize `id` in this topic are uniquely identified by the value of `date`.
+> 3. If you want to set the ability to read the verification password for the article, you should not only set the value of the password with SHA256 encryption in Front-matter, but also activate the configuration in the theme `_config.yml`.
 
 ## Screenshot
 
 ### Home
 
-![Home](http://static.blinkfox.com/hexo-matery-index1.png)
+![首页](http://static.blinkfox.com/matery-20181202-1.png)
 
-![Home post list](http://static.blinkfox.com/hexo-matery-index2.png)
+![首页推荐文章](http://static.blinkfox.com/matery-20181202-2.png)
 
-### Post page
+![首页文章列表](http://static.blinkfox.com/matery-20181202-3.png)
 
-![Post](http://static.blinkfox.com/hexo-matery-post1.png)
+![首页文章列表](http://static.blinkfox.com/matery-20181202-7.png)
 
-![Post's other parts](http://static.blinkfox.com/hexo-matery-post2.png)
+![首页文章列表](http://static.blinkfox.com/matery-20181202-8.png)
 
 ## Custom modification
 
@@ -254,13 +324,16 @@ You can modify some custom modification in `_config.yml` as follows:
 
 - Menu
 - Inspirational quotes on Home
+- Whether to display the title of the recommended posts
 - `favicon` and `Logo`
 - profiles
 - TOC
+- post rewards
 - My Projects
 - My Skills
 - My Gallery
-- Gitalk, Gitment and Disqus
+- Gitalk, Gitment, Valine and Disqus
+- Google Analytics
 - The map of default featured pictures. The theme will take remainde according to `hashcode` of post title if the post dose not set featured piactures.
 
 **I think everyone should have their own style and feature of blog**。if you are not satisfiled with functions and theme color,you can modify by yourself,and more free functions and deatil need to be modified by modify source code when it is hard to be finished in `_config.yml`.
@@ -272,7 +345,7 @@ Search `.bg-color` to modify background color in `/source/css/matery.css` in the
 ```css
 /* The overall background color, including navigation, mobile navigation, footer, tab, etc.. */
 .bg-color {
-    background-color: #0f9d58 !important;
+    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
 }
 
 /* The color of the text with the same background color is only used in one place on the front page. You can also apply it to other places.*/
@@ -298,4 +371,3 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 ```
 
 There are 24 featured pictures in `/source/medias/featureimages`,you can add or delete,and modify it in `_config.yml` at the sametime.
-
