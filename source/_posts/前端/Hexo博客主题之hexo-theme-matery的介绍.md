@@ -26,6 +26,7 @@ tags:
 - 支持文章置顶和文章打赏
 - 支持`MathJax`
 - `TOC`目录
+- 可设置复制文章内容时追加版权信息
 - 可设置阅读文章时做密码验证
 - [Gitalk](https://gitalk.github.io/)、[Gitment](https://imsun.github.io/gitment/)、[Valine](https://valine.js.org/)和[Disqus](https://disqus.com/)评论模块（推荐使用`Gitalk`）
 - 集成了谷歌分析(`Google Analytics`)
@@ -50,6 +51,7 @@ tags:
 - [x] 增加了对`MathJax`的支持
 - [ ] 制作一个LOGO
 - [x] 增加友情链接页面
+- [x] 添加复制文章内容时追加博客版权信息
 
 > 欢迎贡献!
 
@@ -335,6 +337,8 @@ tags:
 - 个人信息
 - TOC目录
 - 文章打赏信息
+- 复制文章内容时追加版权信息
+- MathJax
 - 我的项目
 - 我的技能
 - 我的相册
