@@ -604,7 +604,7 @@ header .go-back i {
     height: 65px;
     max-height: 65px;
     font-size: 14px;
-    color: hsla(0, 0%, 100%, .7) !important;
+    color: hsla(0, 0%, 100%, .78) !important;
 }
 
 .recommend .post-card .read-more {
@@ -826,6 +826,10 @@ article .article-tags .chip {
     padding-right: 5px;
     color: #42b983;
     font-weight: 500;
+}
+
+#artDetail .post-cate a:hover {
+    text-decoration: underline;
 }
 
 #artDetail .post-info {
