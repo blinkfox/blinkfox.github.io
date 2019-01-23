@@ -20,32 +20,10 @@
 - Support post topping and rewards
 - Support `MathJax`
 - TOC
+- Can be set append the copyright information when copying the content of the post
 - Can be set to do password verification when reading a post
 - Comment module of [Gitalk](https://gitalk.github.io/), [Gitment](https://imsun.github.io/gitment/), [Valine](https://valine.js.org/) and [Disqus](https://disqus.com/).(Gitalk is recommended)
-- Integrated Google Analytics
-
-## Next development plans
-
-- [x] Refactoring tags page as **paginable**
-- [x] Refactoring Archives page as **paginable**
-- [x] Add category page
-- [x] Add about me page
-- [x] Read the post verification password
-- [x] Integrated [Gitalk](https://gitalk.github.io/) comment
-- [x] Add `fork me on github` in the upper right corner
-- [x] Add the `RSS` feed
-- [x] Add post detatil of `TOC`
-- ~~At the bottom of the site, add statistics such as traffic~~(Theme users can implement based on Google Analytics, Baidu Statistics, LeanCloud, etc.)
-- [x] design Index Page and support to add top posts
-- [x] Add **rewards** function after the posts ends
-- ~~Add a cute **pet** or **growth tree** for blogs, etc.~~（Can be implemented using the [hexo-helper-live2d](https://github.com/EYHN/hexo-helper-live2d) plugin）
-- [x] Integrated [Valine](https://valine.js.org/)
-- [x] add the ability to read the post verification password
-- [x] added support for `MathJax`
-- [ ] Make a LOGO
-- [x] Add a friendship link page
-
-> Welcome to contribute!
+- Integrated [Busuanzi Statistics](http://busuanzi.ibruce.info/), `Google Analytics` and post word count statistics.
 
 ## Download
 
@@ -134,7 +112,6 @@ The `friends` page is a page for displaying **Friendly Links** information. If y
 hexo new page "friends"
 ```
 
-编辑你刚刚新建的页面文件`/source/friends/index.md`，至少需要以下内容：
 Edit the file `/source/friends/index.md` you just created, at least you need the following:
 
 ```yaml
@@ -227,6 +204,26 @@ permalink_pinyin:
 
 > **Note*:[hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink) can genarate non-Chinese link in addtion to this plugin.
 
+### Post word count statistics plugin（Optional）
+
+If you want to display the post word count and reading time information in the post detail page, you can install the [hexo-wordcount](https://github.com/willin/hexo-wordcount) plugin.
+
+Installation commands are as follows：
+
+```bash
+npm i --save hexo-wordcount
+```
+
+Then just activate the following configuration items in the theme `_config.yml` file:
+
+```yaml
+wordCount:
+  enable: false # Set this value to true.
+  postWordCount: true
+  min2read: true
+  totalCount: true
+```
+
 ### Add RSS feed support (Optional)
 
 The theme uses the Hexo plugin[hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed) to support `RSS` feed , and the Installation commands are as follows:
@@ -250,6 +247,10 @@ feed:
 ```
 
 Execute `hexo clean && hexo g` to regenerate the blog file, and then you can see the `atom.xml` file in the `public` folder, indicating that you have successfully installed.
+
+### Modify website footer
+
+Website footer may need to be customized, and it is not convenient to make configuration information, So need to modify and process it by yourself. The changes are in the `/layout/_partial/footer.ejs` file, including the site, the theme used, the amount of traffic, and so on.
 
 ### Modify social links
 
@@ -278,20 +279,23 @@ You can search social icon such as `fa-github` in [Font Awesome](https://fontawe
 
 ## Post Front-matter example
 
-The following are post `Front-matter` example,and all content is **not required**.But we still suggest you write the value of `title`.Of course ,you'd better write all of these information.
+The following is an example and description of the article `Front-matter`, and all content is **not required**.But we still suggest you write the value of `title` and `date`.
 
 ```yaml
 ---
 title: typora-vue-theme Theme introduction
 date: 2018-09-07 09:25:00
 author: Qi Zhao
-img: /source/images/xxx.jpg # or:http://xxx.com/xxx.jpg
-top: true # If top value is true, it will be the homepage recommendation post
+# or: http://xxx.com/xxx.jpg
+img: /source/images/xxx.jpg
+# If top value is true, it will be the homepage recommendation post
+top: true
 # If you want to set the reading verification password for the post, 
 # you can set the password value, which must be encrypted with SHA256 to prevent others from seeing it.
 password: 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
 # Does this post open mathjax, Need to be activated in the theme's _config.yml.
 mathjax: false
+summary: This is the content of your custom post summary. If there is a value for this attribute, the post card summary will display the text, otherwise the program will automatically intercept part of the post content as a summary.
 categories: Markdown
 tags:
   - Typora
@@ -329,11 +333,15 @@ You can modify some custom modification in `_config.yml` as follows:
 - profiles
 - TOC
 - post rewards
+- Append copyright information when copying article content
+- MathJax
+- Post word count, reading times
+- the 'love' effect of clicking on the page
 - My Projects
 - My Skills
 - My Gallery
 - Gitalk, Gitment, Valine and Disqus
-- Google Analytics
+- [Busuanzi Statistics](http://busuanzi.ibruce.info/) And Google Analytics
 - The map of default featured pictures. The theme will take remainde according to `hashcode` of post title if the post dose not set featured piactures.
 
 **I think everyone should have their own style and feature of blog**。if you are not satisfiled with functions and theme color,you can modify by yourself,and more free functions and deatil need to be modified by modify source code when it is hard to be finished in `_config.yml`.
