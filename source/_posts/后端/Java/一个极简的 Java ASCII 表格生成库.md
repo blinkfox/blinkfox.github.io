@@ -2,6 +2,7 @@
 title: 一个极简的 Java ASCII 表格生成库
 date: 2019-01-25 10:34:00
 author: blinkfox
+img: http://static.blinkfox.com/2019-01-25.jpg
 top: true
 categories: 后端
 tags:
