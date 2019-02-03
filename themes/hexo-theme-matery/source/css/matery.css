@@ -103,6 +103,7 @@ pre {
 
 code {
     padding: 1px 5px;
+    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
     font-size: 0.91rem;
     color: #e96900;
     background-color: #f8f8f8;
@@ -218,7 +219,7 @@ header .brand-logo .logo-img {
 }
 
 header .brand-logo .logo-span {
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 header .button-collapse i {
@@ -482,8 +483,12 @@ header .go-back i {
     }
 }
 
-.recommend {
-    margin-top: 20px;
+.index-card {
+    margin-top: -40px;
+}
+
+.music {
+    margin-bottom: 30px !important;
 }
 
 .notice {
@@ -499,7 +504,7 @@ header .go-back i {
     padding-top: 30px;
 }
 
-.recommend .card .card-content {
+.index-card .card .card-content {
     padding: 20px 40px;
 }
 
@@ -516,14 +521,14 @@ header .go-back i {
 }
 
 @media only screen and (max-width: 601px) {
-    .recommend .card .card-content {
+    .index-card .card .card-content {
         padding: 10px 10px;
     }
 }
 
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
-    .recommend .card .card-content {
+    .index-card .card .card-content {
         padding: 20px 20px;
     }
 }
@@ -877,7 +882,7 @@ article .article-tags .chip {
     }
 
     #artDetail .article-info {
-        padding: 15px 20px 0px 28px;
+        padding: 15px 20px 0 28px;
         margin-bottom: -5px;
     }
 }
@@ -919,6 +924,11 @@ article .article-tags .chip {
     color: #42b983;
     font-weight: 500;
     text-decoration: underline;
+    word-wrap:break-word;
+}
+
+#articleContent .img-item {
+    text-align: center;
 }
 
 #articleContent img {
@@ -1552,6 +1562,7 @@ footer {
 
 footer .social-statis {
     margin-top: 10px;
+    position: relative;
 }
 
 footer a {
@@ -1559,7 +1570,7 @@ footer a {
 }
 
 footer .copy-right {
-    color: #d9d9d9;
+    color: #dbdbdb;
 }
 
 /*搜索层样式*/
@@ -1627,4 +1638,59 @@ footer .copy-right {
 .top-scroll .btn-floating i {
     line-height: 48px;
     font-size: 1.8rem;
+}
+
+@media screen and (min-width: 368px) and (max-width: 767px) {
+    .info-break-policy {
+        word-break: keep-all;
+        float: left;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .info-break-policy {
+        word-break: keep-all;
+        float: left;
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 367px) {
+    .info-break-policy {
+        word-break: keep-all;
+        float: left;
+        width: 100%;
+    }
+
+    .custom-card {
+        padding: 0 2px !important;
+    }
+}
+
+.info-break-policy {
+    margin-bottom: 8px;
+}
+
+.clearfix {
+    clear: left;
+}
+
+.img-shadow {
+  box-shadow: 0 0 30px 1px #999;
+}
+
+.img-margin {
+  margin: 25px auto 15px auto;
+}
+
+.center-caption {
+  color: #5f5f5f;
+  padding: 10px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.caption {
+  text-align: center;
+  margin: 0 auto 15px auto;
 }

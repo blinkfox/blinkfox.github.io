@@ -20,11 +20,21 @@ menu:
     url: /friends
     icon: fa-address-book
 
-# index page dream text,
-# 配置首页显示"梦想"的语句.
-dream:
-  enable: false
-  text: 现实的抽象是语言，语言的抽象是程序，程序的抽象是数理逻辑，数理逻辑的抽象是超越认知的真理。
+# Whether to display the musics.
+# 是否在首页显示音乐.
+music:
+  enable: true
+  showTitle: true
+  title: 听听音乐
+  fixed: false # 开启吸底模式
+  autoplay: false # 是否自动播放
+  theme: '#42b983'
+  loop: 'all' # 音频循环播放, 可选值: 'all', 'one', 'none'
+  order: 'list' # 音频循环顺序, 可选值: 'list', 'random'
+  preload: 'none' # 预加载，可选值: 'none', 'metadata', 'auto'
+  volume: 0.7 # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+  listFolded: false # 列表默认折叠
+  listMaxHeight: #列表最大高度
 
 # Whether to display the title of the recommended posts
 # 是否显示推荐文章的标题
@@ -44,6 +54,14 @@ indexbtn:
   name: 下载主题
   icon: fa-cloud-download
   url: https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master
+
+# The configurations of the second line of home banner
+# icon/button will not show up if you leave the corresponding socialLink empty
+# 首页 banner 中的第二行个人信息配置，留空即不启用
+socialLink:
+  qq: 1181062873
+  github: https://github.com/blinkfox/
+  email: chenjiayin1990@163.com
 
 # Whether to activate the Post TOC, and Configure which title types are supported by TOC support.
 # 是否激活文章 TOC 功能，并配置TOC支持选中哪些标题类型.
@@ -229,6 +247,8 @@ verifyPassword:
 # 不蒜子(http://busuanzi.ibruce.info/) 网站统计
 busuanziStatistics:
   enable: true
+  totalTraffic: true # 总访问量
+  totalNumberOfvisitors: true # 总人次
 
 # Add google analytics configuration
 # 添加 Google Analytics 配置
