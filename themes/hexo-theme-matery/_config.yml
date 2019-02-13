@@ -47,10 +47,10 @@ music:
 # Whether to display the videos.
 # 是否在首页显示视频.
 video:
-  enable: false
+  enable: true
   showTitle: true
   title: 精彩视频
-  url: # 必填
+  url: https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4 # 必填
   pic:
   thumbnails:
   height: # 如：400
@@ -77,7 +77,7 @@ indexbtn:
   enable: true
   name: 下载主题
   icon: fa-cloud-download
-  url: https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master
+  url: https://github.com/blinkfox/hexo-theme-matery/releases/download/v1.0.0/hexo-theme-matery.zip
 
 # The configurations of the second line of home banner
 # icon/button will not show up if you leave the corresponding socialLink empty
