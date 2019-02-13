@@ -2,3 +2,7 @@
 pre {
     background-color: #263238 !important;
 }
+
+code[class*="language-"], pre[class*="language-"] {
+    white-space: pre !important;
+}
