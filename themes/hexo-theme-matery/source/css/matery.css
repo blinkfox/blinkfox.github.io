@@ -492,9 +492,12 @@ header .go-back i {
     margin-bottom: 40px;
 }
 
-.dream .title {
-    font-size: 2rem;
+.dream .title,
+.music-player .title,
+.video-player .title {
     margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .dream .text {
@@ -502,9 +505,15 @@ header .go-back i {
     font-size: 1.1rem;
 }
 
-.music-player {
+.music-player,
+.video-player {
     margin-top: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+}
+
+.music,
+.dplayer-video {
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,.2), 0 10px 20px -12px rgba(0,0,0,.5) !important;
 }
 
 #recommend-sections {
@@ -672,9 +681,14 @@ article .card {
     border-radius: 10px;
 }
 
+article .card-image {
+    background-color: #222;
+}
+
 article .card-image img {
     height: 220px;
     border-radius: 0.3rem;
+    opacity: .7;
 }
 
 article .tag-image img {
@@ -938,6 +952,13 @@ article .article-tags .chip {
 #articleContent img {
     max-width: 100%;
     height: auto;
+    cursor: pointer;
+}
+
+#articleContent video {
+    display: block;
+    margin: 30px auto;
+    box-shadow: 0 5px 35px 0 rgba(0,0,0,.2), 0 10px 35px -11px rgba(0,0,0,.6);
     cursor: pointer;
 }
 
@@ -1681,20 +1702,25 @@ footer .copy-right {
 }
 
 .img-shadow {
-  box-shadow: 0 0 30px 1px #999;
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,.2), 0 10px 30px -11px rgba(0,0,0,.6)
 }
 
 .img-margin {
-  margin: 25px auto 15px auto;
-}
-
-.center-caption {
-  color: #5f5f5f;
-  padding: 10px;
-  border-bottom: 1px solid #d9d9d9;
+    margin: 25px auto 10px auto;
 }
 
 .caption {
-  text-align: center;
-  margin: 0 auto 15px auto;
+    text-align: center;
+    margin: 0 auto 15px auto;
+}
+
+.center-caption {
+    color: #525f7f;
+    padding: 5px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.lg-sub-html .center-caption {
+    color: #fff !important;
+    border-bottom: none;
 }
