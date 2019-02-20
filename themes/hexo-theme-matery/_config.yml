@@ -77,7 +77,7 @@ indexbtn:
   enable: true
   name: 下载主题
   icon: fa-cloud-download
-  url: https://github.com/blinkfox/hexo-theme-matery/releases/download/v1.0.0/hexo-theme-matery.zip
+  url: https://codeload.github.com/blinkfox/hexo-theme-matery/zip/v1.0.1
 
 # The configurations of the second line of home banner
 # icon/button will not show up if you leave the corresponding socialLink empty
