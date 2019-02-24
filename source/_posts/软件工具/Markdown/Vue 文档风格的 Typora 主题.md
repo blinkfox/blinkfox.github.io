@@ -3,7 +3,7 @@ title: Vue 文档风格的 Typora 主题
 date: 2018-11-19 00:30:00
 author: blinkfox
 img: http://static.blinkfox.com/20181119.jpg
-top: true
+cover: true
 categories: 软件工具
 tags:
   - Typora

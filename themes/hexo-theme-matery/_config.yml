@@ -168,15 +168,30 @@ myProjects:
       url: http://github.com/blinkfox/hexo-theme-matery
       desc: 一个采用 Material Design 和响应式设计的 Hexo 博客主题。
     zealt:
-        icon: fa-database
-        iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-        url: https://github.com/blinkfox/zealot
-        desc: 一个轻量级的SQL和参数动态生成工具库
+      icon: fa-database
+      iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
+      url: https://github.com/blinkfox/zealot
+      desc: 一个轻量级的 SQL 和参数动态生成工具库
     typora-vue-theme:
-        icon: fa-file-text-o
-        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-        url: https://github.com/blinkfox/typora-vue-theme
-        desc: 这是 Typora Markdown 编辑器的类似 Vue 文档风格的主题。
+      icon: fa-file-text-o
+      iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
+      url: https://github.com/blinkfox/typora-vue-theme
+      desc: 这是 Typora Markdown 编辑器的类似 Vue 文档风格的主题。
+    adept:
+      icon: fa-compress
+      iconBackground: 'linear-gradient(135deg, #ffeb3b 0%, #ff9900 100%)'
+      url: https://github.com/blinkfox/adept
+      desc: 这是一个用于简化 JDBC 操作的轻量级 DAO 工具库。
+    stalker:
+      icon: fa-snowflake-o
+      iconBackground: 'linear-gradient(135deg, #e079fc 0%, #7c44ff 100%)'
+      url: https://github.com/blinkfox/stalker
+      desc: 这是一个简单的用来对 Java 代码做性能评估的工具库。
+    mini-table:
+      icon: fa-table
+      iconBackground: 'linear-gradient(135deg, #309286 0%, #32dbc6 100%)'
+      url: https://github.com/blinkfox/mini-table
+      desc: 这是一个轻量级、零依赖、可定制化修改的 Java ASCII 表格生成库。
 
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
