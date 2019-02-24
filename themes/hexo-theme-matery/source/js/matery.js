@@ -13,7 +13,7 @@ $(function () {
     articleCardHover();
 
     /*菜单切换*/
-    $('.button-collapse').sideNav();
+    $('.sidenav').sidenav();
 
     /* 修复文章卡片 div 的宽度. */
     let fixPostCardWidth = function (srcId, targetId) {
@@ -116,13 +116,7 @@ $(function () {
     };
     articleInit();
 
-    $('#toggleSearch').click(function () {
-        // IOS下获得焦点后会导致视图上移，这里判断如果是 iPhone|iPad|iPod|iOS，就移除焦点属性.
-        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-            $('#searchInput').removeAttr('autofocus');
-        }
-        $('#searchModal').openModal();
-    });
+    $('.modal').modal();
 
     /*回到顶部*/
     $('#backTop').click(function () {
