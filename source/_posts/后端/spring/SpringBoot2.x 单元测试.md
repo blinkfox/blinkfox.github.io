@@ -2,7 +2,7 @@
 title: SpringBoot2.x 单元测试
 date: 2019-03-02 17:20:00
 author: blinkfox
-# img: http://static.blinkfox.com/20181024-collections.jpg
+img: http://static.blinkfox.com/20190302.png
 top: true
 categories: 后端
 tags:
