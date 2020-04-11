@@ -7,11 +7,9 @@
         padding: 20px 20px 5px 20px;
     }
 
-    #vcomments input[type=text],
-    #vcomments input[type=email],
-    #vcomments input[type=url],
     #vcomments textarea {
         box-sizing: border-box;
+        background: url("<%- url_for(theme.valine.background) %>") 100% 100% no-repeat;
     }
 
     #vcomments p {
@@ -26,9 +24,9 @@
 
     #vcomments a {
         padding: 0 2px;
-        color: #42b983;
+        color: #4cbf30;
         font-weight: 500;
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     #vcomments img {
@@ -237,11 +235,16 @@
 </style>
 
 <div class="card valine-card" data-aos="fade-up">
-    <div id="vcomments" class="card-content"></div>
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
 </div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for('/libs/valine/av-min.js') %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.valine) %>"></script>
 <script>
     new Valine({
         el: '#vcomments',

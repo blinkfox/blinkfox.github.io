@@ -1,7 +1,7 @@
 <%
-var featureimg = '/medias/bg.jpg';
+var featureimg = url_for('/medias/bg.jpg');
 if (page.img) {
-    featureimg = page.img;
+    featureimg = url_for(page.img);
 } else {
     var hashCode = function (str) {
         if (!str && str.length === 0) {
@@ -18,18 +18,19 @@ if (page.img) {
 
     var len = theme.featureImages.length;
     var num = Math.abs(hashCode(page.title) % len);
-    featureimg = theme.featureImages[num];
+
+    featureimg = theme.jsDelivr.url
+            ? theme.jsDelivr.url + url_for(theme.featureImages[num])
+            : url_for(theme.featureImages[num]);
 }
 %>
 
 <div class="bg-cover pd-header post-cover" style="background-image: url('<%- featureimg %>')">
-    <div class="container">
+    <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="description center-align post-title">
-                        <%= page.title %>
-                    </div>
+                    <h1 class="description center-align post-title"><%= page.title %></h1>
                 </div>
             </div>
         </div>

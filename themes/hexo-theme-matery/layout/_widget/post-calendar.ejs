@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="<%- theme.libs.js.echarts %>"></script>
+<script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.echarts) %>"></script>
 <script type="text/javascript">
     let myChart = echarts.init(document.getElementById('post-calendar'));
 
@@ -80,6 +80,7 @@
                 show: false
             },
             itemStyle: {
+                color: '#196127',
                 borderColor: '#fff',
                 borderWidth: 2
             },

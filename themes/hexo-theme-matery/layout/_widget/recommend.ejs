@@ -1,11 +1,15 @@
 <%
     // get all top posts.
     var topPosts = [];
-    site.posts.forEach(function (post) {
-        if (post.top) {
-            topPosts.push(post);
-        }
-    });
+    if (theme.recommend.useConfig) {
+        topPosts = site.data.recommends;
+    } else {
+        site.posts.forEach(function (post) {
+            if (post.top) {
+                topPosts.push(post);
+            }
+        });
+    }
     var topPostsCount = topPosts.length;
 %>
 
@@ -38,26 +42,30 @@
 %>
 
 <% if (theme.recommend.showTitle) { %>
-<div class="title"><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;<%- __('recommendedPosts') %></div>
+<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;<%- __('recommendedPosts') %></div>
 <% } %>
 <div class="row">
 <% if (topPostsCount % 2 === 0) { %>
     <% for (var i = 0; i < topPostsCount; i++) { %>
     <%
         var post = topPosts[i];
-        var featureImg = post.img ? post.img : featureImages[Math.abs(hashCode(post.title) % imgCount)];
+        var featureImg = post.img ? url_for(post.img) : url_for(featureImages[Math.abs(hashCode(post.title) % imgCount)]);
         var bgColor = bgColorArr[i % colorCount];
     %>
     <div class="col s12 m6" <% if (i > 1) { %>data-aos="zoom-in-up"<% } %>>
         <div class="post-card" style="background-image: url('<%- featureImg %>')">
             <div class="post-body">
                 <div class="post-categories">
-                    <% post.categories.forEach(category => { %>
-                    <a href="<%- url_for(category.path) %>" class="category" target="_blank"><%- category.name %></a>
-                    <% }); %>
+                    <% if (theme.recommend.useConfig) { %>
+                        <a href="<%- url_for(post.categoryPath) %>" class="category"><%= post.categoryName %></a>
+                    <% } else { %>
+                        <% post.categories.forEach(category => { %>
+                            <a href="<%- url_for(category.path) %>" class="category"><%= category.name %></a>
+                        <% }); %>
+                    <% } %>
                 </div>
-                <a href="<%- url_for(post.path) %>" target="_blank">
-                    <h3 class="post-title"><%- post.title %></h3>
+                <a href="<%- url_for(post.path) %>">
+                    <h3 class="post-title"><%= post.title %></h3>
                 </a>
                 <p class="post-description">
                     <% if (post.summary && post.summary.length > 0) { %>
@@ -66,9 +74,8 @@
                         <%- strip_html(post.content).substring(0, 70) %>
                     <% } %>
                 </p>
-                <a href="<%- url_for(post.path) %>" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: <%- bgColor %>">
-                    <i class="icon fa fa-eye fa-fw"></i><%- __('readMore') %>
+                <a href="<%- url_for(post.path) %>" class="read-more btn waves-effect waves-light" style="background: <%- bgColor %>" target="_blank">
+                    <i class="icon far fa-eye fa-fw"></i><%- __('readMore') %>
                 </a>
             </div>
         </div>
@@ -84,24 +91,28 @@
         if (post.summary && post.summary.length > 0) {
             description = post.summary;
         }
-        var featureImg = post.img ? post.img : featureImages[Math.abs(hashCode(post.title) % imgCount)];
+
+        var featureImg = post.img ? url_for(post.img) : url_for(featureImages[Math.abs(hashCode(post.title) % imgCount)]);
         var bgColor = bgColorArr[i % colorCount];
     %>
     <div class="col <%- grid %>" <% if (i > 0) { %>data-aos="zoom-in-up"<% } %>>
         <div class="post-card" style="background-image: url('<%- featureImg %>')">
             <div class="post-body">
                 <div class="post-categories">
-                    <% post.categories.forEach(category => { %>
-                    <a href="<%- url_for(category.path) %>" class="category" target="_blank"><%- category.name %></a>
-                    <% }); %>
+                    <% if (theme.recommend.useConfig) { %>
+                        <a href="<%- url_for(post.categoryPath) %>" class="category"><%= post.categoryName %></a>
+                    <% } else { %>
+                        <% post.categories.forEach(category => { %>
+                            <a href="<%- url_for(category.path) %>" class="category"><%= category.name %></a>
+                        <% }); %>
+                    <% } %>
                 </div>
-                <a href="<%- url_for(post.path) %>" target="_blank">
-                    <h3 class="post-title"><%- post.title %></h3>
+                <a href="<%- url_for(post.path) %>">
+                    <h3 class="post-title"><%= post.title %></h3>
                 </a>
-                <p class="post-description"><%- description %></p>
-                <a href="<%- url_for(post.path) %>" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: <%- bgColor %>">
-                    <i class="icon fa fa-eye fa-fw"></i><%- __('readMore') %>
+                <p class="post-description"><%= description %></p>
+                <a href="<%- url_for(post.path) %>" class="read-more btn waves-effect waves-light" style="background: <%- bgColor %>" target="_blank">
+                    <i class="icon far fa-eye fa-fw"></i><%- __('readMore') %>
                 </a>
             </div>
         </div>

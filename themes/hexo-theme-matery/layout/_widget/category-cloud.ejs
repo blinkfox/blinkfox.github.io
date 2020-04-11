@@ -22,14 +22,15 @@ var isCategory = is_category();
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;<%= __('postCategoryTitle') %>
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;<%= __('postCategoryTitle') %>
             </div>
             <div class="tag-chips">
                 <% if (site.categories && site.categories.length > 0) { %>
                 <% site.categories.map(function(category) { %>
                 <%
                     i++;
-                    var color = i >= colorCount ? colorArr[Math.abs(hashCode(category.name) % colorCount)]
+                    var color = i >= colorCount
+                            ? colorArr[Math.abs(hashCode(category.name) % colorCount)]
                             : colorArr[i - 1];
                 %>
                 <a href="<%- url_for(category.path) %>" title="<%- category.name %>: <%- category.length %>">

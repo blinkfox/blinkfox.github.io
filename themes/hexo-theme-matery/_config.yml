@@ -3,22 +3,33 @@
 menu:
   首页:
     url: /
-    icon: fa-home
+    icon: fas fa-home
   标签:
     url: /tags
-    icon: fa-tags
+    icon: fas fa-tags
   分类:
     url: /categories
-    icon: fa-bookmark
+    icon: fas fa-bookmark
   归档:
     url: /archives
-    icon: fa-archive
+    icon: fas fa-archive
   关于:
     url: /about
-    icon: fa-user-circle-o
+    icon: fas fa-user-circle-o
   友情链接:
     url: /friends
-    icon: fa-address-book
+    icon: fas fa-address-book
+
+# Website start time.
+# 站点运行开始时间.
+time:
+  enable: true
+  year: 2018 # 年份
+  month: 09 # 月份
+  date: 20 # 日期
+  hour: 00 # 小时
+  minute: 00 # 分钟
+  second: 00 # 秒
 
 # Index cover carousel configuration.
 # 首页封面轮播图的相关配置.
@@ -28,6 +39,8 @@ cover:
   autoLoop: true # 是否自动轮播. Whether it is automatically rotated.
   duration: 120 # 切换延迟时间. Switching delay time.
   intervalTime: 5000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
+  useConfig: false # 是否使用配置文件, 在 _data/covers.json 下配置推荐文章, false则使用主题在文章中的配置 cover coverImg
+  # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/covers.json 移动到 my-blog/source/_data/下修改配置即可
 
 # index page dream text,
 # 配置首页显示"梦想"的语句.
@@ -41,17 +54,21 @@ dream:
 # 是否在首页显示音乐.
 music:
   enable: true
-  showTitle: true
-  title: 听听音乐
-  fixed: false # 开启吸底模式
-  autoplay: false # 是否自动播放
+  title: #非吸底模式有效
+    enable: true
+    show: 听听音乐
+  autoHide: true    # hide automaticaly
+  server: netease   #require	music platform: netease, tencent, kugou, xiami, baidu
+  type: playlist    #require song, playlist, album, search, artist
+  id: 503838841     #require	song id / playlist id / album id / search keyword
+  fixed: true       # 开启吸底模式
+  autoplay: false   # 是否自动播放
   theme: '#42b983'
-  loop: 'all' # 音频循环播放, 可选值: 'all', 'one', 'none'
-  order: 'list' # 音频循环顺序, 可选值: 'list', 'random'
-  preload: 'none' # 预加载，可选值: 'none', 'metadata', 'auto'
-  volume: 0.7 # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
-  listFolded: false # 列表默认折叠
-  listMaxHeight: #列表最大高度
+  loop: 'all'       # 音频循环播放, 可选值: 'all', 'one', 'none'
+  order: 'random'   # 音频循环顺序, 可选值: 'list', 'random'
+  preload: 'auto'   # 预加载，可选值: 'none', 'metadata', 'auto'
+  volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+  listFolded: true  # 列表默认折叠
 
 # Whether to display the videos.
 # 是否在首页显示视频.
@@ -59,8 +76,8 @@ video:
   enable: true
   showTitle: true
   title: 精彩视频
-  url: https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4 # 必填
-  pic:
+  url: /medias/videos/demo.mp4 # 必填
+  pic: /medias/videos/demo-pic.png
   thumbnails:
   height: # 如：400
   autoplay: false # 是否自动播放
@@ -72,7 +89,10 @@ video:
 # Whether to display the title of the recommended posts
 # 是否显示推荐文章的标题
 recommend:
+  enable: true
   showTitle: true
+  useConfig: false # 是否使用配置文件, 在 _data/recommends.json 下配置推荐文章, false则会走主题配置的 top 属性
+  # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/recommends.json 移动到 my-blog/source/_data/下修改配置即可
 
 # Configure website favicon and LOGO
 # 配置网站favicon和网站LOGO
@@ -85,16 +105,17 @@ logo: /medias/logo.png
 indexbtn:
   enable: true
   name: 下载主题
-  icon: fa-cloud-download
-  url: https://codeload.github.com/blinkfox/hexo-theme-matery/zip/v1.0.1
+  icon: fab fa-cloud-download
+  url: https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master
 
 # The configurations of the second line of home banner
 # icon/button will not show up if you leave the corresponding socialLink empty
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
+  github:  https://github.com/blinkfox
+  email: 1181062873@qq.com
   qq: 1181062873
-  github: https://github.com/blinkfox/
-  email: chenjiayin1990@163.com
+  rss: true # true、false
 
 # Whether to activate the Post TOC, and Configure which title types are supported by TOC support.
 # You can add `toc: false` to the Front-matter of a post to turn off the TOC.
@@ -103,11 +124,15 @@ socialLink:
 toc:
   enable: true
   heading: h2, h3, h4
+  collapseDepth: 0 # 目录默认展开层级
+  showToggleBtn: true # 是否显示切换TOC目录展开收缩的按钮
 
-# Whether the code is broken.
-# 代码是否折行
+# 代码块相关
 code:
-  break: false
+  lang: true # 代码块是否显示名称
+  copy: true # 代码块是否可复制
+  shrink: true # 代码块是否可以收缩
+  break: false # 代码是否折行
 
 # 是否激活文章末尾的打赏功能，默认激活（你替换为的你自己的微信、支付宝二维码图片、或者使用网络图片也可以）.
 reward:
@@ -136,13 +161,15 @@ mathjax:
 # Post word count, reading duration, site total word count.
 # Before you activate, please confirm that you have installed the hexo-wordcount plugin,
 # install the plugin command: `npm i --save hexo-wordcount`.
-# 文章字数统计、阅读时长、总字数统计
-# 激活前请确认你已经安装了 hexo-wordcount 插件，安装命令: `npm i --save hexo-wordcount`
-wordCount:
-  enable: true
-  postWordCount: true
-  min2read: true
-  totalCount: true
+# 文章字数统计、阅读时长、总字数统计等
+# 文章信息--若要开启文章字数统计，需要安装 hexo-wordcount 插件，安装命令: `npm i --save hexo-wordcount`
+postInfo:
+  date: true # 发布日期
+  update: false # 更新日期
+  wordCount: true # 文章字数统计
+  totalCount: true # 站点总文章字数
+  min2read: true # 文章阅读时长
+  readCount: true # 文章阅读次数
 
 # Whether to activate the 'love' effect of clicking on the page.
 # 是否激活点击页面的'爱心'效果，默认激活.
@@ -163,35 +190,35 @@ myProjects:
   enable: true
   data:
     hexo-theme-matery:
-      icon: fa-meetup
+      icon: fas fa-rocket
       iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
       url: http://github.com/blinkfox/hexo-theme-matery
       desc: 一个采用 Material Design 和响应式设计的 Hexo 博客主题。
-    zealt:
-      icon: fa-database
-      iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-      url: https://github.com/blinkfox/zealot
-      desc: 一个轻量级的 SQL 和参数动态生成工具库
+    Fenix:
+        icon: fas fa-database
+        iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
+        url: https://github.com/blinkfox/fenix
+        desc: 这是 Spring Data JPA 复杂或动态 SQL 查询的扩展库。
     typora-vue-theme:
-      icon: fa-file-text-o
-      iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-      url: https://github.com/blinkfox/typora-vue-theme
-      desc: 这是 Typora Markdown 编辑器的类似 Vue 文档风格的主题。
-    adept:
-      icon: fa-compress
-      iconBackground: 'linear-gradient(135deg, #ffeb3b 0%, #ff9900 100%)'
-      url: https://github.com/blinkfox/adept
-      desc: 这是一个用于简化 JDBC 操作的轻量级 DAO 工具库。
+        icon: fas fa-file-alt
+        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
+        url: https://github.com/blinkfox/typora-vue-theme
+        desc: 这是 Typora Markdown 编辑器的类似 Vue 文档风格的主题。
     stalker:
-      icon: fa-snowflake-o
+      icon: fas fa-compress
       iconBackground: 'linear-gradient(135deg, #e079fc 0%, #7c44ff 100%)'
       url: https://github.com/blinkfox/stalker
       desc: 这是一个简单的用来对 Java 代码做性能评估的工具库。
     mini-table:
-      icon: fa-table
+      icon: fas fa-table
       iconBackground: 'linear-gradient(135deg, #309286 0%, #32dbc6 100%)'
       url: https://github.com/blinkfox/mini-table
       desc: 这是一个轻量级、零依赖、可定制化修改的 Java ASCII 表格生成库。
+    Java-Style:
+      icon: fas fa-coffee
+      iconBackground: 'linear-gradient(135deg, #ffeb3b 0%, #ff9900 100%)'
+      url: https://blinkfox.github.io/java-style
+      desc: Blinkfox Java 编程风格指南，包含 checkstyle 和可导入 IDEA 中的格式化文件。
 
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
@@ -258,13 +285,13 @@ gitment:
 # Disqus评论模块的配置，默认为不激活
 disqus:
   enable: false
-  shortname: blinkfox
+  shortname:
 
 # Livere comment configuration, the default is not activated
 # Livere 来必力评论模块的配置，默认为不激活
 livere:
   enable: false
-  uid: MTAyMC80MDQyNS8xNjk1Mg==
+  uid:
 
 # The configuration of the Valine comment module is not activated by default.
 # To use it, activate the configuration item and set appId and appKey.
@@ -279,6 +306,24 @@ valine:
   avatar: 'mm' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
   pageSize: 10
   placeholder: 'just go go' # Comment Box placeholder
+  background: /medias/comment_bg.png
+
+# The configuration of the MiniValine comment module is not activated by default.
+# To use it, activate the configuration item and set appId and appKey.
+# MiniValine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
+minivaline:
+  enable: false
+  appId:  # Your leancloud application appid
+  appKey:  # Your leancloud application appkey
+  placeholder: Write a Comment # Comment box placeholder
+  adminEmailMd5: # The MD5 of Admin Email to show Admin Flag.
+  math: true # Support MathJax.
+  md: true # Support Markdown.
+  # MiniValine's display language depends on user's browser or system environment
+  # If you want everyone visiting your site to see a uniform language, you can set a force language value
+  # Available values: en  | zh-CN | (and many more)
+  # More i18n info: https://github.com/MiniValine/minivaline-i18n
+  lang:
 
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
@@ -311,12 +356,21 @@ googleAnalytics:
   enable: false
   id:
 
+# Add baidu analytics configuration
+# 添加 baidu Analytics 配置
+baiduAnalytics:
+  enable: false
+  id:
+
+# 百度搜索资源平台提交链接
+baiduPush: true
+
 # The used front-end library can be replaced with the corresponding CDN address as needed,
 # If the specific version is not specified below, you can use the latest version.
 # 使用到的前端库，可按需替换成对应的CDN地址，如果下面未指定具体的版本号，使用最新的版本即可.
 libs:
   css:
-    fontAwesome: /libs/awesome/css/font-awesome.min.css # V4.7.0
+    fontAwesome: /libs/awesome/css/all.css # V5.11.1
     materialize: /libs/materialize/materialize.min.css # 1.0.0
     aos: /libs/aos/aos.css
     animate: /libs/animate/animate.min.css # V3.5.1
@@ -327,7 +381,7 @@ libs:
     jqcloud: /libs/jqcloud/jqcloud.css
     tocbot: /libs/tocbot/tocbot.css
   js:
-    jquery: /libs/jquery/jquery-2.2.0.min.js
+    jquery: /libs/jquery/jquery.min.js
     materialize: /libs/materialize/materialize.min.js # 1.0.0
     masonry: /libs/masonry/masonry.pkgd.min.js # v4.0.0
     aos: /libs/aos/aos.js
@@ -340,12 +394,19 @@ libs:
     crypto: /libs/cryptojs/crypto-js.min.js
     echarts: /libs/echarts/echarts.min.js
     gitalk: /libs/gitalk/gitalk.min.js
+    valine: /libs/valine/Valine.min.js # 若想保持最新版，请替换为 https://unpkg.com/valine/dist/Valine.min.js  默认为 /libs/valine/Valine.min.js
+    minivaline: https://cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js
     jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
     tocbot: /libs/tocbot/tocbot.min.js
+    canvas_nest: /libs/background/canvas-nest.js
+    ribbon: /libs/background/ribbon.min.js
+    ribbonRefresh: /libs/background/ribbon-refresh.min.js
+    ribbon_dynamic: /libs/background/ribbon-dynamic.js
+    instantpage: /libs/instantpage/instantpage.js
 
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
-featureImages: 
+featureImages:
 - /medias/featureimages/0.jpg
 - /medias/featureimages/1.jpg
 - /medias/featureimages/2.jpg
@@ -370,3 +431,111 @@ featureImages:
 - /medias/featureimages/21.jpg
 - /medias/featureimages/22.jpg
 - /medias/featureimages/23.jpg
+
+# default configs that the default policy for every articles/posts
+# default 配置文章的默认转载规则
+
+# you can define reprint policy for a single article in the front-matter of the specific md file using this key: reprintPolicy
+# 您可以使用在文章md文件的 front-matter 中指定 reprintPolicy 来给单个文章配置转载规则
+
+# 可用的转载规则有（available reprint policies are）：
+# 这些转载规则的意义请参考(you can refer to this link FMI)：https://creativecommons.org/choose/?lang=zh
+# cc_by（知识共享署名 4.0 国际许可协议 Creative Commons Attribution-NoDerivatives 4.0 International License）
+# cc_by_nd（知识共享署名-禁止演绎 4.0 国际许可协议 Creative Commons Attribution-NoDerivatives 4.0 International License）
+# cc_by_sa（知识共享署名-相同方式共享 4.0 国际许可协议 Creative Commons Attribution-ShareAlike 4.0 International License）
+# cc_by_nc（知识共享署名-非商业性使用 4.0 国际许可协议 Creative Commons Attribution-NoDerivatives 4.0 International License）
+# cc_by_nc_nd（知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License）
+# cc_by_nc_sa（知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License）
+
+# cc0（CC0 1.0 通用 (CC0 1.0) 公共领域贡献 CC0 1.0 Universal (CC0 1.0) Public Domain Dedication） https://creativecommons.org/publicdomain/zero/1.0/deed.zh
+
+# noreprint（不允许转载 not allowed to reprint）
+# pay（付费转载 pay for reprinting）
+reprint:
+  enable: true # whether enable reprint section 是否启用“转载规则限定模块”
+  default: cc_by
+
+# DaoVoice online contact
+daovoice:
+  enable: false
+  app_id:
+
+# Tidio online contact
+tidio:
+  enable: false
+  public_key:
+
+#背景canvas-nest
+canvas_nest:
+  enable: false
+  color: 0,0,255 # 线条颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割
+  pointColor: 0,0,255 # 交点颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割
+  opacity: 0.7 # 线条透明度（0~1）, 默认: 0.5
+  zIndex: -1 # 背景的 z-index 属性，css 属性用于控制所在层的位置, 默认: -1.
+  count: 99 # 线条的总数量, 默认: 99
+
+# 背景静止彩带.
+ribbon:
+  enable: true
+  size: 150 # 彩带大小, 默认: 90.
+  alpha: 0.6 # 彩带透明度 (0 ~ 1), 默认: 0.6.
+  zIndex: -1 # 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1.
+  clickChange: false  # 设置是否每次点击都更换彩带.
+
+# 背景动态彩带.
+ribbon_dynamic:
+  enable: false
+
+# sharejs 文章分享模块.
+# 支持顺序，可选项目为twitter, facebook, google, qq, qzone, wechat, weibo, douban, linkedin.
+sharejs:
+  enable: true
+  sites: qq,qzone,wechat,weibo,douban
+
+# addthis文章分享模块.
+addthis:
+  enable: false
+  pubid:  # 前往https://www.addthis.com/获取
+
+# 打字效果副标题.
+# 如果有符号 ‘ ，请在 ’ 前面加上 \
+subtitle:
+  enable: true
+  loop: true # 是否循环
+  showCursor: true # 是否显示光标
+  startDelay: 300 # 开始延迟
+  typeSpeed: 100 # 打字速度
+  backSpeed: 50 # 删除速度
+  sub1: 从来没有真正的绝境, 只有心灵的迷途
+  sub2: Never really desperate, only the lost of the soul
+
+# 手机二级菜单.
+navMenu:
+  mleft: false # 二级侧栏子菜单是否对齐左边
+  bgColor: " " # 二级侧栏子菜单背景颜色,留空即为全局背景色
+
+# 网页预加载.
+instantpage:
+  enable: true
+
+# banner 是否每日切换.
+# 若为 false, 则 banner 默认为 /medias/banner/0.jpg
+banner:
+  enable: true
+
+#ICP备案信息尾部显示
+icp:
+  enable: false
+  url: # 备案链接
+  text: # 备案信息
+
+# CDN访问加速 
+# 第一次使用本功能，一定要先配置url，再`hexo cl && hexo g && hexo d`部署到GitHub的仓库，注意！必须是GitHub的仓库！
+# 如果必须要使用国内的coding或者gitee，可以采用双部署，同时将网站部署到两个仓库（其中一个必须是GitHub的仓库）
+# URL配置规则（例子如下）： https://cdn.jsdelivr.net/gh/你的GitHub用户名/你的仓库名
+# 如果想关闭此功能，将 url地址 注释或删除即可！
+#
+# 注：配置了此项，就代表着本地调试的时候，网站依然会去GitHub请求资源（原来的资源），本地调试的时候记得将 此项配置 注释或者删除掉
+# 更多关于访问速度优化，请查看：https://blog.sky03.cn/posts/42790.html
+jsDelivr:
+  url: # https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io

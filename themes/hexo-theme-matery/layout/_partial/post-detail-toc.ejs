@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<%- theme.libs.css.tocbot %>">
+<link rel="stylesheet" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.tocbot) %>">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -23,6 +23,7 @@
     }
 
     .toc-widget {
+        width: 345px;
         padding-left: 20px;
     }
 
@@ -37,6 +38,11 @@
     .toc-widget ol {
         padding: 0;
         list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
     }
 
     #toc-content ol {
@@ -56,6 +62,14 @@
     #toc-content .toc-link::before {
         background-color: transparent;
         max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
     }
 
     #toc-content .is-active-link {
@@ -65,27 +79,55 @@
     #toc-content .is-active-link::before {
         background-color: #42b983;
     }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
 </style>
 <div class="row">
-    <div class="col s12 m12 l9">
+    <div id="main-content" class="col s12 m12 l9">
         <%- partial('_partial/post-detail.ejs') %>
     </div>
-    <div class="col l3 hide-on-med-and-down">
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;<%- __('toc') %></div>
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;<%- __('toc') %></div>
             <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
-<script src="<%- theme.libs.js.tocbot %>"></script>
+<!-- TOC 悬浮按钮. -->
+<% if (theme.toc.enable && theme.toc.showToggleBtn) { %>
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+<% } %>
+
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.tocbot) %>"></script>
 <script>
     $(function () {
         tocbot.init({
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
+            collapseDepth: Number('<%- theme.toc.collapseDepth %>'),
             headingSelector: '<%- theme.toc.heading %>'
         });
 
@@ -114,5 +156,42 @@
                 $tocWidget.removeClass('toc-fixed');
             }
         });
+
+        <% if (theme.toc.enable && theme.toc.showToggleBtn) { %>
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        <% } %>
     });
 </script>

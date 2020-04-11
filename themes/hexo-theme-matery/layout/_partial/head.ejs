@@ -29,11 +29,17 @@
 
     // keywords.
     var keyWords = config.keywords ? config.keywords : config.title;
-    keyWords = title ? title  + ', ' + keyWords : keyWords;
+    if (page.keywords) {
+        keyWords = page.keywords;
+    } else {
+    	keyWords = title ? title  + ', ' + keyWords : keyWords;
+    }
 
     // description.
     var description = null;
-    if (page.hasOwnProperty('__post') && page.__post) {
+    if (page.summary) {
+        description = page.summary;
+    } else if (page.hasOwnProperty('__post') && page.__post) {
         description = strip_html(page.content).substring(0, 120);
     }
     description = description ? description : pageTitle;
@@ -52,15 +58,13 @@
         iconType = 'image/jpeg'
     } else if (faviconExt === 'ico') {
         iconType = 'image/x-icon, image/vnd.microsoft.icon'
-    } else {
-        // more definitions
     }
 %>
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="<%= keyWords %>">
-    <meta name="description" content="<%= description %>">
+    <meta name="description" content="<%= config.description %>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -68,23 +72,18 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <%- partial('_partial/google-analytics') %>
     <title><%= pageTitle %></title>
-    <link rel="icon" type="<%= iconType %>" href="<%- theme.favicon %>">
+    <link rel="icon" type="<%= iconType %>" href="<%- theme.jsDelivr.url %><%- url_for(theme.favicon) %>">
 
-    <link rel="stylesheet" type="text/css" href="<%- theme.libs.css.fontAwesome %>">
-    <link rel="stylesheet" type="text/css" href="<%- theme.libs.css.materialize %>">
-    <link rel="stylesheet" type="text/css" href="<%- theme.libs.css.aos %>">
-    <link rel="stylesheet" type="text/css" href="<%- theme.libs.css.animate %>">
-    <link rel="stylesheet" type="text/css" href="<%- theme.libs.css.lightgallery %>">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        <% if (!theme.code.break) { %>
-        code[class*="language-"], pre[class*="language-"] {
-            white-space: pre !important;
-        }
-        <% } %>
-    </style>
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.fontAwesome) %>">
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.materialize) %>">
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.aos) %>">
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.animate) %>">
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.lightgallery) %>">
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/matery.css') %>">
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/my.css') %>">
 
-    <script src="<%- theme.libs.js.jquery %>"></script>
+    <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.jquery) %>"></script>
+
 </head>
