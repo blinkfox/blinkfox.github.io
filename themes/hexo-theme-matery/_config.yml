@@ -262,7 +262,7 @@ postCalendar: true
 # the Gitalk config，default disabled
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: true
+  enable: false
   owner: blinkfox
   repo: blinkfox.github.io
   oauth:
@@ -297,9 +297,9 @@ livere:
 # To use it, activate the configuration item and set appId and appKey.
 # Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
 valine:
-  enable: false
-  appId:
-  appKey:
+  enable: true
+  appId: QD0o9cOQj5aog3ELRAhJCwxM-gzGzoHsz
+  appKey: kOHbFDEFxjPeFN2CJw9Qh17V
   notify: false
   verify: false
   visitor: true
