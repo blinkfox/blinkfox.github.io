@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 闪烁之狐
-subtitle: 闪烁之狐
-description: 从来没有真正的绝境，只有心灵的迷途
-keywords: 闪烁之狐, Blinkfox
-author: blinkfox
-language: zh-CN
-timezone:
+title: Pwning
+subtitle: Pwning Binaries and Protecting Gotham
+description: The Boy Wonder
+keywords: D4mianWayne
+author: D4mianWayne
+language: en-EN
+timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://blinkfox.github.io/
+url: https://justrying-code.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -85,7 +85,7 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/blinkfox/blinkfox.github.io.git
+  repo: https://github.com/justrying-code/justrying-code.github.io.git
 
 search:
   path: search.xml

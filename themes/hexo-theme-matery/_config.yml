@@ -1,30 +1,28 @@
 # main menu navigation url and icon
 # 配置菜单导航的名称、路径和图标icon.
 menu:
-  首页:
+  home:
     url: /
     icon: fas fa-home
-  标签:
+  tags:
     url: /tags
     icon: fas fa-tags
-  分类:
+  Categories:
     url: /categories
     icon: fas fa-bookmark
-  归档:
+  Archives:
     url: /archives
     icon: fas fa-archive
-  关于:
+  About:
     url: /about
     icon: fas fa-user-circle-o
-  友情链接:
-    url: /friends
-    icon: fas fa-address-book
+
 
 # Website start time.
 # 站点运行开始时间.
 time:
   enable: true
-  year: 2018 # 年份
+  year: 2019 # 年份
   month: 09 # 月份
   date: 20 # 日期
   hour: 00 # 小时
@@ -45,15 +43,15 @@ cover:
 # index page dream text,
 # 配置首页显示"梦想"的语句.
 dream:
-  enable: true
+  enable: false
   showTitle: true
-  title: 我的梦想
-  text: 不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+  title: Dream
+  text: I want to be a world class pwner, period.
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
 music:
-  enable: true
+  enable: false
   title: #非吸底模式有效
     enable: true
     show: 听听音乐
@@ -73,7 +71,7 @@ music:
 # Whether to display the videos.
 # 是否在首页显示视频.
 video:
-  enable: true
+  enable: false
   showTitle: true
   title: 精彩视频
   url: /medias/videos/demo.mp4 # 必填
@@ -103,7 +101,7 @@ logo: /medias/logo.png
 # including the display name of the button, the font awesome icon, and the hyperlink to the button.
 # 首页 banner 中的第二个按钮的配置，包括按钮的显示名称、font awesome图标和按钮的超链接.
 indexbtn:
-  enable: true
+  enable: false
   name: 下载主题
   icon: fab fa-cloud-download
   url: https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master
@@ -112,8 +110,8 @@ indexbtn:
 # icon/button will not show up if you leave the corresponding socialLink empty
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
-  github:  https://github.com/blinkfox
-  email: 1181062873@qq.com
+  github:  https://github.com/D4mianWayne
+  email: dubeyayushmanrobin@gmail.com
   qq: 1181062873
   rss: true # true、false
 
@@ -226,24 +224,24 @@ myProjects:
 mySkills:
   enable: true
   data:
-    Java:
+    Python:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
       percent: 90%
-    JavaScript:
+    Linux:
       background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
-      percent: 80%
-    HTML5:
-      background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
-      percent: 80%
-    CSS:
-      background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 70%
-    SQL:
+    Binary Exploitation:
+      background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
+      percent: 60%
+    C\C++:
+      background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
+      percent: 75%
+    Julia:
       background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
-      percent: 90%
-    程序设计:
+      percent: 30%
+    Bash :
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
-      percent: 80%
+      percent: 60%
 
 # config gallery of my photos in about page.
 # If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
@@ -263,11 +261,11 @@ postCalendar: true
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
   enable: false
-  owner: blinkfox
-  repo: blinkfox.github.io
+  owner:
+  repo: 
   oauth:
-    clientId: 2e56c9f3a90b6e8fb4f0
-    clientSecret: ba491ea79bbff85ec80b88db79e210b474a9cbc8
+    clientId: 
+    clientSecret: 
   admin:
     - blinkfox
 
@@ -297,7 +295,7 @@ livere:
 # To use it, activate the configuration item and set appId and appKey.
 # Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
 valine:
-  enable: true
+  enable: false
   appId: QD0o9cOQj5aog3ELRAhJCwxM-gzGzoHsz
   appKey: kOHbFDEFxjPeFN2CJw9Qh17V
   notify: false
@@ -329,8 +327,8 @@ minivaline:
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
 githubLink:
   enable: true
-  url: https://github.com/blinkfox/hexo-theme-matery
-  title: Fork Me
+  url: https://github.com/D4mianWayne
+  title: My Github
 
 # The password verification feature of read post. To use this feature,
 # activate the configuration item and write the 'password' key and Cipher in the post's Front-matter.
@@ -340,8 +338,8 @@ githubLink:
 # 请注意：为了保证密码原文不会被泄露到网页中，文章的密码必须是通过'SHA256'加密的，这样就不会被破解.
 verifyPassword:
   enable: false
-  promptMessage: 请输入访问本文章的密码
-  errorMessage: 密码错误，将返回主页！
+  promptMessage: Enter the Password
+  errorMessage: Error, Try Again！
 
 # busuanzi(http://busuanzi.ibruce.info/) website statistics
 # 不蒜子(http://busuanzi.ibruce.info/) 网站统计
@@ -353,8 +351,8 @@ busuanziStatistics:
 # Add google analytics configuration
 # 添加 Google Analytics 配置
 googleAnalytics:
-  enable: false
-  id:
+  enable: true
+  id: UA-144686323-1
 
 # Add baidu analytics configuration
 # 添加 baidu Analytics 配置
@@ -490,7 +488,7 @@ ribbon_dynamic:
 # 支持顺序，可选项目为twitter, facebook, google, qq, qzone, wechat, weibo, douban, linkedin.
 sharejs:
   enable: true
-  sites: qq,qzone,wechat,weibo,douban
+  sites: qq,qzone,wechat,weibo,douban,twitter
 
 # addthis文章分享模块.
 addthis:
@@ -506,12 +504,12 @@ subtitle:
   startDelay: 300 # 开始延迟
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
-  sub1: 从来没有真正的绝境, 只有心灵的迷途
-  sub2: Never really desperate, only the lost of the soul
+  sub1: Switching to Interactive Mode
+  sub2: Sending ROP chain
 
 # 手机二级菜单.
 navMenu:
-  mleft: false # 二级侧栏子菜单是否对齐左边
+  mleft: true # 二级侧栏子菜单是否对齐左边
   bgColor: " " # 二级侧栏子菜单背景颜色,留空即为全局背景色
 
 # 网页预加载.

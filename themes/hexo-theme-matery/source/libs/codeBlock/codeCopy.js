@@ -11,7 +11,7 @@ $(function () {
             try {
                 document.execCommand('copy') // Security exception may be thrown by some browsers.
                 $(ctx).prev('.codecopy_notice')
-                    .text("复制成功")
+                    .text("Copy successful")
                     .animate({
                         opacity: 1,
                         top: 30
@@ -25,7 +25,7 @@ $(function () {
                     })
             } catch (ex) {
                 $(ctx).prev('.codecopy_notice')
-                    .text("复制失败")
+                    .text("Copy Failed")
                     .animate({
                         opacity: 1,
                         top: 30
@@ -40,7 +40,7 @@ $(function () {
                 return false
             }
         } else {
-            $(ctx).prev('.codecopy_notice').text("浏览器不支持复制")
+            $(ctx).prev('.codecopy_notice').text("Browswer doesn't support copy")
         }
     }
     // 复制
