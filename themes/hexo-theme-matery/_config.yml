@@ -19,6 +19,22 @@ menu:
   友情链接:
     url: /friends
     icon: fas fa-address-book
+  # 二级菜单写法如下
+  #Medias:
+  #  icon: fas fa-list
+  #  children:
+  #    - name: Musics
+  #      url: /musics
+  #      icon: fas fa-music
+  #    - name: Movies
+  #      url: /movies
+  #      icon: fas fa-film
+  #    - name: Books
+  #      url: /books
+  #      icon: fas fa-book
+  #    - name: Galleries
+  #      url: /galleries
+  #      icon: fas fa-image
 
 # Website start time.
 # 站点运行开始时间.
@@ -195,15 +211,15 @@ myProjects:
       url: http://github.com/blinkfox/hexo-theme-matery
       desc: 一个采用 Material Design 和响应式设计的 Hexo 博客主题。
     Fenix:
-        icon: fas fa-database
-        iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-        url: https://github.com/blinkfox/fenix
-        desc: 这是 Spring Data JPA 复杂或动态 SQL 查询的扩展库。
+      icon: fas fa-database
+      iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
+      url: https://github.com/blinkfox/fenix
+      desc: 这是 Spring Data JPA 复杂或动态 SQL 查询的扩展库。
     typora-vue-theme:
-        icon: fas fa-file-alt
-        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-        url: https://github.com/blinkfox/typora-vue-theme
-        desc: 这是 Typora Markdown 编辑器的类似 Vue 文档风格的主题。
+      icon: fas fa-file-alt
+      iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
+      url: https://github.com/blinkfox/typora-vue-theme
+      desc: 这是 Typora Markdown 编辑器的类似 Vue 文档风格的主题。
     stalker:
       icon: fas fa-compress
       iconBackground: 'linear-gradient(135deg, #e079fc 0%, #7c44ff 100%)'
@@ -297,9 +313,9 @@ livere:
 # To use it, activate the configuration item and set appId and appKey.
 # Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
 valine:
-  enable: true
-  appId: QD0o9cOQj5aog3ELRAhJCwxM-gzGzoHsz
-  appKey: kOHbFDEFxjPeFN2CJw9Qh17V
+  enable: false
+  appId:
+  appKey:
   notify: false
   verify: false
   visitor: true
@@ -311,19 +327,51 @@ valine:
 # The configuration of the MiniValine comment module is not activated by default.
 # To use it, activate the configuration item and set appId and appKey.
 # MiniValine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
+# See: https://github.com/MiniValine/MiniValine
 minivaline:
   enable: false
-  appId:  # Your leancloud application appid
-  appKey:  # Your leancloud application appkey
+  appId: zhM0AOiqle17oPoE84CoYw1e-gzGzoHsz # Your leancloud application appid
+  appKey: itmzT1JbXfAjVwMqDhGPzU45 # Your leancloud application appkey
+  mode: DesertsP # DesertsP or xCss
   placeholder: Write a Comment # Comment box placeholder
-  adminEmailMd5: # The MD5 of Admin Email to show Admin Flag.
   math: true # Support MathJax.
   md: true # Support Markdown.
+  enableQQ: false # Enable QQ avatar API.
+  NoRecordIP: false # Do not record commenter IP.
+  visitor: true # Article reading statistics.
+  maxNest: 6 # Sub-comment maximum nesting depth.
+  pageSize: 6 # Pagination size.
+  adminEmailMd5: de8a7aa53d07e6b6bceb45c64027763d # The MD5 of Admin Email to show Admin Flag.[Just Only DesertsP Style mode]
+  tagMeta: # The String Array of Words to show Flag.[Just Only xCss Style mode]
+    - 管理员
+    - 小伙伴
+    - 访客
+  master: # The MD5 String Array of master Email to show master Flag.[Just Only xCss Style mode]
+    - de8a7aa53d07e6b6bceb45c64027763d
+  friends: # The MD5 String Array of friends Email to show friends Flag.[Just Only xCss Style mode]
+    - b5bd5d836c7a0091aa8473e79ed4c25e
+    - adb7d1cd192658a55c0ad22a3309cecf
+    - 3ce1e6c77b4910f1871106cb30dc62b0
+    - cfce8dc43725cc14ffcd9fb4892d5bfc
   # MiniValine's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en  | zh-CN | (and many more)
   # More i18n info: https://github.com/MiniValine/minivaline-i18n
   lang:
+  # Expression Url.
+  # https://github.com/MiniValine/MiniValine/blob/master/.github/FAQ.md#how-to-customize-emoticons
+  emoticonUrl:
+    - https://cdn.jsdelivr.net/npm/alus@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/qq@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest
+
+changyan:
+  enable: false
+  appId:
+  conf:
 
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
@@ -368,8 +416,11 @@ baiduPush: true
 # The used front-end library can be replaced with the corresponding CDN address as needed,
 # If the specific version is not specified below, you can use the latest version.
 # 使用到的前端库，可按需替换成对应的CDN地址，如果下面未指定具体的版本号，使用最新的版本即可.
+# 注：jsdelivr可以自动帮你生成.min版的js和css，所以你在设置js及css路径中可以直接写.min.xxx
 libs:
   css:
+    matery: /css/matery.css
+    mycss: /css/my.css
     fontAwesome: /libs/awesome/css/all.css # V5.11.1
     materialize: /libs/materialize/materialize.min.css # 1.0.0
     aos: /libs/aos/aos.css
@@ -381,6 +432,7 @@ libs:
     jqcloud: /libs/jqcloud/jqcloud.css
     tocbot: /libs/tocbot/tocbot.css
   js:
+    matery: /js/matery.js
     jquery: /libs/jquery/jquery.min.js
     materialize: /libs/materialize/materialize.min.js # 1.0.0
     masonry: /libs/masonry/masonry.pkgd.min.js # v4.0.0
@@ -395,7 +447,7 @@ libs:
     echarts: /libs/echarts/echarts.min.js
     gitalk: /libs/gitalk/gitalk.min.js
     valine: /libs/valine/Valine.min.js # 若想保持最新版，请替换为 https://unpkg.com/valine/dist/Valine.min.js  默认为 /libs/valine/Valine.min.js
-    minivaline: https://cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js
+    minivaline: /libs/minivaline/MiniValine.js
     jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
     tocbot: /libs/tocbot/tocbot.min.js
     canvas_nest: /libs/background/canvas-nest.js
@@ -465,6 +517,11 @@ tidio:
   enable: false
   public_key:
 
+# 腾讯兔小巢，见https://txc.qq.com/
+tuxiaochao:
+  enable: false
+  productId:
+
 #背景canvas-nest
 canvas_nest:
   enable: false
@@ -486,11 +543,11 @@ ribbon:
 ribbon_dynamic:
   enable: false
 
-# sharejs 文章分享模块.
+# sharejs文章分享模块.
 # 支持顺序，可选项目为twitter, facebook, google, qq, qzone, wechat, weibo, douban, linkedin.
 sharejs:
   enable: true
-  sites: qq,qzone,wechat,weibo,douban
+  sites: twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin
 
 # addthis文章分享模块.
 addthis:
@@ -537,5 +594,37 @@ icp:
 #
 # 注：配置了此项，就代表着本地调试的时候，网站依然会去GitHub请求资源（原来的资源），本地调试的时候记得将 此项配置 注释或者删除掉
 # 更多关于访问速度优化，请查看：https://blog.sky03.cn/posts/42790.html
+# 注：jsdelivr可以自动帮你生成.min版的js和css，所以你在上面设置js及css路径中可以直接写.min.xxx
 jsDelivr:
   url: # https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io
+  
+# 网站背景图
+background:
+  enable: false
+  url: "https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg"
+
+# 说说 https://artitalk.js.org/
+artitalk:
+  enable: false
+  appId: # xxxxx
+  appKey: # xxxxxx
+
+# 哔哔功能配置
+# 登陆leancloud创建应用。进入应用后，点击创建 Class，将「 Class 名称」命名为 content
+# 点击刚刚创建的content Class，点击添加列并创建名称为content的列，类型为String，注意列注释也要填写（随意填）
+# 记录appid，masterkey，api域名
+# 输入:hexo new page bb
+# hexo就在source文件夹下创建了bb/index.md。
+# 修改index.md的frontmater下的layout为bb：
+# ---
+# title: 黑石说
+# layout: bb
+# ---
+# 里面的文字可以自己随意加，会显示在哔哔的上方。
+# 关注公众号 "黑石哔哔"，发送: //bindCurrentUser:你的APPID,你的MASTERKEY,你的RESTAPI
+# 可用leancloud国际版，国际版api为 https://appid前八位.api.lncldglobal.com
+bbtime:
+ enable: false
+ appId: # 你的appId
+ appKey: # 你的appKey
+ serverURLs: # https://你的api
