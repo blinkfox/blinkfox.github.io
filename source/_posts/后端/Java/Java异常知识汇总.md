@@ -2,7 +2,7 @@
 title: Java异常知识汇总
 date: 2018-10-28 00:30:00
 author: blinkfox
-img: http://static.blinkfox.com/20181028.jpg
+img: https://statics.sh1a.qingstor.com/2018/10/28/exception.jpg
 categories: 后端
 tags:
   - Java
@@ -30,7 +30,7 @@ tags:
 
 在Java中，所有的事件都能由类描述，Java中的异常就是由`java.lang`包下的异常类来描述的。Java定义了一个异常类的层次结构，其以`Throwable`（万物即可抛）开始，派生出了`Error`和`Exception`，而`Exception`又派生出了`CheckedException`和`RuntimeException`。如下图所示：
 
-![Java异常体系](http://static.blinkfox.com/java_exception.png)
+![Java异常体系](https://statics.sh1a.qingstor.com/2018/10/28/java-exception.png)
 
 ### Throwable
 

@@ -2,7 +2,7 @@
 title: 你需要知道的Java枚举知识
 date: 2018-10-27 23:20:00
 author: blinkfox
-img: http://static.blinkfox.com/20181027.jpg
+img: https://statics.sh1a.qingstor.com/2018/10/27/java-enum.jpg
 categories: 后端
 tags:
   - Java

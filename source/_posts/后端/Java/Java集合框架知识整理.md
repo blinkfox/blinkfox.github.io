@@ -2,7 +2,7 @@
 title: Java集合框架知识整理
 date: 2018-10-24 23:10:00
 author: blinkfox
-img: http://static.blinkfox.com/20181024-collections.jpg
+img: https://statics.sh1a.qingstor.com/2018/10/24/collections.jpg
 top: true
 categories: 后端
 tags:
@@ -75,11 +75,11 @@ Java集合框架主要由`Collection`和`Map`两个根接口及其子接口、�
 
 Java Collection UML类关系图如下：
 
-![Java Collection UML类关系图](http://static.blinkfox.com/Java_Collection_UML.png)
+![Java Collection UML类关系图](https://statics.sh1a.qingstor.com/2018/10/24/java-collection-uml.png)
 
 Java Map UML类关系图如下：
 
-![Java Map UML类关系图](http://static.blinkfox.com/Java_Map_UML.png)
+![Java Map UML类关系图](https://statics.sh1a.qingstor.com/2018/10/24/java-map-uml.png)
 
 ## 各集合接口、类的介绍
 
@@ -122,7 +122,7 @@ Java Map UML类关系图如下：
 
 Java集合框架功能介绍思维导图如下：
 
-![Java集合框架功能介绍思维导图](http://static.blinkfox.com/Java_collections_mind.png)
+![Java集合框架功能介绍思维导图](https://statics.sh1a.qingstor.com/2018/10/24/java-collections-mind.png)
 
 ### 一些概念解释
 
