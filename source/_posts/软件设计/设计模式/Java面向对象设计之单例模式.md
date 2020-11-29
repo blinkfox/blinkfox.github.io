@@ -2,7 +2,6 @@
 title: Java面向对象设计之单例模式
 date: 2018-10-29 23:30:00
 author: blinkfox
-#img: http://static.blinkfox.com/hexoblog_20180921_state.jpg
 categories: 软件设计
 tags:
   - Java
@@ -35,11 +34,11 @@ tags:
 
 ### UML类图
 
-![单例模式UML类图](http://static.blinkfox.com/Java_design_singleton_uml.jpg)
+![单例模式UML类图](https://statics.sh1a.qingstor.com/2018/10/29/Java-design-singleton-uml.jpg)
 
 ### 时序图
 
-![单例模式时序图](http://static.blinkfox.com/Java_design_singleton_seq.jpg)
+![单例模式时序图](https://statics.sh1a.qingstor.com/2018/10/29/Java-design-singleton-seq.jpg)
 
 ## 代码实现方式
 

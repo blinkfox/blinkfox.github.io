@@ -2,7 +2,7 @@
 title: Java面向对象设计之外观模式
 date: 2018-10-18 22:55:00
 author: blinkfox
-img: http://static.blinkfox.com/20181018_facade.jpg
+img: https://statics.sh1a.qingstor.com/2018/10/18/facade.jpg
 categories: 软件设计
 tags:
   - Java
@@ -146,4 +146,4 @@ public class Facade {
 - 外观模式主要优点在于对客户屏蔽子系统组件，减少了客户处理的对象数目并使得子系统使用起来更加容易，它实现了子系统与客户之间的松耦合关系，并降低了大型软件系统中的编译依赖性，简化了系统在不同平台之间的移植过程；其缺点在于不能很好地限制客户使用子系统类，而且在不引入抽象外观类的情况下，增加新的子系统可能需要修改外观类或客户端的源代码，违背了“开闭原则”。
 - 外观模式适用情况包括：要为一个复杂子系统提供一个简单接口；客户程序与多个子系统之间存在很大的依赖性；在层次化结构中，需要定义系统中每一层的入口，使得层与层之间不直接产生联系。
 
-[1]: http://static.blinkfox.com/Facade.jpg
+[1]: https://statics.sh1a.qingstor.com/2018/10/18/facade-structure.jpg

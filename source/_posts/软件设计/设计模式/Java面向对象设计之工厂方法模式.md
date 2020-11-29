@@ -2,7 +2,7 @@
 title: Java面向对象设计之工厂方法模式
 date: 2018-09-14 22:50:00
 author: blinkfox
-img: http://static.blinkfox.com/hexoblog_20180914_factory.jpg
+img: https://statics.sh1a.qingstor.com/2018/09/14/factory.jpg
 categories: 软件设计
 tags:
   - Java
@@ -473,5 +473,5 @@ public class LazyClient {
 - 工厂方法模式的主要优点是增加新的产品类时无须修改现有系统，并封装了产品对象的创建细节，系统具有良好的灵活性和可扩展性；其缺点在于增加新产品的同时需要增加新的工厂，导致系统类的个数成对增加，在一定程度上增加了系统的复杂性。
 - 工厂方法模式适用情况包括：一个类不知道它所需要的对象的类；一个类通过其子类来指定创建哪个对象；将创建对象的任务委托给多个工厂子类中的某一个，客户端在使用时可以无须关心是哪一个工厂子类创建产品子类，需要时再动态指定。
 
-  [1]: http://static.blinkfox.com/FactoryMethod.jpg
-  [2]: http://static.blinkfox.com/seq_FactoryMethod.jpg
+  [1]: https://statics.sh1a.qingstor.com/2018/09/14/factory-method.jpg
+  [2]: https://statics.sh1a.qingstor.com/2018/09/14/seq-factory-method.jpg
