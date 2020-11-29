@@ -2,7 +2,7 @@
 title: UML各类关系介绍
 date: 2018-10-22 09:00:00
 author: blinkfox
-img: http://static.blinkfox.com/20181022-organ.jpg
+img: https://statics.sh1a.qingstor.com/2018/10/22/orgran.jpg
 categories: 软件设计
 tags:
   - Java
@@ -14,7 +14,7 @@ tags:
 
 **继承**关系用一条带**空心箭头的直线**表示。如下图所示（A继承自B）：
 
-![A继承自B](http://static.blinkfox.com/uml_demo_1.png)
+![A继承自B](https://statics.sh1a.qingstor.com/2018/10/22/uml-demo-1.png)
 
 **继承**指的是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能，并可以增加它自己的新功能的能力。**继承关系为`is-a`的关系**，是类与类或者接口与接口之间最常见的关系之一，在Java中此类关系通过关键字`extends`来表示。
 
@@ -24,7 +24,7 @@ tags:
 
 **实现**关系是用一条带**空心箭头的虚线**表示。如下图所示（A实现B）：：
 
-![A实现B](http://static.blinkfox.com/uml_demo_2.png)
+![A实现B](https://statics.sh1a.qingstor.com/2018/10/22/uml-demo-2.png)
 
 **实现**指的是一个`class`类实现`interface`接口（可以是多个）的功能。实现是类与接口之间最常见的关系之一，在Java中此类关系通过关键字`implements`来表示。
 
@@ -34,7 +34,7 @@ tags:
 
 **关联**关系是用一条**可能会有方向的直线**表示的。关联关系默认不强调方向，表示对象间相互知道；如果特别强调方向，如上图，表示A关联B，但B不关联A；如下图所示：
 
-![A关联B](http://static.blinkfox.com/uml_demo_3.png)
+![A关联B](https://statics.sh1a.qingstor.com/2018/10/22/uml-demo-3.png)
 
 **关联**关系体现的是两个类、或者类与接口之间语义级别的一种强依赖的结构关系，是一种长期的静态稳定的关系，通常与运行状态无关，一般由常识等因素决定的。
 
@@ -46,7 +46,7 @@ tags:
 
 **聚合**关系用一条带**空心菱形箭头的直线**表示，如下图所示A聚合到B，或者说B由A组成。
 
-![A聚合到B](http://static.blinkfox.com/uml_demo_4.png)
+![A聚合到B](https://statics.sh1a.qingstor.com/2018/10/22/uml-demo-4.png)
 
 **聚合**关系用于表示实体对象之间的关系，表示整体由部分构成的意思。**聚合是关联关系的一种特例，它体现的是整体与部分、拥有的关系，即`has-a`的关系**，此时整体与部分之间是**可分离**的，他们可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享。例如一个部门由多个员工组成。
 
@@ -56,7 +56,7 @@ tags:
 
 **组合**关系用一条带**实心菱形箭头的直线**表示，如下图表示A组成B，或者B由A组成。
 
-![A组合到B](http://static.blinkfox.com/uml_demo_5.png)
+![A组合到B](https://statics.sh1a.qingstor.com/2018/10/22/uml-demo-5.png)
 
 **组合**关系同样表示整体由部分组成的意思。与聚合关系一样，**组合也是关联关系的一种特例，它体现的是一种整体与部分不可分割的关系，即`contains-a`的关系，这种关系比聚合更强，也称为强聚合**。例如公司由多个部门组成组合，但此时整体与部分是**不可分离**的，整体的生命周期结束也就意味着部分的生命周期结束。
 
@@ -66,7 +66,7 @@ tags:
 
 **依赖**关系是用一套**带箭头的虚线**表示的；如下图表示A依赖于B；他描述一个对象在运行期间会用到另一个对象的关系。
 
-![A依赖于B](http://static.blinkfox.com/uml_demo_6.png)
+![A依赖于B](https://statics.sh1a.qingstor.com/2018/10/22/uml-demo-6.png)
 
 **依赖**关系是一个类A使用到了另一个类B，而这种使用关系是具有偶然性的、临时性的、非常弱的，但是B类的变化会影响到A，与关联关系不同的是，它是一种**临时性**的关系，通常在运行期间产生，并且随着运行时的变化依赖关系也可能发生变化。
 
@@ -78,7 +78,7 @@ tags:
 
 请看以下这个UML类关系图：
 
-![UML示例](http://static.blinkfox.com/uml_demo_0.png)
+![UML示例](https://statics.sh1a.qingstor.com/2018/10/22/uml-demo-0.png)
 
 - 开车的类图结构表示的是一个接口
 - 有一个自行车的抽象类，实现了开车的接口，它们之间的关系为实现关系，使用带空心三角箭头的虚线表示

@@ -2,7 +2,7 @@
 title: PostgreSQL基础知识整理
 date: 2018-09-25 00:33:00
 author: blinkfox
-img: http://static.blinkfox.com/hexoblog_20180925_sql.jpg
+img: https://statics.sh1a.qingstor.com/2018/09/25/sql.jpg
 categories: 数据库
 tags:
   - PostgreSQL

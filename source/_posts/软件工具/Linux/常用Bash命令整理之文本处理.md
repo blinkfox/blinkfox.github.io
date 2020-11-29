@@ -2,7 +2,7 @@
 title: 常用Bash命令整理之文本处理
 date: 2018-10-11 22:05:00
 author: blinkfox
-img: http://static.blinkfox.com/20181011_bash.jpg
+img: https://statics.sh1a.qingstor.com/2018/10/11/bash.jpg
 categories: 软件工具
 tags:
   - Linux
