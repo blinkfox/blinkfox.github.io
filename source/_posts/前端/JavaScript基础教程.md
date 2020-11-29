@@ -1462,7 +1462,7 @@ Math.cos(Math.PI)  // 预定义常量π，-1
   [4]: http://extjs.org.cn/
   [5]: http://underscorejs.org/
   [6]: http://backbonejs.org/
-  [7]: http://static.blinkfox.com/js1.png
+  [7]: https://statics.sh1a.qingstor.com/2020/11/29/js.png
   [8]: https://github.com/
   [9]: https://segmentfault.com/u/puyart
   [10]: https://segmentfault.com/a/1190000003767058

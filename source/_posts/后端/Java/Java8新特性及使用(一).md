@@ -2,7 +2,7 @@
 title: Java8新特性及使用(一)
 date: 2018-11-13 22:30:00
 author: blinkfox
-img: http://static.blinkfox.com/20181113.jpg
+img: https://statics.sh1a.qingstor.com/2018/11/13/java8-1.jpg
 categories: 后端
 tags:
   - Java

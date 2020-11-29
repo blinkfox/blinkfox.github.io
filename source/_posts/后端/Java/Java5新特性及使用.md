@@ -2,7 +2,7 @@
 title: Java5新特性及使用
 date: 2018-11-09 00:30:00
 author: blinkfox
-img: http://static.blinkfox.com/20181109-java.jpg
+img: https://statics.sh1a.qingstor.com/2018/11/09/java.jpg
 categories: 后端
 tags:
   - Java

@@ -2,7 +2,7 @@
 title: 全功能JavaScript灯箱画廊插件lightgallery.js
 date: 2018-10-06 23:30:00
 author: blinkfox
-img: http://static.blinkfox.com/20181006_gallery.jpg
+img: https://statics.sh1a.qingstor.com/2018/10/06/gallery.jpg
 categories: 前端
 tags:
   - JavaScript
@@ -197,7 +197,7 @@ function initLoad() {
 - [Module API][12]
 
   [1]: https://sachinchoolur.github.io/lightgallery.js/
-  [2]: http://static.blinkfox.com/lg.png
+  [2]: https://statics.sh1a.qingstor.com/2018/10/06/lg.png
   [3]: https://bower.io/
   [4]: https://www.npmjs.com/
   [5]: https://github.com/sachinchoolur/lightgallery.js
