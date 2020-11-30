@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>闪烁之狐</title>
+  
+  <subtitle>闪烁之狐</subtitle>
+  <link href="https://blinkfox.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://blinkfox.github.io/"/>
+  <updated>2020-11-30T16:15:40.397Z</updated>
+  <id>https://blinkfox.github.io/</id>
+  
+  <author>
+    <name>blinkfox</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fenix — 比 MyBatis 更加强大的 Spring Data JPA 扩展库</title>
+    <link href="https://blinkfox.github.io/2019/08/20/hou-duan/jpa/fenix-bi-mybatis-geng-jia-qiang-da-de-spring-data-jpa-kuo-zhan-ku/"/>
+    <id>https://blinkfox.github.io/2019/08/20/hou-duan/jpa/fenix-bi-mybatis-geng-jia-qiang-da-de-spring-data-jpa-kuo-zhan-ku/</id>
+    <published>2019-08-20T00:10:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/blinkfox/fenix&quot;&gt;Fenix&lt;/a&gt;（菲尼克斯）是一个比 MyBatis 更加强大，为解决复杂、动态 SQL (&lt;code&gt;JPQL&lt;/code&gt;) 而生的</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+    <category term="JPA" scheme="https://blinkfox.github.io/tags/JPA/"/>
+    
+    <category term="Fenix" scheme="https://blinkfox.github.io/tags/Fenix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot2.x 单元测试</title>
+    <link href="https://blinkfox.github.io/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/"/>
+    <id>https://blinkfox.github.io/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/</id>
+    <published>2019-03-02T17:20:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;一个 bug 被隐藏的时间越长，修复这个 bug 的代价就越大。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我曾经在 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+    <category term="单元测试" scheme="https://blinkfox.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="Spring" scheme="https://blinkfox.github.io/tags/Spring/"/>
+    
+    <category term="SpringBoot" scheme="https://blinkfox.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java代码性能评估库Stalker介绍</title>
+    <link href="https://blinkfox.github.io/2019/02/14/hou-duan/java/java-dai-ma-xing-neng-ping-gu-ku-stalker-jie-shao/"/>
+    <id>https://blinkfox.github.io/2019/02/14/hou-duan/java/java-dai-ma-xing-neng-ping-gu-ku-stalker-jie-shao/</id>
+    <published>2019-02-14T12:00:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/blinkfox/stalker/blob/master/README.md&quot;&gt;English</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+    <category term="性能测试" scheme="https://blinkfox.github.io/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个极简的 Java ASCII 表格生成库</title>
+    <link href="https://blinkfox.github.io/2019/01/25/hou-duan/java/yi-ge-ji-jian-de-java-ascii-biao-ge-sheng-cheng-ku/"/>
+    <id>https://blinkfox.github.io/2019/01/25/hou-duan/java/yi-ge-ji-jian-de-java-ascii-biao-ge-sheng-cheng-ku/</id>
+    <published>2019-01-25T10:34:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;一个轻量级、零依赖的 Java ASCII 表格生成库。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;特性&quot;&gt;&lt;a href=&quot;#特性&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java面向对象设计之桥接模式</title>
+    <link href="https://blinkfox.github.io/2018/12/19/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-qiao-jie-mo-shi/"/>
+    <id>https://blinkfox.github.io/2018/12/19/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-qiao-jie-mo-shi/</id>
+    <published>2018-12-19T00:20:00.000Z</published>
+    <updated>2020-11-30T16:15:40.401Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;模式动机&quot;&gt;&lt;a href=&quot;#模式动机&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="软件设计" scheme="https://blinkfox.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+    <category term="设计模式" scheme="https://blinkfox.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java面向对象设计之适配器模式</title>
+    <link href="https://blinkfox.github.io/2018/12/12/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-gua-pei-qi-mo-shi/"/>
+    <id>https://blinkfox.github.io/2018/12/12/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-gua-pei-qi-mo-shi/</id>
+    <published>2018-12-12T22:00:00.000Z</published>
+    <updated>2020-11-30T16:15:40.401Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;模式动机&quot;&gt;&lt;a href=&quot;#模式动机&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="软件设计" scheme="https://blinkfox.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+    <category term="设计模式" scheme="https://blinkfox.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件程序设计原则</title>
+    <link href="https://blinkfox.github.io/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/"/>
+    <id>https://blinkfox.github.io/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/</id>
+    <published>2018-11-24T00:30:00.000Z</published>
+    <updated>2020-11-30T16:15:40.401Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="软件设计" scheme="https://blinkfox.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+    <category term="面向对象编程" scheme="https://blinkfox.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="设计原则" scheme="https://blinkfox.github.io/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GitLab CI/CD 介绍和使用</title>
+    <link href="https://blinkfox.github.io/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/"/>
+    <id>https://blinkfox.github.io/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/</id>
+    <published>2018-11-22T23:30:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、持续集成介绍&quot;&gt;&lt;a href=&quot;#一、持续集成介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="软件工具" scheme="https://blinkfox.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="GitLab CI" scheme="https://blinkfox.github.io/tags/GitLab-CI/"/>
+    
+    <category term="DevOps" scheme="https://blinkfox.github.io/tags/DevOps/"/>
+    
+    <category term="Jenkins" scheme="https://blinkfox.github.io/tags/Jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue 文档风格的 Typora 主题</title>
+    <link href="https://blinkfox.github.io/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/"/>
+    <id>https://blinkfox.github.io/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/</id>
+    <published>2018-11-19T00:30:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/blinkfox/typora-vue-theme&quot;&gt;typora-vue-theme&lt;/a&gt; 是 Typora Markdown 文档编辑器中一款类似&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="软件工具" scheme="https://blinkfox.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="Typora" scheme="https://blinkfox.github.io/tags/Typora/"/>
+    
+    <category term="Markdown" scheme="https://blinkfox.github.io/tags/Markdown/"/>
+    
+    <category term="Vue" scheme="https://blinkfox.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CPU多级缓存</title>
+    <link href="https://blinkfox.github.io/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/"/>
+    <id>https://blinkfox.github.io/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/</id>
+    <published>2018-11-18T21:55:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、什么是CPU缓存&quot;&gt;&lt;a href=&quot;#一、什么是CPU缓存&quot; class=&quot;headerlink&quot; title=&quot;一、什么是CPU缓存&quot;&gt;&lt;/a&gt;一、什么是CPU缓存&lt;/h2&gt;&lt;h3 id=&quot;1-CPU缓存的来历&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="软件工具" scheme="https://blinkfox.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="CPU缓存" scheme="https://blinkfox.github.io/tags/CPU%E7%BC%93%E5%AD%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>单元测试指南</title>
+    <link href="https://blinkfox.github.io/2018/11/15/hou-duan/java/dan-yuan-ce-shi-zhi-nan/"/>
+    <id>https://blinkfox.github.io/2018/11/15/hou-duan/java/dan-yuan-ce-shi-zhi-nan/</id>
+    <published>2018-11-15T22:50:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、必要性&quot;&gt;&lt;a href=&quot;#一、必要性&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+    <category term="单元测试" scheme="https://blinkfox.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java8新特性及使用(二)</title>
+    <link href="https://blinkfox.github.io/2018/11/14/hou-duan/java/java8-xin-te-xing-ji-shi-yong-er/"/>
+    <id>https://blinkfox.github.io/2018/11/14/hou-duan/java/java8-xin-te-xing-ji-shi-yong-er/</id>
+    <published>2018-11-14T22:00:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;扩展注解的支持&quot;&gt;&lt;a href=&quot;#扩展注解的支持&quot; class=&quot;headerlink&quot; title=&quot;扩展注解的支持&quot;&gt;&lt;/a&gt;扩展注解的支持&lt;/h2&gt;&lt;p&gt;Java</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java8新特性及使用(一)</title>
+    <link href="https://blinkfox.github.io/2018/11/13/hou-duan/java/java8-xin-te-xing-ji-shi-yong-yi/"/>
+    <id>https://blinkfox.github.io/2018/11/13/hou-duan/java/java8-xin-te-xing-ji-shi-yong-yi/</id>
+    <published>2018-11-13T22:30:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;新特性列表&quot;&gt;&lt;a href=&quot;#新特性列表&quot; class=&quot;headerlink&quot; title=&quot;新特性列表&quot;&gt;&lt;/a&gt;新特性列表&lt;/h2&gt;&lt;p&gt;以下是Java8中的引入的部分新特性。关于Java8新特性更详细的介绍可参考&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java7新特性及使用</title>
+    <link href="https://blinkfox.github.io/2018/11/12/hou-duan/java/java7-xin-te-xing-ji-shi-yong/"/>
+    <id>https://blinkfox.github.io/2018/11/12/hou-duan/java/java7-xin-te-xing-ji-shi-yong/</id>
+    <published>2018-11-12T00:30:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;新特性列表&quot;&gt;&lt;a href=&quot;#新特性列表&quot; class=&quot;headerlink&quot; title=&quot;新特性列表&quot;&gt;&lt;/a&gt;新特性列表&lt;/h2&gt;&lt;p&gt;以下是Java7中的引入的部分新特性。关于Java7更详细的介绍可参考&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java6新特性及使用</title>
+    <link href="https://blinkfox.github.io/2018/11/11/hou-duan/java/java6-xin-te-xing-ji-shi-yong/"/>
+    <id>https://blinkfox.github.io/2018/11/11/hou-duan/java/java6-xin-te-xing-ji-shi-yong/</id>
+    <published>2018-11-11T22:40:00.000Z</published>
+    <updated>2020-11-30T16:15:40.393Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;新特性列表&quot;&gt;&lt;a href=&quot;#新特性列表&quot; class=&quot;headerlink&quot; title=&quot;新特性列表&quot;&gt;&lt;/a&gt;新特性列表&lt;/h2&gt;&lt;p&gt;以下是Java6中的引入的部分新特性，相比Java5的新特性就少了很多了。关于Java6更详细的介绍可参考&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java5新特性及使用</title>
+    <link href="https://blinkfox.github.io/2018/11/09/hou-duan/java/java5-xin-te-xing-ji-shi-yong/"/>
+    <id>https://blinkfox.github.io/2018/11/09/hou-duan/java/java5-xin-te-xing-ji-shi-yong/</id>
+    <published>2018-11-09T00:30:00.000Z</published>
+    <updated>2020-11-30T16:15:40.393Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;新特性列表&quot;&gt;&lt;a href=&quot;#新特性列表&quot; class=&quot;headerlink&quot; title=&quot;新特性列表&quot;&gt;&lt;/a&gt;新特性列表&lt;/h2&gt;&lt;p&gt;以下是Java5中的引入的部分新特性，关于更详细的新特性了解，可参考&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java注解的理解和应用</title>
+    <link href="https://blinkfox.github.io/2018/11/08/hou-duan/java/java-zhu-jie-de-li-jie-he-ying-yong/"/>
+    <id>https://blinkfox.github.io/2018/11/08/hou-duan/java/java-zhu-jie-de-li-jie-he-ying-yong/</id>
+    <published>2018-11-08T00:30:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&quot;1-什么是注解&quot;&gt;&lt;a href=&quot;#1-什么是注解&quot; class=&quot;headerlink&quot; title=&quot;1.</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java反射基础</title>
+    <link href="https://blinkfox.github.io/2018/11/07/hou-duan/java/java-fan-she-ji-chu/"/>
+    <id>https://blinkfox.github.io/2018/11/07/hou-duan/java/java-fan-she-ji-chu/</id>
+    <published>2018-11-07T21:40:00.000Z</published>
+    <updated>2020-11-30T16:15:40.397Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1.</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java IO 知识整理</title>
+    <link href="https://blinkfox.github.io/2018/11/05/hou-duan/java/java-io-zhi-shi-zheng-li/"/>
+    <id>https://blinkfox.github.io/2018/11/05/hou-duan/java/java-io-zhi-shi-zheng-li/</id>
+    <published>2018-11-05T11:30:00.000Z</published>
+    <updated>2020-11-30T16:15:40.393Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;各IO类关系梳理&quot;&gt;&lt;a href=&quot;#各IO类关系梳理&quot; class=&quot;headerlink&quot; title=&quot;各IO类关系梳理&quot;&gt;&lt;/a&gt;各IO类关系梳理&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;InputStream: Java</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://blinkfox.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java面向对象设计之责任链模式</title>
+    <link href="https://blinkfox.github.io/2018/11/04/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ze-ren-lian-mo-shi/"/>
+    <id>https://blinkfox.github.io/2018/11/04/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ze-ren-lian-mo-shi/</id>
+    <published>2018-11-04T22:00:00.000Z</published>
+    <updated>2020-11-30T16:15:40.401Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;模式动机&quot;&gt;&lt;a href=&quot;#模式动机&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="软件设计" scheme="https://blinkfox.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Java" scheme="https://blinkfox.github.io/tags/Java/"/>
+    
+    <category term="设计模式" scheme="https://blinkfox.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+</feed>

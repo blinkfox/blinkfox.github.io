@@ -1,0 +1,1610 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java异常知识汇总, 闪烁之狐, Blinkfox">
+    <meta name="description" content="从来没有真正的绝境，只有心灵的迷途">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java异常知识汇总 | 闪烁之狐</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="闪烁之狐" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">闪烁之狐</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">闪烁之狐</div>
+        <div class="logo-desc">
+            
+            从来没有真正的绝境，只有心灵的迷途
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://statics.sh1a.qingstor.com/2018/10/28/exception.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java异常知识汇总</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-10-28
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    29 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        <!-- 代码块折行 -->
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="为什么要使用异常"><a href="#为什么要使用异常" class="headerlink" title="为什么要使用异常"></a>为什么要使用异常</h3><p>在我们的程序中，任何时候任何地方因为任何原因都有可能会出现异常，在没有异常机制的时候我们是这样处理的：通过函数的返回值来判断是否发生了异常（这个返回值通常是已经约定好了的），调用该函数的程序负责检查并且分析返回值。虽然可以解决异常问题，但是这样做存在几个缺陷：</p>
+<ul>
+<li>容易混淆。如果约定返回值为 -1 时表示出现异常，那么当程序最后的计算结果真的为 -1 呢？</li>
+<li>代码可读性差。将异常处理代码和程序代码混淆在一起将会降低代码的可读性。</li>
+<li>由调用函数来分析异常，这要求程序员对库函数有很深的了解。</li>
+</ul>
+<blockquote>
+<p>在面向对象编程中提供的异常处理机制是提供代码健壮的强有力的方式。使用异常机制它能够降低错误处理代码的复杂度，如果不使用异常，那么就必须检查特定的错误，并在程序中的许多地方去处理它，而如果使用异常，那就不必在方法调用处进行检查，因为异常机制将保证能够捕获这个错误，并且，只需在一个地方处理错误，即所谓的异常处理程序中。这种方式不仅节约代码，而且把“概述在正常执行过程中做什么事”的代码和“出了问题怎么办”的代码相分离。总之，与以前的错误处理方法相比，异常机制使代码的阅读、编写和调试工作更加井井有条。（摘自《Think in java 》）。</p>
+</blockquote>
+<h3 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h3><blockquote>
+<p>异常情形是指阻止当前方法或者作用域继续执行的问题。——《Think in java》</p>
+</blockquote>
+<p>总的来说异常处理机制就是当程序发生异常时，它强制终止程序运行，记录异常信息并将这些信息反馈给我们，由我们来确定是否处理异常。</p>
+<h2 id="异常体系"><a href="#异常体系" class="headerlink" title="异常体系"></a>异常体系</h2><p>在Java中，所有的事件都能由类描述，Java中的异常就是由<code>java.lang</code>包下的异常类来描述的。Java定义了一个异常类的层次结构，其以<code>Throwable</code>（万物即可抛）开始，派生出了<code>Error</code>和<code>Exception</code>，而<code>Exception</code>又派生出了<code>CheckedException</code>和<code>RuntimeException</code>。如下图所示：</p>
+<p><img src="https://statics.sh1a.qingstor.com/2018/10/28/java-exception.png" alt="Java异常体系"></p>
+<h3 id="Throwable"><a href="#Throwable" class="headerlink" title="Throwable"></a>Throwable</h3><p>Throwable（可抛出）是异常类的最终父类，它有两个子类，<code>Error</code>与<code>Exception</code>。</p>
+<p>Throwable 中常用方法有：</p>
+<ul>
+<li><code>synchronized Throwable getCause()</code>：此方法返回异常产生的原因，如果不知道原因的话返回<code>null</code>。</li>
+<li><code>String getMessage()</code>：方法返回<code>Throwable</code>的<code>String</code>型信息，当异常通过构造器创建后可用。</li>
+<li><code>String getLocalizedMessage()</code>：此方法通过被重写来得到用本地语言表示的异常信息返回给调用程序。<code>Throwable</code>类通常只是用<code>getMessage()</code>方法来实现返回异常信息。</li>
+<li><code>void printStackTrace()</code>：该方法打印栈轨迹信息到标准错误流。该方法能接受<code>PrintStream</code>和<code>PrintWriter</code>作为参数实现重载，这样就能实现打印栈轨迹到文件或流中。</li>
+<li><code>String toString()</code>：方法返回<code>String</code>格式的<code>Throwable</code>信息，此信息包括<code>Throwable</code>的名字和本地化信息。</li>
+</ul>
+<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><p>Error（错误）：表示程序无法处理的错误，一般与程序员的执行操作无关。理论上这些错误是不允许发生的，如果发生，也不应该试图通过程序去处理，所以 Error 不是<code>try-catch</code>的处理对象，而 JVM 一般的处理方式是终止发生错误的线程。Error 类常见子类有<code>VirtualMachineError</code>、<code>StackOverFlowError</code>、<code>OutOfMemoryError</code>等。</p>
+<p>在Java运行时内存中，除程序计数器外的虚拟机栈、堆、方法区在请求的内存无法被满足时都会抛出<code>OutOfMemoryError</code>；而如果线程请求的栈深度超出虚拟机允许的深度时，就会抛出<code>StackOverFlowError</code>。</p>
+<h3 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h3><p>Exception（异常）：出现原因取决于程序，所以程序也理应通过<code>try-catch</code>处理。Exception 异常分为两类：<code>CheckedException</code>和<code>RuntimeException</code>，即<strong>检查异常</strong>与<strong>运行时异常</strong>。</p>
+<ul>
+<li>检查异常：编译器要求必须处理，否则不能通过编译，使用<code>try-catch</code>捕获或者<code>throws</code>抛出。常见的检查异常有<code>IOException</code>及其子类、<code>EOFExcption</code>(文件已结束异常)、<code>FileNotFoundException</code>（文件未找到异常）。</li>
+<li>运行时异常（也叫非检查异常）：编译期不会检查，所以在程序中可不处理，但如果发生，会在运行时抛出。</li>
+</ul>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><h3 id="处理机制"><a href="#处理机制" class="headerlink" title="处理机制"></a>处理机制</h3><p>在 Java 应用程序中，异常处理机制为：<strong>抛出异常</strong>、<strong>捕捉异常</strong>。</p>
+<ul>
+<li><strong>抛出异常</strong>：当一个方法出现错误引发异常时，方法创建异常对象并交付运行时系统，异常对象中包含了异常类型和异常出现时的程序状态等异常信息。运行时系统负责寻找处置异常的代码并执行。</li>
+<li><strong>捕获异常</strong>：在方法抛出异常之后，运行时系统将转为寻找合适的异常处理器。潜在的异常处理器是异常发生时依次存留在调用栈中的方法的集合。当异常处理器所能处理的异常类型与方法抛出的异常类型相符时，即为合适 的异常处理器。运行时系统从发生异常的方法开始，依次回查调用栈中的方法，直至找到含有合适异常处理器的方法并执行。当运行时系统遍历调用栈而未找到合适的异常处理器，则运行时系统终止。同时，意味着Java程序的终止。</li>
+</ul>
+<p>对于运行时异常、错误或可查异常，Java技术所要求的异常处理方式有所不同。</p>
+<ul>
+<li>对于方法运行中可能出现的Error，当运行方法不欲捕捉时，Java允许该方法不做任何抛出声明。因为，大多数 Error 异常属于永远不能被允许发生的状况，也属于合理的应用程序不该捕捉的异常。</li>
+<li>对于所有的检查异常，Java规定：<strong>一个方法必须捕捉，或者声明抛出方法之外。也就是说，当一个方法选择不捕捉检查异常时，它必须声明将抛出异常</strong>。</li>
+<li>对于所有运行时异常，Java规定：<strong>运行时异常将由Java运行时系统自动抛出，允许应用程序忽略运行时异常</strong>。</li>
+</ul>
+<p>能够捕捉异常的方法，需要提供相符类型的异常处理器。所捕捉的异常，可能是由于自身语句所引发并抛出的异常，也可能是由某个调用的方法或者Java运行时 系统等抛出的异常。也就是说，<strong>一个方法所能捕捉的异常，一定是Java代码在某处所抛出的异常。简单地说，异常总是先被抛出，后被捕捉的</strong>。</p>
+<p>任何Java代码都可以通过 Java 的<code>throw</code>语句抛出异常。</p>
+<p>从方法中抛出的任何异常都必须使用<code>throws</code>子句。</p>
+<p>捕捉异常通过<code>try-catch</code>语句或者<code>try-catch-finally</code>语句实现。</p>
+<blockquote>
+<p>总体来说，Java规定：对于检查异常必须捕捉、或者声明抛出。允许忽略非检查的<code>RuntimeException</code>和<code>Error</code>。</p>
+</blockquote>
+<h3 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h3><p><code>try-catch</code>语句还可以包括第三部分，就是<code>finally</code>子句。它表示无论是否出现异常，都应当执行的内容。<code>try-catch-finally</code>语句的一般语法形式为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 可能会发生异常的程序代码</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception1</span> e1<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 捕获并处理try抛出的异常类型Type1</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception2</span> e2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 捕获并处理try抛出的异常类型Type2</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">finally</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 无论是否发生异常，都将执行的语句块</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Java7及之后的版本可这样使用：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">(</span><span class="token class-name">MyResource</span> mr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyResource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"MyResource created in try-with-resources"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception1</span> <span class="token operator">|</span> <span class="token class-name">Exception2</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 捕获并统一处理 try 抛出的多种异常类型，不需要finally块</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>try</code>块：用于捕获异常。其后可接零个或多个<code>catch</code>块，如果没有<code>catch</code>块，则必须跟一个<code>finally</code>块。</li>
+<li><code>catch</code>块：用于处理<code>try</code>捕获到的异常。</li>
+<li><code>finally</code>块：无论是否捕获或处理异常，<code>finally</code>块里的语句都会被执行。当在<code>try</code>块或<code>catch</code>块中遇到<code>return</code>语句时，<code>finally</code>语句块将在方法返回之前被执行。在以下 4 种特殊情况下，<code>finally</code>块不会被执行：<ul>
+<li>在<code>finally</code>语句块中发生了异常</li>
+<li>在前面的代码中用了<code>System.exit()</code>退出程序</li>
+<li>程序所在的线程死亡</li>
+<li>关闭<code>CPU</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="异常处理语句的语法规则"><a href="#异常处理语句的语法规则" class="headerlink" title="异常处理语句的语法规则"></a>异常处理语句的语法规则</h3><ul>
+<li>必须在<code>try</code>之后添加<code>catch</code>或<code>finally</code>块。<code>try</code>块后可同时接<code>catch</code>和<code>finally</code>块，但至少有一个块。</li>
+<li>必须遵循块顺序：若代码同时使用<code>catch</code>和<code>finally</code>块，则必须将<code>catch</code>块放在<code>try</code>块之后。</li>
+<li><code>catch</code>块与相应的异常类的类型相关。</li>
+<li>一个<code>try</code>块可能有多个<code>catch</code>块。若如此，则执行第一个匹配块。即Java虚拟机会把实际抛出的异常对象依次和各个catch代码块声明的异常类型匹配，如果异常对象为某个异常类型或其子类的实例，就执行这个<code>catch</code>代码块，不会再执行其他的<code>catch</code>代码块。</li>
+<li>可嵌套<code>try-catch-finally</code>结构。</li>
+<li>在<code>try-catch-finally</code>结构中，可重新抛出异常。</li>
+<li>除了下列情况，总将执行<code>finally</code>做为结束：<ul>
+<li>JVM 过早终止（调用 System.exit(int)）；</li>
+<li>在<code>finally</code>块中抛出一个未处理的异常；</li>
+<li>计算机断电、失火、或遭遇病毒攻击。</li>
+</ul>
+</li>
+</ul>
+<h2 id="异常抛出"><a href="#异常抛出" class="headerlink" title="异常抛出"></a>异常抛出</h2><p>任何Java代码都可以抛出异常，如：自己编写的代码、来自Java开发环境包中代码，或者Java运行时系统。无论是谁，都可以通过Java的<code>throw</code>语句抛出异常。从方法中抛出的任何异常都必须使用<code>throws</code>子句。</p>
+<h3 id="throws抛出异常"><a href="#throws抛出异常" class="headerlink" title="throws抛出异常"></a>throws抛出异常</h3><p>如果一个方法可能会出现异常，但没有能力处理这种异常，可以在方法声明处用<code>throws</code>子句来声明抛出异常。<code>throws</code>语句用在方法定义时声明该方法要抛出的异常类型，如果抛出的是<code>Exception</code>异常类型，则该方法被声明为抛出所有的异常。多个异常可使用逗号分割。<code>throws</code>语句的语法格式为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">methodname <span class="token keyword">throws</span> <span class="token class-name">Exception1</span><span class="token punctuation">,</span> <span class="token class-name">Exception2</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">,</span> <span class="token class-name">ExceptionN</span> <span class="token punctuation">&#123;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>方法名后的<code>throws Exception1, Exception2, ... , ExceptionN</code>为声明要抛出的异常列表。当方法抛出异常列表的异常时，方法将不对这些类型及其子类类型的异常作处理，而抛向调用该方法的方法，由他去处理。使用<code>throws</code>关键字将异常抛给调用者后，如果调用者不想处理该异常，可以继续向上抛出，但最终要有能够处理该异常的调用者。</p>
+<p>throws抛出异常的规则：</p>
+<ul>
+<li>如果是非检查异常（<code>unchecked exception</code>），即<code>Error</code>、<code>RuntimeException</code>或它们的子类，那么可以不使用<code>throws</code>关键字来声明要抛出的异常，编译仍能顺利通过，但在运行时会被系统抛出。</li>
+<li>必须声明方法可抛出的任何检查异常（<code>checked exception</code>）。即如果一个方法可能出现受检查异常，要么用<code>try-catch</code>语句捕获，要么用<code>throws</code>子句声明将它抛出，否则会导致编译错误。</li>
+<li>仅当抛出了异常，该方法的调用者才必须处理或者重新抛出该异常。当方法的调用者无力处理该异常的时候，应该继续抛出，而不是囫囵吞枣。</li>
+<li>调用方法必须遵循任何检查异常的处理和声明规则。若覆盖一个方法，则不能声明与覆盖方法不同的异常。声明的任何异常必须是被覆盖方法所声明异常的同类或子类。</li>
+</ul>
+<h3 id="使用throw抛出异常"><a href="#使用throw抛出异常" class="headerlink" title="使用throw抛出异常"></a>使用throw抛出异常</h3><p><code>throw</code>总是出现在函数体中，用来抛出一个<code>Throwable</code>类型的异常。程序会在<code>throw</code>语句后立即终止，它后面的语句执行不到，然后在包含它的所有<code>try</code>块中（可能在上层调用函数中）从里向外寻找含有与其匹配的<code>catch</code>子句的<code>try</code>块。异常是异常类的实例对象，我们可以创建异常类的实例对象通过<code>throw</code>语句抛出。该语句的语法格式为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ExceptionName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注</strong>：如果抛出了检查异常，则还应该在方法头部声明方法可能抛出的异常类型。该方法的调用者也必须检查处理抛出的异常。</p>
+</blockquote>
+<h3 id="异常链"><a href="#异常链" class="headerlink" title="异常链"></a>异常链</h3><p>在设计模式中有一个设计模式叫做<strong>责任链模式</strong>，该模式是将多个对象链接成一条链，客户端的请求沿着这条链传递直到被接收、处理。同样Java异常机制也提供了这样一条链：<strong>异常链</strong>。</p>
+<p>我们知道每遇到一个异常信息，我们都需要进行<code>try-catch-finally</code>,一个还好，如果出现多个异常呢？分类处理肯定会比较麻烦，那就一个<code>Exception</code>解决所有的异常吧。这样确实是可以，但是这样处理势必会导致后面的维护难度增加。最好的办法就是将这些异常信息封装，然后捕获我们的封装类即可。</p>
+<p>我们有两种方式处理异常，一是<code>throws</code>抛出交给上级处理，二是<code>try-catch</code>做具体处理。但是这个与上面有什么关联呢？<code>try-catch</code>的<code>catch</code>块我们可以不需要做任何处理，仅仅只用<code>throw</code>这个关键字将我们封装异常信息主动抛出来。然后在通过关键字<code>throws</code>继续抛出该方法异常。它的上层也可以做这样的处理，以此类推就会产生一条由异常构成的异常链。</p>
+<p><strong>通过使用异常链，我们可以提高代码的可理解性、系统的可维护性和友好性</strong>。</p>
+<p>同理，我们有时候在捕获一个异常后抛出另一个异常信息，并且希望将原始的异常信息也保持起来，这个时候也需要使用异常链。</p>
+<p>在异常链的使用中，<code>throw</code>抛出的是一个新的异常信息，这样势必会导致原有的异常信息丢失，如何保持？在<code>Throwable</code>及其子类中的构造器中都可以接受一个<code>cause</code>参数，该参数保存了原有的异常信息，通过<code>getCause()</code>就可以获取该原始异常信息。使用方式如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MyException</span><span class="token punctuation">&#123;</span>
+         <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+             <span class="token class-name">FileReader</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token class-name">Scanner</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>reader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>in<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">FileNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//e 保存异常信息</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">MyException</span><span class="token punctuation">(</span><span class="token string">"文件没有找到--01"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MyException</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MyException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//e 保存异常信息</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">MyException</span><span class="token punctuation">(</span><span class="token string">"文件没有找到--02"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Test</span> t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            t<span class="token punctuation">.</span><span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MyException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果在程序中,去掉<code>e</code>，也就是：<code>throw new MyException(“文件没有找到–02″);</code>那么异常信息就保存不了。</p>
+<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><p>Java确实给我们提供了非常多的异常，但是异常体系是不可能预见所有的希望加以报告的错误。所以，Java允许我们自定义异常来表现程序中可能会遇到的特定问题，总之就是一句话：我们不必拘泥于Java中已有的异常类型。</p>
+<p>Java自定义异常的使用要经历如下四个步骤：</p>
+<ul>
+<li>定义一个类继承<code>Throwable</code>或其子类。</li>
+<li>添加构造方法(当然也可以不用添加，使用默认构造方法)。</li>
+<li>在某个方法类抛出该异常。</li>
+<li>捕捉该异常。</li>
+</ul>
+<p>示例如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ *自定义异常 继承Exception类.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyException</span> <span class="token keyword">extends</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MyException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MyException</span><span class="token punctuation">(</span><span class="token class-name">String</span> message<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+ * 测试抛出和捕捉异常的类.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MyException</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">MyException</span><span class="token punctuation">(</span><span class="token string">"该值不能为0......."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> i <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Test</span> test <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            test<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"---------------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MyException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><ul>
+<li>尽可能的减小<code>try</code>块。</li>
+<li>不要在构造函数中抛出异常。</li>
+<li>如果使用Java7及以后的版本，一个catch子句中可以捕获多个异常。</li>
+<li>充分使用<code>finally</code>块，保证所有资源都被正确释放；如果使用Java7及以后的版本，那么更推荐使用<code>try-with-resource</code>语法。</li>
+<li><code>catch</code>语句应当尽量指定具体的异常类型，而不应该指定涵盖范围太广的<code>Exception</code>类。 不要一个<code>Exception</code>试图处理所有可能出现的异常。</li>
+<li>不要忽略异常。既然捕获了异常，就要对它进行适当的处理。不要捕获异常之后又把它丢弃，不予理睬。</li>
+<li>在异常处理模块中提供适量的错误原因信息，组织错误信息使其易于理解和阅读。</li>
+<li>减轻<code>finally</code>的任务，finally块仅仅用来释放资源是最合适的。不要在<code>finally</code>中使用<code>return</code>、抛出异常等。</li>
+<li>为了给调用者提供尽可能多的信息，从而可以更好地避免/处理异常。对异常进行Javadoc文档说明，并且描述抛出异常的场景。</li>
+<li>不要捕获<code>Throwable</code>。<code>Throwable</code>是所有异常和错误的父类。如果<code>catch</code>了<code>throwable</code>，那么不仅仅会捕获所有<code>Exception</code>，还会捕获<code>Error</code>。而<code>Error</code>是表明无法恢复的JVM错误。因此除非绝对肯定能够处理或者被要求处理<code>Error</code>，不要捕获<code>Throwable</code>。</li>
+<li>包装异常时要包含原始的异常。包装异常时，一定要把原始的异常设置为<code>cause</code>(<code>Exception</code>有构造方法可以传入<code>cause</code>)。否则，丢失了原始的异常信息会让错误的分析变得困难。</li>
+</ul>
+<h2 id="常见异常及解释"><a href="#常见异常及解释" class="headerlink" title="常见异常及解释"></a>常见异常及解释</h2><p>以下是常见<a target="_blank" rel="noopener" href="http://rymden.nu/exceptions.html">Java异常</a>的<strong>非技术角度</strong>的理解。阅读有风险，理解需谨慎。</p>
+<h3 id="java-lang"><a href="#java-lang" class="headerlink" title="java.lang"></a>java.lang</h3><ul>
+<li><code>ArithmeticException</code>：你正在试图使用电脑解决一个自己解决不了的数学问题，请重新阅读你的算术表达式并再次尝试。</li>
+<li><code>ArrayIndexOutOfBoundsException</code>：请查看<a target="_blank" rel="noopener" href="http://rymden.nu/exceptions.html#IndexOutOfBoundsException">IndexOutOfBoundsException</a>。不同之处在于这个异常越界的元素不止一个。</li>
+<li><code>ArrayStoreException</code>：你已用光了所有数组，需要从数组商店中购买更多的数组。</li>
+<li><code>ClassCastException</code>：你需要呆在自己出生的种姓或阶级。Java 不会允许达利特人表现得像刹帝利或者高贵种族的人假装成为工人阶级。为了保持向前兼容，Java 1.0中把Caste误写为Cast保留到了现在。</li>
+<li><code>ClassNotFoundException</code>：你似乎创造了自己的类。这也是目前 Java 还未实现的种姓制度，但是 Java 明显使用了巴厘岛的种姓制度。也就是说，如果你是一个武士，也就相当于印度种姓制度中的第三层——吠舍。</li>
+<li><code>CloneNotSupportedException</code>：你是一名克隆人。找到你的原型，告诉他你想做什么，然后自杀。</li>
+<li><code>IllegalAccessException</code>：你是一个正在运行 Java 程序入室盗窃的小偷，请结束对电脑的盗窃行为，离开房子，然后再试一次。</li>
+<li><code>IllegalArgumentException</code>：你试图反对之前的异常。</li>
+<li><code>IllegalMonitorStateException</code>：请打开你的电脑屏幕背面。</li>
+<li><code>IllegalStateException</code>：你来自一个尚未被联合国承认的国家，也许是库尔德斯坦或者巴勒斯坦。拿到真正的国籍后重新编译你的 Java 代码，然后再试一次。</li>
+<li><code>IllegalThreadStateException</code>：你电脑的一颗螺丝上到了错误的螺纹孔里，请联系你的硬盘供应商。</li>
+<li><code>IndexOutOfBoundsException</code>：你把食指放在了无法接收的地方，重新放置，再试一次。</li>
+<li><code>InstantiationException</code>：不是每件事都会立即发生，请更耐心一点。</li>
+<li><code>InterruptedException</code>：告诉你的同事、室友等，当你工作的时候，请勿打扰。</li>
+<li><code>NegativeArraySizeException</code>：你创建了一个负数长度的数组。这会丢失信息，长期发展将会毁灭宇宙。不过放宽心，Java 发现了你正在做的事，不要再这么干了。</li>
+<li><code>NoSuchFieldException</code>：你正试图去一个不存在的区域游览。如果你试图去参观一个事实上不存在，其实已经是最高机密的飞机场时，也会得到这个异常。我可以给你示例，然后不得不杀了你。</li>
+<li><code>NoSuchMethodException</code>：不要使用那个方法！拜托了，就像我们一直做的那样去解决事情吧。</li>
+<li><code>NullPointerException</code>：你没有狗。请你先找一只狗，比如一只布烈塔尼獵犬，然后再试一次。</li>
+<li><code>NumberFormatException</code>：你正在使用过时的测量单位，比如英寸或者品脱。请转换成国际基本单位。有一个已知的 bug 会导致 Java 抛出这个异常，那就是你太矮了或者太高了。</li>
+<li><code>RuntimeException</code>：你不能跑得足够快，可能因为你太胖了。关掉你的电脑，出门锻炼吧。</li>
+<li><code>SecurityException</code>：你已被认为是国家安全的一个威胁。请你呆在原地别动，然后等着警察来并带你走。</li>
+<li><code>StringIndexOutOfBoundsException</code>：你的内裤和这个地方格格不入。换掉它们，再试一次。另外如果你根本不穿任何内裤，也会得到这个异常。</li>
+<li><code>UnsupportedOperationException</code>：因为一些原因，你正试图做一个在道德上不被 Java 支持的手术。包括不必要的截肢，例如割包皮。请停止滥用你的身体，不要移除你的孩子，该死的！</li>
+</ul>
+<h3 id="java-util"><a href="#java-util" class="headerlink" title="java.util"></a>java.util</h3><ul>
+<li><code>ConcurrentModificationException</code>：有人修改了你的 Java 代码。你应该更改密码。</li>
+<li><code>EmptyStackException</code>：为了让 Java 工作，你必须在桌子上放一叠 Java 书籍。当然，如果书很厚的话，一本就够了。</li>
+<li><code>MissingResourceException</code>：你太穷了，不配使用 Java。换一个更便宜的语言吧（比如 Whitespace、Shakesperre、Cow、Spaghetti 或者 C#）。</li>
+<li><code>NoSuchElementException</code>：这里只存在四种元素（地球、水、空气、火）。《第五元素》只是部电影而已。</li>
+<li><code>TooManyListenersException</code>：你被太多秘密机构窃听了，SecurityException 马上就到。</li>
+</ul>
+<h3 id="java-awt"><a href="#java-awt" class="headerlink" title="java.awt"></a>java.awt</h3><ul>
+<li><code>AWTException</code>：你正在使用AWT，也就是说你的图形界面会很丑。这个异常只是一个警告可以被忽略。</li>
+<li><code>FontFormatException</code>：你的布局很丑陋，或者你选择了一个糟糕的字体，或者太多的字体。请咨询一名专业的设计师。</li>
+<li><code>HeadlessException</code>：Java 认为身为一名程序员，你实在是太蠢了。</li>
+<li><code>IllegalComponentStateException</code>：你的一个硬件（例如硬盘、CPU、内存）坏掉了。请联系你的硬件供应商。</li>
+</ul>
+<h3 id="java-awt-color"><a href="#java-awt-color" class="headerlink" title="java.awt.color"></a>java.awt.color</h3><ul>
+<li><code>CMMException</code>：你的 CMM 坏掉了，真是见鬼了。我经常烧毁自己的房子，然后去一个新的城市重新开始。</li>
+<li><code>ProfileDataException</code>：你的个人档案包含可疑信息。如果你不是一名共产主义者、恐怖分子或者无神论者，请联系 CIA 修正错误。</li>
+</ul>
+<h3 id="java-awt-datatransfer"><a href="#java-awt-datatransfer" class="headerlink" title="java.awt.datatransfer"></a>java.awt.datatransfer</h3><ul>
+<li><code>MimeTypeParseException</code>：你的哑剧（Mime）糟透了，没人能够理解你到底想表达什么。尝试一些更简单的事情吧，比如迎风散步，或者被困在一个看不见的盒子里。</li>
+<li><code>UnsupportedFlavorException</code>：你正试图使用一种 Java 不知道的香料。大部分人似乎只知道使用香草和樱桃。</li>
+</ul>
+<h3 id="java-beans"><a href="#java-beans" class="headerlink" title="java.beans"></a>java.beans</h3><ul>
+<li><code>IntrospectionException</code>：你太内向了，你应该变得外向一些。 别再当一个呆子，出门去见见人吧！</li>
+<li><code>PropertyVetoException</code>：你的一部分财产被冻结了。这条信息应该已经告诉你谁干的和原因。如果没看见，你可能也不该询问。</li>
+</ul>
+<h3 id="java-io"><a href="#java-io" class="headerlink" title="java.io"></a>java.io</h3><ul>
+<li><code>CharConversionException</code>：你一直试图焚烧一些不燃物。也可能是因为你试着把自己变成一条鱼，但这不可能发生。</li>
+<li><code>EOFException</code>：你得到这条异常是因为你不知道EOF是什么意思。但是，我并不打算告诉你，因为你是一个不学无术的人。</li>
+<li><code>FileNotFoundException</code>：一名木匠应该总是知道他的工具放在哪里。</li>
+<li><code>InterruptedIOException</code>：你不顾之前的 IOException，一直在使用 IO，然后你的活动就被中断了。</li>
+<li><code>InvalidClassException</code>：查看 ClassNotFoundException。</li>
+<li><code>InvalidObjectException</code>：反对无效，就像他们在法庭上说的一样。</li>
+<li><code>IOException</code>：IO 代表输入、输出，并且不得不做收发数据的事。IO 是一个安全问题，不应使用。</li>
+<li><code>NotActiveException</code>：这个异常意味着两件事。要么是未激活，需要激活；要么是已激活，需要停止。到开始工作为止，激活与未激活都是随机的。</li>
+<li><code>NotSerializableException</code>：你正试图把一部电影改成电视剧。</li>
+<li><code>ObjectStreamException</code>：你提出了一连串的反对（Object）意见。提出新的意见前，请限制自己一下，等待法官作出判决。查看 InvalidObjectException。</li>
+<li><code>OptionalDataException</code>：你似乎认为一些可选数据是必须的。不要让事情变得复杂。</li>
+<li><code>StreamCorruptedException</code>：你的数据流被损坏了，这意味着它已经被截包，并在黑市上贩卖。</li>
+<li><code>SyncFailedException</code>：你试图与其他人同步你的失败，然后被证明比他人更加失败。去找一些跟你同等水平的人吧。</li>
+<li><code>UnsupportedEncodingException</code>：如果你想在网上发送自己的代码，必须与美国国家安全局核对你的加密密匙。如果不这么做，将把你视为恐怖分子，并以适当方式处理。如果你得到这个异常，能跑多快跑多快。</li>
+<li><code>UTFDataFormatException</code>：UTF 代表通用传输格式，是一种无论你使用哪种格式都会用到的数据传输方式。你试图通过 UTF 传输错误格式的数据。</li>
+<li><code>WriteAbortedException</code>：你需要在程序中的某处写上“aborted”。这通常没什么意义，但你就得这样做。</li>
+</ul>
+<h3 id="java-net"><a href="#java-net" class="headerlink" title="java.net"></a>java.net</h3><ul>
+<li><code>BindException</code>：Java编程和束缚不能混为一谈。</li>
+<li><code>ConnectException</code>：你正试图与一个不能连接的事物建立连接。试着连接其他事物吧。也许可以通过一个特殊的连接对象实现你想要的连接。</li>
+<li><code>MalformedURLException</code>：你正在制作一个形状错误的壶（例如一个“L”状），或者你有拼写错误的单词“urn”（例如“url”）。</li>
+<li><code>NoRouteToHostException</code>：没有通往主机的“道路”，请联系公路管理员。</li>
+<li><code>PortUnreachableException</code>：港口必须正确地放置在水边。如果在内陆，它们将会无法接触。</li>
+<li><code>ProtocolException</code>：这是一个严重违反规定的结果（例如在你主机上的“puk韓g”）。解决方法很简单：不要那样做！</li>
+<li><code>SocketException</code>：你把电脑连接到了错误的电源插座。大部分情况下你不得不寻找其它插座，但一些电脑背部有一个开关，可以设置电源插座类型。</li>
+<li><code>SocketTimeoutException</code>：你的电脑连接了一个带计时器的电源插座，并且时间已经走完。只有烙铁和相似的东西才会使用这种插座。</li>
+<li><code>UnknownHostException</code>：你的父母没有教过你不要和陌生人说话么？</li>
+<li><code>UnknownServiceException</code>：你正试图进入接近一个未知服务。众所周知，未知服务或许是特工组织。</li>
+<li><code>URISyntaxException</code>：“You are I”是一个语法错误的句子。将其改为“You are me”，别管那到底啥意思。</li>
+</ul>
+<h3 id="java-rmi"><a href="#java-rmi" class="headerlink" title="java.rmi"></a>java.rmi</h3><ul>
+<li><code>AccessException</code>：你正在使用“Microsoft Access”。请不要这样做。</li>
+<li><code>AlreadyBoundException</code>：不管在 java.net.BindException 的描述中是什么状况，RMI 都提供捆绑服务。然而，你不能绑一个已经被捆绑的人。</li>
+<li><code>ConnectException</code>：你正试图与一个不能连接的事物建立连接。试着连接其他事物吧。也许可以通过一个特殊的连接对象实现你想要的连接。</li>
+<li><code>ConnectIOException</code>：你正试图通过 IO 与另一个不能被连接的事物建立连接。尝试连接其他事物吧。或许你可以通过一个特殊的连接对象实现想要的连接。</li>
+<li><code>MarshalException</code>：你的“marshal”出问题了。你应做的事取决于我们正在讨论的是哪种“marshal”。他可以是陆军元帅、警察、消防队员或者只不过是一名普通的司仪。注意这个异常与马绍尔群岛共和国没有任何关系，也称为 RMI。</li>
+<li><code>NoSuchObjectException</code>：你正试图使用一个不存在的对象。以爱因斯坦之名，创造它或者不要使用它！</li>
+<li><code>NotBoundException</code>：如果你正在使用奴隶，请确认至少有一个人被绑住了。</li>
+<li><code>RemoteException</code>：这是一条远程抛出的特殊异常。如果其他人的应用变得不稳定，以致于不能产生一条异常，相反地，你可能会得到这条异常。请找到源头并提醒那位程序员这个错误。</li>
+<li><code>RMISecurityException</code>：马绍尔群岛共和国变得不稳定了。如果你住在这儿，你最好离开，直到安全得到保障为止都别回来。如果你住在其他地方，可以无视这个异常。</li>
+<li><code>ServerException</code>：第二发球（或者双发失误同样适用）。</li>
+<li><code>ServerRuntimeException</code>：只要是网球比赛都很长。当你花太长时间发球时，就会得到这条异常。</li>
+<li><code>StubNotFoundException</code>：当你去看电影的时候，你应该一直保留自己的票根。如果不这么做，并且离开了电影院，你就不能重新进去，不得不去买张新票。所以保留你的票根！</li>
+<li><code>UnexpectedException</code>：这个异常对你来说应该会成为一个大惊喜。如果发生了，所有事都变成它应该的样子。</li>
+<li><code>UnknownHostException</code>：你父母没有教过你不要和陌生人说话吗？</li>
+<li><code>UnmarshalException</code>：.你没有完成一名法律工作人员的职责（例如你曾经的法官工作）。注意这个正确的术语是“曾经”（used to）。你已经被解雇（fire）了（如果你是一名消防队员（firefighter），这可真是讽刺啊）。</li>
+</ul>
+<h3 id="java-security"><a href="#java-security" class="headerlink" title="java.security"></a>java.security</h3><ul>
+<li><code>AccessControlException</code>：你失去了对 Microsoft Access 的控制。如果你无法重获控制或者通过其他方式停止程序，你应该尽快切断电脑电源。</li>
+<li><code>DigestException</code>：你应该注意自己的食物，消化不良也能变成严重的问题。</li>
+<li><code>GeneralSecurityException</code>：在某些地方做一些事情并不安全。如果你有足够的权力，你应该随机入侵一个国家（最好在中东地区）。如果你没有那种权力，至少应该有一把枪。</li>
+<li><code>InvalidAlgorithmParameterException</code>：你向一位残疾人用他不能理解的方式解释你的算法。简单一点！</li>
+<li><code>InvalidKeyException</code>：这个异常有两种不同的原因：1、你正在使用错误的钥匙。我的建议是在你的钥匙上画不同颜色的小点来帮助你记住哪一把对应哪一个锁。2、 你不能锁住残疾人却不给他们钥匙，如果他们足够聪明发现如何使用钥匙，他们就有自由移动的权- 利。</li>
+<li><code>InvalidParameterException</code>：你使用了蔑视的术语去描述一名残疾人。</li>
+<li><code>KeyException</code>：不要尝试不用钥匙就能开锁。</li>
+<li><code>KeyManagementException</code>：你遗失了自己的钥匙。很可能忘在办公室（如果你正试图进入你家）或者忘在家里（如果你正试图进入办公室）。</li>
+<li><code>KeyStoreException</code>：延续之前 KeyManagementException 的解释就是你的钱包有个洞。</li>
+<li><code>NoSuchAlgorithmException</code>：你试图用以前未知的方法解决问题。停止创新吧，用老算法重写一遍。你也可以为自己的想法申请专利，然后等待未来 Java 发布新版本的时候纳入其中。</li>
+<li><code>NoSuchProviderException</code>：如果你是一名单亲妈妈，你没法成为家庭主妇。首先，你得为家庭找到一名供养者。</li>
+<li><code>PrivilegedActionException</code>：你试图采取一个行动，但是没有得到权限。比如，只有名人才可以做到地从谋杀中逃脱，只有天主教神父和耶和华的高级见证人才能做地猥亵儿童，只有在私人企业担任管理职位的人才能被允许地偷钱。</li>
+<li><code>ProviderException</code>：你是一名妇女并试图供养一个家庭。显而易见，你的丈夫不能成为一名“家庭主妇”，所以你得让他供养个家庭。想象一下，Java固执且不肯改变，事情就是这样工作的，解决它。</li>
+<li><code>SignatureException</code>：要么你是伪造的其他人的签名，要么是无法接受你的签名。一个签名不能太丑陋、太易读或太大。</li>
+<li><code>UnrecoverableKeyException</code>：该死。你把你的钥匙扔进了下水沟。我唯一能安慰你的就是其他人也无法恢复钥匙，所以倒不是必须换掉你的锁。</li>
+</ul>
+<h3 id="java-text"><a href="#java-text" class="headerlink" title="java.text"></a>java.text</h3><ul>
+<li><code>ParseException</code>：你做的没有任何意义，冷静下来，再试一次。</li>
+</ul>
+<hr>
+<p>参考文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.importnew.com/20629.html">java提高篇之异常（上）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.importnew.com/20645.html">java提高篇之异常（下）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.importnew.com/14688.html">深入理解java异常处理机制</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.importnew.com/26775.html">Java 中 9 个处理 Exception 的最佳实践</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.importnew.com/16725.html">Java常见异常及解释</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">blinkfox</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blinkfox.github.io/2018/10/28/hou-duan/java/java-yi-chang-zhi-shi-hui-zong/">https://blinkfox.github.io/2018/10/28/hou-duan/java/java-yi-chang-zhi-shi-hui-zong/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">blinkfox</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/10/29/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dan-li-mo-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Java面向对象设计之单例模式">
+                        
+                        <span class="card-title">Java面向对象设计之单例模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-10-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    软件设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/10/27/hou-duan/java/ni-xu-yao-zhi-dao-de-java-mei-ju-zhi-shi/">
+                    <div class="card-image">
+                        
+                        <img src="https://statics.sh1a.qingstor.com/2018/10/27/java-enum.jpg" class="responsive-img" alt="你需要知道的Java枚举知识">
+                        
+                        <span class="card-title">你需要知道的Java枚举知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-10-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2020</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">blinkfox</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">197k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "09";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

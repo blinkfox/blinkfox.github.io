@@ -1,0 +1,1908 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="GitLab CI/CD 介绍和使用, 闪烁之狐, Blinkfox">
+    <meta name="description" content="从来没有真正的绝境，只有心灵的迷途">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>GitLab CI/CD 介绍和使用 | 闪烁之狐</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="闪烁之狐" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">闪烁之狐</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">闪烁之狐</div>
+        <div class="logo-desc">
+            
+            从来没有真正的绝境，只有心灵的迷途
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://statics.sh1a.qingstor.com/2018/11/22/gitlab-ci-machine.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">GitLab CI/CD 介绍和使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/GitLab-CI/">
+                                <span class="chip bg-color">GitLab CI</span>
+                            </a>
+                        
+                            <a href="/tags/DevOps/">
+                                <span class="chip bg-color">DevOps</span>
+                            </a>
+                        
+                            <a href="/tags/Jenkins/">
+                                <span class="chip bg-color">Jenkins</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
+                                软件工具
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-11-22
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        <!-- 代码块折行 -->
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、持续集成介绍"><a href="#一、持续集成介绍" class="headerlink" title="一、持续集成介绍"></a>一、持续集成介绍</h2><blockquote>
+<p>持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试)来验证，从而尽快地发现集成错误。许多团队发现这个过程可以大大减少集成的问题，让团队能够更快的开发内聚的软件。—— Martin Fowler</p>
+</blockquote>
+<h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h3><ul>
+<li><strong>持续集成</strong>(<code>Continuous Integration</code>)：<strong>频繁地(一天多次)将代码集成到主干。</strong>让产品可以快速迭代，同时还能保持高质量。它的核心措施是，代码集成到主干之前，必须通过自动化测试。只要有一个测试用例失败，就不能集成。“持续集成并不能消除 Bug，而是让它们非常容易发现和改正。”</li>
+<li><strong>持续交付</strong>(<code>Continuous Delivery</code>)：<strong>频繁地将软件的新版本，交付给质量团队或者用户，以供评审。</strong>如果评审通过，代码就进入生产阶段。持续交付可以看作持续集成的下一步。它强调的是，不管怎么更新，软件是随时随地可以交付的。</li>
+<li><strong>持续部署</strong>(<code>continuous Deployment</code>)：<strong>代码通过评审以后，自动部署到生产环境。</strong>是持续部署是持续交付的下一步，持续部署的目标是，代码在任何时刻都是可部署的，可以进入生产阶段。</li>
+</ul>
+<h3 id="2-持续集成的好处"><a href="#2-持续集成的好处" class="headerlink" title="2 持续集成的好处"></a>2 持续集成的好处</h3><ul>
+<li><strong>自动化构建且状态对每个人可见</strong>。可以使用<code>Maven</code>、<code>Gradle</code>等来实现自动化构建，可以在构建过程中实现自动化测试（前提是有写单元测试用例）。集成服务器在持续集成过程中发现问题可以及时发送警告给相关的干系人。</li>
+<li><strong>解放了重复性劳动。</strong>自动化部署工作可以解放集成、测试、部署等重复性劳动，而机器集成的频率明显比手工高很多。</li>
+<li><strong>更快地发现和修复问题。</strong>持续集成更早的获取变更，更早的进入测试，更早的发现问题，解决问题的成本显著下降。</li>
+<li><strong>更快的交付成果。</strong>更早发现错误减少解决错误所需的工作量。集成服务器在构建环节发现错误可以及时通知开发人员修复。集成服务器在部署环节发现错误可以回退到上一版本，服务器始终有一个可用的版本。</li>
+<li><strong>减少手工的错误。</strong>在重复性动作上，人容易犯错，而机器犯错的几率几乎为零。</li>
+<li><strong>减少了等待时间。</strong>缩短了从开发、集成、测试、部署各个环节的时间，从而也就缩短了中间可以出现的等待时机。持续集成，意味着开发、集成、测试、部署也得以持续。</li>
+<li><strong>更高的产品质量。</strong>集成服务器往往提供代码质量检测等功能，对不规范或有错误的地方会进行标致，也可以设置邮件和短信等进行警告。</li>
+</ul>
+<h3 id="3-常用持续集成工具"><a href="#3-常用持续集成工具" class="headerlink" title="3 常用持续集成工具"></a>3 常用持续集成工具</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://jenkins.io/">Jenkins</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/ci/README.html">GitLab CI</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jetbrains.com/teamcity/">TeamCity</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.travis-ci.org/">Travis CI</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.atlassian.com/software/bamboo">Bamboo</a></li>
+<li><a target="_blank" rel="noopener" href="https://circleci.com/">CircleCI</a></li>
+<li>…</li>
+</ul>
+<h2 id="二、Gitlab-持续集成"><a href="#二、Gitlab-持续集成" class="headerlink" title="二、Gitlab 持续集成"></a>二、Gitlab 持续集成</h2><p><img src="https://statics.sh1a.qingstor.com/2018/11/22/pipelines.png" alt="GitLab CI/CD"></p>
+<h3 id="1-概念介绍"><a href="#1-概念介绍" class="headerlink" title="1 概念介绍"></a>1 概念介绍</h3><h4 id="1-GitLab"><a href="#1-GitLab" class="headerlink" title="(1) GitLab"></a>(1) GitLab</h4><p><a target="_blank" rel="noopener" href="https://about.gitlab.com/">GitLab</a> 是一个利用<code>Ruby on Rails</code>开发的开源应用程序，实现一个自托管的 Git 项目仓库，可通过 Web 界面进行访问公开的或者私人项目。它拥有与<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。</p>
+<h4 id="2-GitLab-CI-CD"><a href="#2-GitLab-CI-CD" class="headerlink" title="(2) GitLab CI/CD"></a>(2) GitLab CI/CD</h4><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/ci/README.html">GitLab CI/CD</a> 是<code>GitLab Continuous Integration</code>（Gitlab持续集成）的简称。GitLab 自<code>GitLab 8.0</code>开始提供了持续集成的功能，且对所有项目默认开启。只要在项目仓库的根目录添加<code>.gitlab-ci.yml</code>文件，并且配置了Runner（运行器），那么每一次<code>push</code>或者合并请求（<code>Merge Request</code>）都会触发<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/pipelines.html">CI Pipeline</a>。</p>
+<h4 id="3-GitLab-Runner"><a href="#3-GitLab-Runner" class="headerlink" title="(3) GitLab Runner"></a>(3) GitLab Runner</h4><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner/">GitLab Runner</a> <code>GitLab Runner</code>是一个开源项目，可以运行在 GNU / Linux，macOS 和 Windows 操作系统上。每次<code>push</code>的时候 GitLab CI 会根据<code>.gitlab-ci.yml</code>配置文件运行你流水线（<code>Pipeline</code>）中各个阶段的任务（<code>Job</code>），并将结果发送回 GitLab。GitLab Runner 是基于 Gitlab CI 的 API 进行构建的相互隔离的机器（或虚拟机）。GitLab Runner 不需要和 Gitlab 安装在同一台机器上，且考虑到 GitLab Runner 的资源消耗问题和安全问题，也不建议这两者安装在同一台机器上。</p>
+<p>Gitlab Runner 分为三种：</p>
+<ul>
+<li>共享Runner(<code>Shared runners</code>)</li>
+<li>专享Runner(<code>Specific runners</code>)</li>
+<li>分组Runner(<code>Group Runners</code>)</li>
+</ul>
+<h4 id="4-Pipelines"><a href="#4-Pipelines" class="headerlink" title="(4) Pipelines"></a>(4) Pipelines</h4><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/pipelines.html">Pipelines</a> 中文称为流水线，是分阶段执行的构建任务。如：安装依赖、运行测试、打包、部署开发服务器、部署生产服务器等流程。每一次<code>push</code>或者<code>Merge Request</code>都会触发生成一条新的Pipeline。</p>
+<p>下面是流水线示例图：</p>
+<p><img src="https://docs.gitlab.com/ce/ci/img/pipelines_index.png" alt="Pipeline Status"></p>
+<h4 id="5-Stages"><a href="#5-Stages" class="headerlink" title="(5) Stages"></a>(5) Stages</h4><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/yaml/README.html#stages">Stages</a> 表示构建阶段，可以理解为上面所说“安装依赖”、“运行测试”等环节的流程。我们可以在一次 Pipeline 中定义多个 Stages，这些 Stages 会有以下特点：</p>
+<ul>
+<li>所有 Stages 会按照顺序运行，即当一个 Stage 完成后，下一个 Stage 才会开始（当然可以在<code>.gitlab-ci.yml</code>文件中配置上一阶段失败时下一阶段也执行）</li>
+<li>只有当所有 Stages 完成后，该构建任务 (Pipeline) 才会成功</li>
+<li>如果任何一个 Stage 失败，那么后面的 Stages 不会执行，该构建任务 (Pipeline) 失败</li>
+</ul>
+<p>下面是一个流水线内的阶段任务示例图：</p>
+<p><img src="https://docs.gitlab.com/ce/ci/img/pipelines.png" alt="Job Status"></p>
+<h4 id="6-Jobs"><a href="#6-Jobs" class="headerlink" title="(6) Jobs"></a>(6) Jobs</h4><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/pipelines.html#jobs">Jobs</a> 表示构建的作业（或称之为任务），表示某个 Stage 里面执行的具体任务。我们可以在 Stages 里面定义多个 Jobs，这些 Jobs 会有以下特点：</p>
+<ul>
+<li>相同 Stage 中的 Jobs 无执行顺序要求，会并行执行</li>
+<li>相同 Stage 中的 Jobs 都执行成功时，该 Stage 才会成功</li>
+<li>如果任何一个 Job 失败，那么该 Stage 失败，即该构建任务 (Pipeline) 也失败（可以在<code>.gitlab-ci.yml</code>文件中配置允许某 Job 可以失败，也算该 Stage 成功）</li>
+</ul>
+<h4 id="7-gitlab-ci-yml"><a href="#7-gitlab-ci-yml" class="headerlink" title="(7) .gitlab-ci.yml"></a>(7) .gitlab-ci.yml</h4><p>GitLab 中默认开启了 Gitlab CI/CD 的支持，且使用<a target="_blank" rel="noopener" href="http://yaml.org/">YAML</a>文件<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/ci/yaml/README.html#examples">.gitlab-ci.yml</a>来管理项目构建配置。该文件需要存放于项目仓库的根目录（默认路径，可在 GitLab 中修改），它定义该项目的 CI/CD 如何配置。所以，我们只需要在<code>.gitlab-ci.yml</code>配置文件中定义流水线的各个阶段，以及各个阶段中的若干作业（任务）即可。</p>
+<p>下面是<code>.gitlab-ci.yml</code>文件的一个简单的<code>Hello World</code>示例：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 定义 test 和 package 两个 Stages</span>
+<span class="token key atrule">stages</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> test
+  <span class="token punctuation">-</span> package
+
+<span class="token comment"># 定义 package 阶段的一个 job</span>
+<span class="token key atrule">package-job</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> package
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> echo "Hello<span class="token punctuation">,</span> package<span class="token punctuation">-</span>job"
+    <span class="token punctuation">-</span> echo "I am in package stage"
+
+<span class="token comment"># 定义 test 阶段的一个 job</span>
+<span class="token key atrule">test-job</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> echo "Hello<span class="token punctuation">,</span> test<span class="token punctuation">-</span>job"
+    <span class="token punctuation">-</span> echo "I am in test stage"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上配置中，用 stages 关键字来定义 Pipeline 中的各个构建阶段，然后用一些非关键字来定义 jobs。每个 job 中可以可以再用 stage 关键字来指定该 job 对应哪个 stage。job 里面的<code>script</code>关键字是每个 job 中必须要包含的，它表示每个 job 要执行的命令。</p>
+<blockquote>
+<p><strong>注</strong>：猜猜上面例子的运行结果？</p>
+</blockquote>
+<h4 id="8-Badges"><a href="#8-Badges" class="headerlink" title="(8) Badges"></a>(8) Badges</h4><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/pipelines.html#badges">Badges</a> 即：<strong>徽章</strong>，当 Pipelines 执行过程中或者执行完成时会生成徽章，你可以将这些徽章加入到你的<code>README.md</code>文件中，便于从仓库主页看到最新的构建状态。</p>
+<p>徽章的链接形如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http://example.gitlab.com/namespace/project/badges/branch/build.svg <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我们用 GitLab 项目的徽章作为例子，效果如下：</p>
+<p><img src="https://gitlab.com/gitlab-org/gitlab-ce/badges/master/build.svg" alt="Gitlab build badges"> <img src="https://gitlab.com/gitlab-org/gitlab-ce/badges/master/coverage.svg?job=coverage" alt="Gitlab coverage badges"></p>
+<h3 id="2-安装-GitLab-Runner"><a href="#2-安装-GitLab-Runner" class="headerlink" title="2 安装 GitLab Runner"></a>2 安装 GitLab Runner</h3><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner/install/index.html">这里</a>有 GitLab Runner安装相关的资源和文档可供大家参考。以下仅以咱们公司常用的<code>Centos</code>为例来做安装说明。</p>
+<h4 id="1-在线安装"><a href="#1-在线安装" class="headerlink" title="(1) 在线安装"></a>(1) 在线安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加官方的repo.</span>
+<span class="token function">curl</span> -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">bash</span>
+
+<span class="token comment"># yum 安装Gtilab Runner.</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> gitlab-runner<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-离线安装"><a href="#2-离线安装" class="headerlink" title="(2) 离线安装"></a>(2) 离线安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装Git</span>
+<span class="token function">sudo</span> yum –y <span class="token function">install</span> <span class="token function">git</span>
+
+<span class="token comment"># rpm离线安装事先下载好的 Gitlab Runner rpm包.</span>
+<span class="token function">rpm</span> -ivh gitlab-runner-10.5.0-1.x86_64.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注</strong>：Gitlab Runner 依赖了<code>Git</code>，所以，离线安装 Gitlab Runner 之前得首先安装Git，离线安装包可以从<a target="_blank" rel="noopener" href="https://packages.gitlab.com/runner/gitlab-runner">这里</a>下载。</p>
+</blockquote>
+<h3 id="3-注册-Gitlab-Runner"><a href="#3-注册-Gitlab-Runner" class="headerlink" title="3 注册 Gitlab Runner"></a>3 注册 Gitlab Runner</h3><p>安装了 GitLab Runner 之后,就可以为 GitLab 中的仓库<a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner/register/index.html">注册一个 Runner</a>，注册的交互式命令如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> gitlab-runner register<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>命令的交互式的过程如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 输入注册命令</span>
+<span class="token function">sudo</span> gitlab-runner register
+
+<span class="token comment"># 输入公司的 GitLab 网站地址</span>
+Please enter the gitlab-ci coordinator URL <span class="token punctuation">(</span>e.g. https://gitlab.com <span class="token punctuation">)</span>
+http://gitlab.xxxx.com/
+
+<span class="token comment"># 你项目仓库的token，token可以在 Settings -> CI/CD -> Runners settings 中找到.</span>
+Please enter the gitlab-ci token <span class="token keyword">for</span> this runner
+xxx
+
+<span class="token comment"># 输入描述这个 runner 的名称</span>
+Please enter the gitlab-ci description <span class="token keyword">for</span> this runner
+<span class="token punctuation">[</span>hostame<span class="token punctuation">]</span> my-runner
+
+<span class="token comment"># 输入 runner 的标签</span>
+Please enter the gitlab-ci tags <span class="token keyword">for</span> this runner <span class="token punctuation">(</span>comma separated<span class="token punctuation">)</span>:
+my-tag,another-tag
+
+<span class="token comment"># 输入 runner 的执行器.</span>
+Please enter the executor: ssh, docker+machine, docker-ssh+machine, kubernetes, docker, parallels, virtualbox, docker-ssh, shell:
+shell<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上流程注册成功之后，就可以在你的项目仓库中 <code>Settings</code> -&gt; <code>CI/CD</code> -&gt; <code>Runners settings</code> 看到这个 Runner 了。</p>
+<h3 id="4-Gitlab-Runner-常用命令汇总"><a href="#4-Gitlab-Runner-常用命令汇总" class="headerlink" title="4 Gitlab Runner 常用命令汇总"></a>4 Gitlab Runner 常用命令汇总</h3><p>下面的表格中列出了一些常用的<a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner/commands/README.html#gitlab-runner-list">Gitlab Runner命令</a>，以供参考：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gitlab-runner run</td>
+<td align="left">运行一个runner服务</td>
+</tr>
+<tr>
+<td>gitlab-runner register</td>
+<td align="left">注册一个新的runner</td>
+</tr>
+<tr>
+<td>gitlab-runner start</td>
+<td align="left">启动服务</td>
+</tr>
+<tr>
+<td>gitlab-runner stop</td>
+<td align="left">关闭服务</td>
+</tr>
+<tr>
+<td>gitlab-runner restart</td>
+<td align="left">重启服务</td>
+</tr>
+<tr>
+<td>gitlab-runner status</td>
+<td align="left">查看各个runner的状态</td>
+</tr>
+<tr>
+<td>gitlab-runner unregister</td>
+<td align="left">注销掉某个runner</td>
+</tr>
+<tr>
+<td>gitlab-runner list</td>
+<td align="left">显示所有运行着的runner</td>
+</tr>
+<tr>
+<td>gitlab-runner verify</td>
+<td align="left">检查已注册的运行程序是否可以连接到GitLab，但它不验证GitLab Runner服务是否正在使用运行程序。</td>
+</tr>
+</tbody></table>
+<h2 id="三、一个Web项目-CI-CD-简单示例"><a href="#三、一个Web项目-CI-CD-简单示例" class="headerlink" title="三、一个Web项目 CI/CD 简单示例"></a>三、一个Web项目 CI/CD 简单示例</h2><p>接下来，用一个实际项目来演示 GitLab CI/CD 的配置和使用，其中主要包括：编译测试、项目打包、部署服务、Sonar手动检查、Sonar定时检查五个阶段。</p>
+<p>下面用一个传统的 Java web 项目(这里称之为<code>cidemo</code>)和<code>Tomcat</code>来作为示例，并用来展示常用配置的使用。当我每次<code>push</code>代码或者<code>Merge Request</code>时，都会生成一条流水线，且会自动执行我们上面所说的一些阶段，而Sonar手动检查我们设置为手动操作，且再额外配置Sonar定时检查的任务。</p>
+<blockquote>
+<p><strong>注</strong>：我 Gitlab Runner 是安装在<code>Centos</code>环境中，并使用的<code>shell</code>执行器。</p>
+</blockquote>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 定义stages</span>
+<span class="token key atrule">stages</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> test
+  <span class="token punctuation">-</span> install
+  <span class="token punctuation">-</span> run
+  <span class="token punctuation">-</span> sonar
+
+<span class="token comment"># 定义安装包的存放位置和Tomcat服务器的地址的变量，便于后续部署使用.</span>
+<span class="token key atrule">variables</span><span class="token punctuation">:</span>
+  <span class="token key atrule">CIDEMO_PACKAGE_DIR</span><span class="token punctuation">:</span> <span class="token string">'/home/gitlab-runner/packages/cidemo/'</span>
+  <span class="token key atrule">SERVER_HOME_DIR</span><span class="token punctuation">:</span> <span class="token string">'/home/gitlab-runner/tomcat/cidemo-tomcat/'</span>
+
+<span class="token comment">###################### 构建编译和单元测试的job. #######################</span>
+
+<span class="token key atrule">编译测试任务</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> branches
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> mvn clean test
+
+<span class="token comment">###################### Maven安装得到war包的job. #######################</span>
+
+<span class="token key atrule">打包任务</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> install
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> develop
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> mvn install
+    <span class="token punctuation">-</span> echo '准备将最新的war包复制、保存到某个目录里面供后续使用.'
+    <span class="token punctuation">-</span> rm <span class="token punctuation">-</span>rf $CIDEMO_PACKAGE_DIR/<span class="token important">*.war</span>
+    <span class="token punctuation">-</span> cp target/<span class="token important">*.war</span> $CIDEMO_PACKAGE_DIR/cidemo.war
+
+<span class="token comment">####################### 部署运行war包的job. #######################</span>
+
+<span class="token key atrule">部署运行任务</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> run
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> develop
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> echo '准备部署和运行war包！(为了方便部署到了Tomcat中运行)'
+    <span class="token punctuation">-</span> cd $SERVER_HOME_DIR
+    <span class="token punctuation">-</span> sh bin/shutdown.sh
+    <span class="token punctuation">-</span> rm <span class="token punctuation">-</span>rf webapps/cidemo.war
+    <span class="token punctuation">-</span> cp $CIDEMO_PACKAGE_DIR/cidemo.war $SERVER_HOME_DIR/webapps/cidemo.war
+    <span class="token punctuation">-</span> nohup sh ./bin/startup.sh <span class="token punctuation">></span> logs/cidemo_nohup.log 2<span class="token punctuation">></span><span class="token important">&amp;1</span> &amp;
+
+<span class="token comment">###################### Sonar手动构建的job. #######################</span>
+
+<span class="token key atrule">Sonar手动检查</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> sonar
+  <span class="token key atrule">when</span><span class="token punctuation">:</span> manual
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> develop
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> echo '准备对项目代码做sonar的质量检查！'
+    <span class="token punctuation">-</span> mvn compile <span class="token important">&amp;&amp;</span> mvn sonar<span class="token punctuation">:</span>sonar <span class="token punctuation">-</span>Dsonar.host.url=http<span class="token punctuation">:</span>//172.16.34.102<span class="token punctuation">:</span>9000 <span class="token punctuation">-</span>Dsonar.login=497a0e0e2fc07f64c4b54edc17bb47dfa251ba34
+
+<span class="token comment">###################### Sonar每晚定时构建的job. #######################</span>
+
+<span class="token key atrule">Sonar定时检查</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> sonar
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> schedules
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> echo '开始定时对项目代码做sonar的质量检查！'
+    <span class="token punctuation">-</span> mvn compile <span class="token important">&amp;&amp;</span> mvn sonar<span class="token punctuation">:</span>sonar <span class="token punctuation">-</span>Dsonar.host.url=http<span class="token punctuation">:</span>//172.16.34.102<span class="token punctuation">:</span>9000 <span class="token punctuation">-</span>Dsonar.login=497a0e0e2fc07f64c4b54edc17bb47dfa251ba34<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="四、Gitlab-CI-CD-yaml-常用配置介绍"><a href="#四、Gitlab-CI-CD-yaml-常用配置介绍" class="headerlink" title="四、Gitlab CI/CD yaml 常用配置介绍"></a>四、Gitlab CI/CD yaml 常用配置介绍</h2><p>开始构建之前<code>.gitlab-ci.yml</code>文件定义了一系列带有约束说明的任务。这些任务都是以任务名开始并且至少要包含script部分，<code>.gitlab-ci.yml</code>允许指定无限量 jobs。每个 jobs 必须有一个唯一的名字，且名字不能是下面列出的保留字段：</p>
+<ul>
+<li><code>image</code></li>
+<li><code>services</code></li>
+<li><code>stages</code></li>
+<li><code>types</code></li>
+<li><code>before_script</code></li>
+<li><code>after_script</code></li>
+<li><code>variables</code></li>
+<li><code>cache</code></li>
+</ul>
+<p>job由一列参数来定义 jobs 的行为：</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>script</td>
+<td>yes</td>
+<td>Runner执行的命令或脚本</td>
+</tr>
+<tr>
+<td>extends</td>
+<td>no</td>
+<td>定义此作业将继承的配置条目</td>
+</tr>
+<tr>
+<td>image</td>
+<td>no</td>
+<td>所使用的docker镜像，查阅<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml">使用docker镜像</a></td>
+</tr>
+<tr>
+<td>services</td>
+<td>no</td>
+<td>所使用的docker服务，查阅<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml">使用docker镜像</a></td>
+</tr>
+<tr>
+<td>stage</td>
+<td>no</td>
+<td>定义job stage（默认：<code>test</code>）</td>
+</tr>
+<tr>
+<td>type</td>
+<td>no</td>
+<td><code>stage</code>的别名（已弃用）</td>
+</tr>
+<tr>
+<td>variables</td>
+<td>no</td>
+<td>定义job级别的变量</td>
+</tr>
+<tr>
+<td>only</td>
+<td>no</td>
+<td>定义一列git分支，并为其创建job</td>
+</tr>
+<tr>
+<td>except</td>
+<td>no</td>
+<td>定义一列git分支，不创建job</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>no</td>
+<td>定义一列tags，用来指定选择哪个Runner（同时Runner也要设置tags）</td>
+</tr>
+<tr>
+<td>allow_failure</td>
+<td>no</td>
+<td>允许job失败。失败的job不影响commit状态</td>
+</tr>
+<tr>
+<td>when</td>
+<td>no</td>
+<td>定义何时开始job。可以是<code>on_success</code>，<code>on_failure</code>，<code>always</code>或者<code>manual</code></td>
+</tr>
+<tr>
+<td>dependencies</td>
+<td>no</td>
+<td>定义job依赖关系，这样他们就可以互相传递artifacts</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>no</td>
+<td>定义应在后续运行之间缓存的文件列表</td>
+</tr>
+<tr>
+<td>before_script</td>
+<td>no</td>
+<td>重写一组在作业前执行的命令</td>
+</tr>
+<tr>
+<td>after_script</td>
+<td>no</td>
+<td>重写一组在作业后执行的命令</td>
+</tr>
+<tr>
+<td>environment</td>
+<td>no</td>
+<td>定义此作业完成部署的环境名称</td>
+</tr>
+<tr>
+<td>coverage</td>
+<td>no</td>
+<td>定义给定作业的代码覆盖率设置</td>
+</tr>
+<tr>
+<td>etry</td>
+<td>no</td>
+<td>定义在发生故障时可以自动重试作业的时间和次数</td>
+</tr>
+<tr>
+<td>parallel</td>
+<td>no</td>
+<td>定义应并行运行的作业实例数</td>
+</tr>
+</tbody></table>
+<h3 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h3><blockquote>
+<p>是在 GitLab 11.3 中引入的。</p>
+</blockquote>
+<p><code>extends</code>定义了一个使用<code>extends</code>的作业将继承的条目名称。它是使用<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/ci/yaml/README.html#anchors">YAML锚点</a>的替代方案，并且更加灵活和可读：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">.tests</span><span class="token punctuation">:</span>
+  <span class="token key atrule">script</span><span class="token punctuation">:</span> rake test
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token key atrule">refs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> branches
+
+<span class="token key atrule">rspec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">extends</span><span class="token punctuation">:</span> .tests
+  <span class="token key atrule">script</span><span class="token punctuation">:</span> rake rspec
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token key atrule">variables</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> $RSPEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在上面的示例中，<code>rspec</code>作业继承自<code>.tests</code>模板作业。 GitLab 将根据键执行反向深度合并。 GitLab将：</p>
+<ul>
+<li>将<code>rspec</code>内容以递归方式合并到<code>.tests</code>中。</li>
+<li>不合并键的值。</li>
+</ul>
+<p>这实际生成的是以下<code>rspec</code>作业：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">rspec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">script</span><span class="token punctuation">:</span> rake rspec
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token key atrule">refs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> branches
+    <span class="token key atrule">variables</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> $RSPEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注</strong>: <code>rake test</code>已被<code>rake rspec</code>脚本覆盖。</p>
+</blockquote>
+<h3 id="image-和-services"><a href="#image-和-services" class="headerlink" title="image 和 services"></a>image 和 services</h3><p>这两个关键字允许使用一个自定义的 Docker 镜像和一系列的服务，并且可以用于整个 job 周期。详细配置文档请查看<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/ci/docker/README.html">a separate document</a>。</p>
+<h3 id="before-script-和-after-script"><a href="#before-script-和-after-script" class="headerlink" title="before_script 和 after_script"></a>before_script 和 after_script</h3><p><code>before_script</code>用来定义所有 job 之前运行的命令，<code>after_script</code>用来定义所有 job 之后运行的命令。它们可以是一个数组或者是多行字符串。</p>
+<h3 id="stages"><a href="#stages" class="headerlink" title="stages"></a>stages</h3><p>stages 用来定义可以被 job 调用的 stages。stages 的规范允许有灵活的多级 pipelines。</p>
+<p>stages中的元素顺序决定了对应job的执行顺序：</p>
+<ol>
+<li>相同 stage 的 job 可以平行执行。</li>
+<li>下一个 stage 的 job 会在前一个 stage 的 job 成功后开始执行。</li>
+</ol>
+<p>接下仔细看看这个例子，它包含了3个 stage：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">stages</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> build
+ <span class="token punctuation">-</span> test
+ <span class="token punctuation">-</span> deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>首先，所有 build 的 jobs 都是并行执行的。</li>
+<li>所有 build 的 jobs 执行成功后，test 的 jobs 才会开始并行执行。</li>
+<li>所有 test 的 jobs 执行成功，deploy 的 jobs 才会开始并行执行。</li>
+<li>所有的 deploy 的 jobs 执行成功，<code>commit</code>才会标记为<code>success</code>。</li>
+<li>任何一个前置的 jobs 失败了，<code>commit</code>会标记为<code>failed</code>并且下一个 stages 的 jobs 都不会执行。</li>
+</ol>
+<p>这有两个特殊的例子值得一提：</p>
+<ol>
+<li>如果<code>.gitlab-ci.yml</code>中没有定义stages，那么 job’s stages 会默认定义为<code>build</code>，<code>test</code>和<code>deploy</code>。</li>
+<li>如果一个 job 没有指定 stage，那么这个任务会分配到 test stage。</li>
+</ol>
+<h3 id="only-和-except"><a href="#only-和-except" class="headerlink" title="only 和 except"></a>only 和 except</h3><p><code>only</code>和<code>except</code>是两个参数用分支策略来限制 jobs 构建：</p>
+<ul>
+<li><code>only</code>定义哪些分支和标签的git项目将会被job执行。</li>
+<li><code>except</code>定义哪些分支和标签的git项目将不会被job执行。</li>
+</ul>
+<p>下面是refs策略的使用规则：</p>
+<ul>
+<li>only 和 except 可同时使用。如果<code>only</code>和<code>except</code>在一个 job 配置中同时存在，则以 only 为准，跳过 except(从下面示例中得出)。</li>
+<li>only 和 except 可以使用正则表达式。</li>
+<li>only 和 except 允许使用特殊的关键字：<code>branches</code>，<code>tags</code>和<code>triggers</code>。</li>
+<li>only 和 except 允许使用指定仓库地址但不是forks的仓库(查看示例3)。</li>
+</ul>
+<p>在下面这个例子中，job 将只会运行以<code>issue-</code>开始的refs(分支)，然而<code>except</code>中设置将被跳过。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">job</span><span class="token punctuation">:</span>
+  <span class="token comment"># use regexp</span>
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> /^issue<span class="token punctuation">-</span>.<span class="token important">*$/</span>
+  <span class="token comment"># use special keyword</span>
+  <span class="token key atrule">except</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> branches<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在下面这个例子中，job 将只会执行有<code>tags</code>的refs，或者通过<code>API</code>触发器明确地请求构建。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">job</span><span class="token punctuation">:</span>
+  <span class="token comment"># use special keywords</span>
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> tags
+    <span class="token punctuation">-</span> triggers<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下面这个例子将会为所有的分支执行job，但 master 分支除外。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">job</span><span class="token punctuation">:</span>
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> branches@gitlab<span class="token punctuation">-</span>org/gitlab<span class="token punctuation">-</span>ce
+  <span class="token key atrule">except</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> master@gitlab<span class="token punctuation">-</span>org/gitlab<span class="token punctuation">-</span>ce<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="variables"><a href="#variables" class="headerlink" title="variables"></a>variables</h3><p>GItLab CI 允许在<code>.gitlab-ci.yml</code>文件中添加变量，并在 job 环境中起作用。因为这些配置是存储在 git 仓库中，所以<strong>最好是存储项目的非敏感配置</strong>，例如：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">variables</span><span class="token punctuation">:</span>
+  DATABASE_URL<span class="token punctuation">:</span><span class="token string">"postgres://postgres@postgres/my_database"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这些变量可以被后续的命令和脚本使用。</p>
+<p>除了用户自定义的变量外，Runner 也可以定义它自己的变量。<code>CI_COMMIT_REG_NAME</code>就是一个很好的例子，它的值表示用于构建项目的分支或tag名称。除了在<code>.gitlab-ci.yml</code>中设置变量外，还有可以通过 GitLab 的界面上设置私有变量。</p>
+<p>这里有更多关于<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/variables/README.html">variables</a>的介绍。</p>
+<h3 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h3><h4 id="cache-paths"><a href="#cache-paths" class="headerlink" title="cache: paths"></a>cache: paths</h4><p>使用<code>paths</code>指令选择要缓存的文件或目录。也可以使用通配符。</p>
+<p>如果 cache 定义在 jobs 的作用域之外，那么它就是全局缓存，所有 jobs 都可以使用该缓存。</p>
+<p>缓存<code>binaries</code>和<code>.config</code>中的所有文件：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">rspec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">script</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">cache</span><span class="token punctuation">:</span>
+    <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> binaries/
+    <span class="token punctuation">-</span> .config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>缓存<code>git</code>中没有被跟踪的文件：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">rspec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">script</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">cache</span><span class="token punctuation">:</span>
+    <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>缓存<code>binaries</code>下没有被<code>git</code>跟踪的文件：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">rspec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">script</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">cache</span><span class="token punctuation">:</span>
+    <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> binaries/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>job 中优先级高于全局的。下面这个<code>rspec</code> job中将只会缓存<code>binaries/</code>下的文件：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">cache</span><span class="token punctuation">:</span>
+  <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> my/files
+
+<span class="token key atrule">rspec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">script</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">cache</span><span class="token punctuation">:</span>
+    <span class="token key atrule">key</span><span class="token punctuation">:</span> rspec
+    <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> binaries/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意，缓存是在 jobs 之前进行共享的。如果你不同的 jobs 缓存不同的文件路径，必须设置不同的<code>cache:key</code>，否则缓存内容将被重写。缓存只是尽力而为之，所以别期望缓存会一直存在。</p>
+<h4 id="cache-key"><a href="#cache-key" class="headerlink" title="cache: key"></a>cache: key</h4><p><code>key</code>指令允许我们定义缓存的作用域(亲和性)，可以是所有 jobs 的单个缓存，也可以是每个 job，也可以是每个分支或者是任何你认为合适的地方。它也可以让你很好的调整缓存，允许你设置不同 jobs 的缓存，甚至是不同分支的缓存。</p>
+<p><code>cache:key</code>可以使用任何的<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/variables/README.html">预定义变量</a>。</p>
+<p>默认key是默认设置的这个项目缓存，因此默认情况下，从GitLab 9.0开始，每个 pipelines 和 jobs 中可以共享一切。</p>
+<p>配置示例</p>
+<p>缓存每个job：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">cache</span><span class="token punctuation">:</span>
+  <span class="token key atrule">key</span><span class="token punctuation">:</span> <span class="token string">"$CI_JOB_NAME"</span>
+  <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>缓存每个分支：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">cache</span><span class="token punctuation">:</span>
+  <span class="token key atrule">key</span><span class="token punctuation">:</span> <span class="token string">"$CI_COMMIT_REF_NAME"</span>
+  <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>缓存每个 job 且每个分支：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">cache</span><span class="token punctuation">:</span>
+  <span class="token key atrule">key</span><span class="token punctuation">:</span> <span class="token string">"$CI_JOB_NAME/$CI_COMMIT_REF_NAME"</span>
+  <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>缓存每个分支且每个stage：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">cache</span><span class="token punctuation">:</span>
+  <span class="token key atrule">key</span><span class="token punctuation">:</span> <span class="token string">"$CI_JOB_STAGE/$CI_COMMIT_REF_NAME"</span>
+  <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>如果使用的Windows Batch(windows批处理)来跑脚本需要用%替代$：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">cache</span><span class="token punctuation">:</span>
+  <span class="token key atrule">key</span><span class="token punctuation">:</span> <span class="token string">"%CI_JOB_STAGE%/%CI_COMMIT_REF_NAME%"</span>
+  <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="allow-failure"><a href="#allow-failure" class="headerlink" title="allow_failure"></a>allow_failure</h3><p><code>allow_failure</code>可以用于当你想设置一个 job 失败的之后并不影响后续的CI组件的时候。失败的 jobs 不会影响到<code>commit</code>状态。</p>
+<p>当开启了允许 job 失败，所有的 intents 和 purposes 里的 pipeline 都是成功/绿色，但是也会有一个”<code>CI build passed with warnings</code>“信息显示在<code>Merge Request</code>或<code>commit</code>或<code>job page</code>。这被允许失败的作业使用，但是如果失败表示其他地方应采取其他（手动）步骤。</p>
+<p>下面的这个例子中，job1和job2将会并列进行，如果job1失败了，它也不会影响进行中的下一个 stage，因为这里有设置了<code>allow_failure: true</code>。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">job1</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> execute_script_that_will_fail
+  <span class="token key atrule">allow_failure</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+<span class="token key atrule">job2</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> execute_script_that_will_succeed
+
+<span class="token key atrule">job3</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> deploy
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> deploy_to_staging<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="when"><a href="#when" class="headerlink" title="when"></a>when</h3><p><code>when</code>用于实现在发生故障或尽管失败时运行的作业。when可以设置以下值：</p>
+<ul>
+<li><code>on_success</code> - 只有前面 stages 的所有工作成功时才执行。这是默认值。</li>
+<li><code>on_failure</code> - 当前面 stages 中任意一个jobs失败后执行。</li>
+<li><code>always</code> - 无论前面 stages 中 jobs 状态如何都执行。</li>
+<li><code>manual</code> - 手动执行(GitLab8.10增加)。更多请查看手动操作。</li>
+</ul>
+<h3 id="artifacts"><a href="#artifacts" class="headerlink" title="artifacts"></a>artifacts</h3><p><code>artifacts</code>用于指定成功后应附加到 job 的文件和目录的列表。只能使用项目工作间内的文件或目录路径。在job成功完成后artifacts将会发送到GitLab中，同时也会在 GitLab UI 中提供下载。如果想要在不通的 job 之间传递<code>artifacts</code>，请查阅<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/yaml/README.html#dependencies">依赖关系</a>。以下是一些例子：</p>
+<p>发送<code>binaries</code>和<code>.config</code>中的所有文件：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">artifacts</span><span class="token punctuation">:</span>
+  <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> binaries/
+  <span class="token punctuation">-</span> .config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>发送所有没有被Git跟踪的文件：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">artifacts</span><span class="token punctuation">:</span>
+  <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>发送没有被Git跟踪和<code>binaries</code>中的所有文件：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">artifacts</span><span class="token punctuation">:</span>
+  <span class="token key atrule">untracked</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> binaries/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="五、其他相关内容"><a href="#五、其他相关内容" class="headerlink" title="五、其他相关内容"></a>五、其他相关内容</h2><h3 id="1-API触发器-Triggers"><a href="#1-API触发器-Triggers" class="headerlink" title="1 API触发器 Triggers"></a>1 API触发器 Triggers</h3><p>Triggers 可用于强制使用API调用重建特定分支，<code>tag</code>或<code>commits</code>。API的使用示例可以在<code>Settings</code> -&gt; <code>CI/CD</code> -&gt; <code>Pipeline triggers</code>中找到。</p>
+<p>在<code>triggers</code>文档中<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/triggers/README.html">查看更多</a>。</p>
+<h3 id="2-配置定时任务"><a href="#2-配置定时任务" class="headerlink" title="2 配置定时任务"></a>2 配置定时任务</h3><p>GitLab CI 中可以在 GitLab <code>Settings</code> -&gt; <code>CI/CD</code> -&gt; <code>Schedules</code>中配置定时任务，点击<code>New Schedule</code>按钮，可以配置你流水线的定时执行任务，包括：描述信息、定时的Cron表达式、目标分支、变量等信息。</p>
+<p>然后在需要定时执行的作业的<code>only</code>分支写上<code>schedules</code>即可。</p>
+<h3 id="3-校验-gitlab-ci-yml"><a href="#3-校验-gitlab-ci-yml" class="headerlink" title="3 校验 .gitlab-ci.yml"></a>3 校验 .gitlab-ci.yml</h3><p>GitLab CI 的每个实例都有一个名为<code>Lint</code>的嵌入式调试工具。 你可以在 GitLab 实例的<code>-/ci/lint</code>下找到该链接。</p>
+<h3 id="4-配置邮件发送"><a href="#4-配置邮件发送" class="headerlink" title="4 配置邮件发送"></a>4 配置邮件发送</h3><p>如果希望在每次构建完成后（或者在仅构建失败的情况下），想邮件发送给相关开发人员，则可以在 GitLab <code>Settings</code> -&gt; <code>Integrations</code> 中找到<code>Pipelines emails</code>，点击进去就可以配置邮件发送相关的内容了。</p>
+<h3 id="5-GitLab-Pages"><a href="#5-GitLab-Pages" class="headerlink" title="5 GitLab Pages"></a>5 GitLab Pages</h3><p><a target="_blank" rel="noopener" href="https://gitlab.com/pages/">GitLab Pages</a>是用于托管静态文件的服务。而<code>pages</code>是一个特殊的job，用于将静态的内容上传到GitLab，可用于为您的网站提供服务。它有特殊的语法，因此必须满足以下两个要求：</p>
+<ul>
+<li>任何静态内容必须放在<code>public/</code>目录下</li>
+<li>artifacts必须定义在<code>public/</code>目录下</li>
+</ul>
+<p>下面的这个例子是将所有文件从项目根目录移动到<code>public/</code>目录。<code>.public</code>工作流是<code>cp</code>，并且它不会循环复制<code>public/</code>本身。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pages</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> deploy
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> mkdir .public
+  <span class="token punctuation">-</span> cp <span class="token punctuation">-</span>r * .public
+  <span class="token punctuation">-</span> mv .public public
+  <span class="token key atrule">artifacts</span><span class="token punctuation">:</span>
+    <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> public
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>更多内容请查看<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/user/project/pages/index.html">GitLab Pages用户文档</a>。</p>
+<h3 id="6-跳过-jobs"><a href="#6-跳过-jobs" class="headerlink" title="6 跳过 jobs"></a>6 跳过 jobs</h3><p>如果你的<code>commit</code>信息中包含<code>[ci skip]</code>或者<code>[skip ci]</code>，不论大小写，那么这个<code>commit</code>将会创建但是 jobs 也会跳过。</p>
+<hr>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/yaml/README.html">官方文档地址</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010442764#articleHeader24">segmentfault yaml配置中文翻译</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">blinkfox</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blinkfox.github.io/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/">https://blinkfox.github.io/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">blinkfox</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/GitLab-CI/">
+                                    <span class="chip bg-color">GitLab CI</span>
+                                </a>
+                            
+                                <a href="/tags/DevOps/">
+                                    <span class="chip bg-color">DevOps</span>
+                                </a>
+                            
+                                <a href="/tags/Jenkins/">
+                                    <span class="chip bg-color">Jenkins</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/">
+                    <div class="card-image">
+                        
+                        <img src="https://statics.sh1a.qingstor.com/2018/11/24/design.jpg" class="responsive-img" alt="软件程序设计原则">
+                        
+                        <span class="card-title">软件程序设计原则</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-11-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    软件设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">面向对象编程</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+                        <span class="chip bg-color">设计原则</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/">
+                    <div class="card-image">
+                        
+                        <img src="https://statics.sh1a.qingstor.com/2018/11/19/vue.jpg" class="responsive-img" alt="Vue 文档风格的 Typora 主题">
+                        
+                        <span class="card-title">Vue 文档风格的 Typora 主题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-11-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    软件工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2020</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">blinkfox</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">197k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "09";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
