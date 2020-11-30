@@ -542,17 +542,15 @@ tags:
 
 ## Screenshot
 
-### Home
+![Index Page](https://statics.sh1a.qingstor.com/2018/12/02/matery-1.png)
 
-![首页](http://static.blinkfox.com/matery-20181202-1.png)
+![Index Recommend Page](https://statics.sh1a.qingstor.com/2018/12/02/matery-2.png)
 
-![首页推荐文章](http://static.blinkfox.com/matery-20181202-2.png)
+![Index Posts](https://statics.sh1a.qingstor.com/2018/12/02/matery-3.png)
 
-![首页文章列表](http://static.blinkfox.com/matery-20181202-3.png)
+![About Me](https://statics.sh1a.qingstor.com/2018/12/02/matery-4.png)
 
-![首页文章列表](http://static.blinkfox.com/matery-20181202-7.png)
-
-![首页文章列表](http://static.blinkfox.com/matery-20181202-8.png)
+![Post Detail](https://statics.sh1a.qingstor.com/2018/12/02/matery-5.png)
 
 ## Custom modification
 
