@@ -1,0 +1,1596 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PostgreSQL基础知识整理, 闪烁之狐, Blinkfox">
+    <meta name="description" content="从来没有真正的绝境，只有心灵的迷途">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>PostgreSQL基础知识整理 | 闪烁之狐</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="闪烁之狐" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">闪烁之狐</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">闪烁之狐</div>
+        <div class="logo-desc">
+            
+            从来没有真正的绝境，只有心灵的迷途
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://statics.sh1a.qingstor.com/2018/09/25/sql.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">PostgreSQL基础知识整理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PostgreSQL/">
+                                <span class="chip bg-color">PostgreSQL</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-09-25
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        <!-- 代码块折行 -->
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="数据库操作DML"><a href="#数据库操作DML" class="headerlink" title="数据库操作DML"></a>数据库操作DML</h2><h3 id="CREATE-TABLE"><a href="#CREATE-TABLE" class="headerlink" title="CREATE TABLE"></a>CREATE TABLE</h3><p><code>CREATE TABLE</code>语句用于创建数据库中的表。语法是：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> 表名称 <span class="token punctuation">(</span>
+列名<span class="token number">1</span> 数据类型<span class="token punctuation">,</span>
+列名<span class="token number">2</span> 数据类型<span class="token punctuation">,</span>
+列名<span class="token number">3</span> 数据类型<span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">user</span> <span class="token punctuation">(</span>
+id <span class="token keyword">integer</span><span class="token punctuation">,</span>
+user_name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+email <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+age <span class="token keyword">integer</span><span class="token punctuation">,</span>
+address <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>注意</strong>：字段类型<code>char</code>和<code>varchar</code>区别：</p>
+<ul>
+<li>容纳固定长度的字符串。</li>
+<li>容纳可变长度的字符串。</li>
+</ul>
+<h3 id="CONSTRAINT"><a href="#CONSTRAINT" class="headerlink" title="CONSTRAINT"></a>CONSTRAINT</h3><p>约束、限制，常见的约束如下：</p>
+<ul>
+<li><code>CHECK</code>(检查约束)</li>
+<li><code>NOT NULL</code>(非空约束)</li>
+<li><code>UNIQUE</code>(唯一约束)</li>
+<li><code>Primary Key</code>(主键)</li>
+<li><code>Foreign Key</code>(外键)</li>
+</ul>
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 各种约束的使用示例</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">user</span> <span class="token punctuation">(</span>
+    id <span class="token keyword">integer</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+    corp_id <span class="token keyword">integer</span> <span class="token keyword">REFERENCES</span> corp <span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    user_name <span class="token keyword">text</span> <span class="token keyword">UNIQUE</span><span class="token punctuation">,</span>
+    age <span class="token keyword">numeric</span> <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>age <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h3><p><code>ALTER TABLE</code>用来添加，删除或修改现有表中的列，也可以用来添加和删除现有表上的各种制约因素。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 现有表中添加一个新的列</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">ADD</span> <span class="token keyword">column</span> datatype<span class="token punctuation">;</span>
+
+<span class="token comment">-- 现有表中删除一个新的列</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">DROP</span> <span class="token keyword">COLUMN</span> <span class="token keyword">column</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 现有表中更改数据类型的列</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">MODIFY</span> <span class="token keyword">COLUMN</span> <span class="token keyword">column</span> datatype<span class="token punctuation">;</span>
+
+<span class="token comment">-- 现有表中一列添加NOT NULL约束</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">MODIFY</span> <span class="token keyword">column</span> datatype <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 现有表中添加唯一约束</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">ADD</span> <span class="token keyword">CONSTRAINT</span> MyUniqueConstraint <span class="token keyword">UNIQUE</span><span class="token punctuation">(</span>column1<span class="token punctuation">,</span> column2<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 现有表中添加CHECK约束</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">ADD</span> <span class="token keyword">CONSTRAINT</span> MyUniqueConstraint <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>CONDITION<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 现有表中添加PRIMARY KEY约束</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">ADD</span> <span class="token keyword">CONSTRAINT</span> MyPrimaryKey <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>column1<span class="token punctuation">,</span> column2<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 现有表中删除约束</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">DROP</span> <span class="token keyword">CONSTRAINT</span> MyUniqueConstraint<span class="token punctuation">;</span>
+
+<span class="token comment">-- 现有表中删除主键</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">DROP</span> <span class="token keyword">CONSTRAINT</span> MyPrimaryKey<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="DROP-TABLE"><a href="#DROP-TABLE" class="headerlink" title="DROP TABLE"></a>DROP TABLE</h3><p><code>DROP TABLE</code>语句是用来删除表定义及其所有相关的数据表的索引，规则，触发器和约束。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="TRUNCATE-TABLE"><a href="#TRUNCATE-TABLE" class="headerlink" title="TRUNCATE TABLE"></a>TRUNCATE TABLE</h3><p><code>TRUNCATE TABLE</code>命令用于从现有的表删除完整的数据。在每个表上的DELETE（删除）具有相同的效果，但是，因为它没有实际扫描的表，它的速度快。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">TRUNCATE</span> <span class="token keyword">TABLE</span>  <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="DELETE-FROM"><a href="#DELETE-FROM" class="headerlink" title="DELETE FROM"></a>DELETE FROM</h3><p><code>DELETE FROM</code>用来从一个表中删除现有的记录。可以使用WHERE子句DELETE查询删除所选行，否则所有的记录会被删除。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> <span class="token punctuation">[</span>condition<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="INSERT-INTO"><a href="#INSERT-INTO" class="headerlink" title="INSERT INTO"></a>INSERT INTO</h3><p><code>INSERT INTO</code>语句允许一个到一个表中插入新行。一个可以作为一个查询的结果，在一个时间或几行插入一行。基本语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>column1<span class="token punctuation">,</span> column2<span class="token punctuation">,</span> column3<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>columnN<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">VALUES</span> <span class="token punctuation">(</span>value1<span class="token punctuation">,</span> value2<span class="token punctuation">,</span> value3<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>valueN<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注</strong>：<br>1.这里 column1, column2,…columnN是要插入数据的表中的列名。<br>2. 可以以任何顺序列出目标列名。 VALUES子句或查询的值都与显式或隐式的列列表从左到右。</p>
+</blockquote>
+<p>如果要添加表中的所有列的值，可能不需要在SQL查询中指定列（次）名称。但要确保表中是在相同的顺序的列值的顺序。INSERT INTO语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token keyword">table</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span>value1<span class="token punctuation">,</span>value2<span class="token punctuation">,</span>value3<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>valueN<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h3><p><code>UPDATE</code>被用来修改现有的表中的记录。可以使用<code>UPDATE</code>查询的<code>WHERE</code>子句更新选定行，否则会被更新的所有行。基本语法如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">UPDATE table SET column1 &#x3D; value1, column2 &#x3D; value2...., columnN &#x3D; valueN WHERE [condition];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="SQL基础"><a href="#SQL基础" class="headerlink" title="SQL基础"></a>SQL基础</h2><h3 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">column</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="DISTINCT"><a href="#DISTINCT" class="headerlink" title="DISTINCT"></a>DISTINCT</h3><p>找出表内的不同值的情况。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">column</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> id<span class="token punctuation">,</span> email <span class="token keyword">FROM</span> <span class="token keyword">user</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">column</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> <span class="token punctuation">[</span>condition<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="AND-OR"><a href="#AND-OR" class="headerlink" title="AND / OR"></a>AND / OR</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">column</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> <span class="token punctuation">[</span>condition1<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">AND</span><span class="token operator">|</span><span class="token operator">OR</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>condition2<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="IN-NOT-IN"><a href="#IN-NOT-IN" class="headerlink" title="IN / NOT IN"></a>IN / NOT IN</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">column</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> <span class="token keyword">column</span> <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'value1'</span><span class="token punctuation">,</span> <span class="token string">'value2'</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">WHERE</span> user_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token string">'李四'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="BETWEEN-…-AND-…"><a href="#BETWEEN-…-AND-…" class="headerlink" title="BETWEEN … AND …"></a>BETWEEN … AND …</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">column</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> <span class="token keyword">column</span> <span class="token operator">BETWEEN</span> <span class="token string">'value1'</span> <span class="token operator">AND</span> <span class="token string">'value2'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">WHERE</span> age <span class="token operator">BETWEEN</span> <span class="token number">18</span> <span class="token operator">AND</span> <span class="token number">25</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">column</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> <span class="token keyword">column</span> <span class="token operator">LIKE</span> &#123;模式&#125;<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">WHERE</span> user_name <span class="token operator">LIKE</span> <span class="token string">'%张%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">column</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token punctuation">[</span><span class="token keyword">WHERE</span> condition<span class="token punctuation">]</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">column</span> <span class="token punctuation">[</span><span class="token keyword">ASC</span><span class="token punctuation">,</span> <span class="token keyword">DESC</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注</strong>：ASC（默认）代表结果会以由小往大的顺序列出，而DESC代表结果会以由大往小的顺序列出。</p>
+</blockquote>
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_name<span class="token punctuation">,</span> email<span class="token punctuation">,</span> age <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> age <span class="token keyword">DESC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> column1<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>column2<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> column1<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_name<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h3><p>对函数产生的值来设定条件。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> column1<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>column2<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> column1 <span class="token keyword">HAVING</span> <span class="token punctuation">[</span>condition<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_name<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>ages<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_name <span class="token keyword">HAVING</span> <span class="token function">SUM</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1500</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="ALIAS"><a href="#ALIAS" class="headerlink" title="ALIAS"></a>ALIAS</h3><blockquote>
+<p>SELECT ‘表别名’.’列名’ AS ‘列别名’ FROM table AS ‘表别名’;</p>
+</blockquote>
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> u<span class="token punctuation">.</span>user_name <span class="token keyword">AS</span> name<span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> ages <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">AS</span> u <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> u<span class="token punctuation">.</span>store_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li><code>AVG</code> (平均)</li>
+<li><code>COUNT</code> (计数)</li>
+<li><code>MAX</code> (最大值)</li>
+<li><code>MIN</code> (最小值)</li>
+<li><code>SUM</code> (总合)</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> fun_name<span class="token punctuation">(</span><span class="token keyword">column</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">count</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> user_count <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">AS</span> u<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="表连接"><a href="#表连接" class="headerlink" title="表连接"></a>表连接</h3><p>INNER JOIN: 如果表中有至少一个匹配，则返回行；<br>LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行；<br>RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行；<br>FULL JOIN: 只要其中一个表中存在匹配，就返回行。</p>
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> u<span class="token punctuation">.</span>uesr_name<span class="token punctuation">,</span> c<span class="token punctuation">.</span>corp_name <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">AS</span> u <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> corp <span class="token keyword">AS</span> c <span class="token keyword">ON</span> c<span class="token punctuation">.</span>id <span class="token operator">=</span> u<span class="token punctuation">.</span>corp_id<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="SQL进阶"><a href="#SQL进阶" class="headerlink" title="SQL进阶"></a>SQL进阶</h2><h3 id="UNION-UNION-ALL"><a href="#UNION-UNION-ALL" class="headerlink" title="UNION / UNION ALL"></a>UNION / UNION ALL</h3><p><code>UNION</code>用于合并两个或多个SELECT语句的结果，不返回任何重复的行。<code>UNION ALL</code>运算符语句，则包括重复行的结果。使用UNION，每个SELECT选择的列数必须具有相同的，相同数目的列表达式相同的数据类型，并让它们在相同的顺序，但它们不必是相同的长度。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> column1 <span class="token punctuation">[</span><span class="token punctuation">,</span> column2 <span class="token punctuation">]</span>
+<span class="token keyword">FROM</span> table1 <span class="token punctuation">[</span><span class="token punctuation">,</span> table2 <span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> condition<span class="token punctuation">]</span>
+
+<span class="token keyword">UNION</span> <span class="token punctuation">[</span><span class="token keyword">UNION</span> <span class="token keyword">ALL</span><span class="token punctuation">]</span>
+
+<span class="token keyword">SELECT</span> column1 <span class="token punctuation">[</span><span class="token punctuation">,</span> column2 <span class="token punctuation">]</span>
+<span class="token keyword">FROM</span> table1 <span class="token punctuation">[</span><span class="token punctuation">,</span> table2 <span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> condition<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="INTERSECT-INTERSECT-ALL"><a href="#INTERSECT-INTERSECT-ALL" class="headerlink" title="INTERSECT / INTERSECT ALL"></a>INTERSECT / INTERSECT ALL</h3><p>和<code>UNION</code>指令类似，<code>INTERSECT</code>也是对两个SQL语句所产生的结果做处理的。不同的地方是，<code>UNION</code>基本上是一个<code>OR</code>(如果这个值存在于第一句或是第二句，它就会被选出)，而<code>INTERSECT</code>则比较像<code>AND</code>(这个值要存在于第一句和第二句才会被选出)。<code>UNION</code>是并集，而<code>INTERSECT</code>是交集。<code>INTERSECT ALL</code>则包含交集后的重复数据。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> column1 <span class="token punctuation">[</span><span class="token punctuation">,</span> column2 <span class="token punctuation">]</span>
+<span class="token keyword">FROM</span> table1 <span class="token punctuation">[</span><span class="token punctuation">,</span> table2 <span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> condition<span class="token punctuation">]</span>
+
+<span class="token keyword">INTERSECT</span> <span class="token punctuation">[</span><span class="token keyword">INTERSECT</span> <span class="token keyword">ALL</span><span class="token punctuation">]</span>
+
+<span class="token keyword">SELECT</span> column1 <span class="token punctuation">[</span><span class="token punctuation">,</span> column2 <span class="token punctuation">]</span>
+<span class="token keyword">FROM</span> table1 <span class="token punctuation">[</span><span class="token punctuation">,</span> table2 <span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> condition<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="EXCEPT-EXCEPT-ALL"><a href="#EXCEPT-EXCEPT-ALL" class="headerlink" title="EXCEPT / EXCEPT ALL"></a>EXCEPT / EXCEPT ALL</h3><p><code>EXCEPT</code>用于求差集，其将查询在前一个结果集中但是不再后面一个结果集中的记录。<code>EXCEPT ALL</code>则包含交集后的重复数据。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> column1 <span class="token punctuation">[</span><span class="token punctuation">,</span> column2 <span class="token punctuation">]</span>
+<span class="token keyword">FROM</span> table1 <span class="token punctuation">[</span><span class="token punctuation">,</span> table2 <span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> condition<span class="token punctuation">]</span>
+
+<span class="token keyword">EXCEPT</span> <span class="token punctuation">[</span><span class="token keyword">EXCEPT</span> <span class="token keyword">ALL</span><span class="token punctuation">]</span>
+
+<span class="token keyword">SELECT</span> column1 <span class="token punctuation">[</span><span class="token punctuation">,</span> column2 <span class="token punctuation">]</span>
+<span class="token keyword">FROM</span> table1 <span class="token punctuation">[</span><span class="token punctuation">,</span> table2 <span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> condition<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注</strong>：在其他数据库求差集的关键字是：<code>MINUS</code>。</p>
+</blockquote>
+<h3 id="SUBQUERY"><a href="#SUBQUERY" class="headerlink" title="SUBQUERY"></a>SUBQUERY</h3><p><code>SUBQUERY</code>即子查询，子查询也是一个普通查询，目的是将用子查询返回的数据将被用来在主查询中作为条件，以进一步限制要检索的数据。可以使用子查询的有SELECT，INSERT，UPDATE和DELETE语句，与运算符如=，&lt;，&gt;，&gt;=，&lt;=，IN等一起使用。有几个子查询必须遵循的规则：</p>
+<ul>
+<li>必须用括号括起来的子查询。</li>
+<li>子查询只能有一个在SELECT子句中的列，除非多列在主查询的查询来比较其选定的列。</li>
+<li>ORDER BY不能使用在子查询中，虽然主查询就可以使用ORDER BY。GROUP BY可以用来执行相同的功能在子查询中的ORDER BY。</li>
+<li>子查询返回多于一行只能用于使用多值的运算符，如为IN，EXISTS，IN，ANY / SOME，ALL运算符。</li>
+</ul>
+<p>使用示例如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- SELECT语句中的子查询</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> COMPANY <span class="token keyword">WHERE</span> ID <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> ID <span class="token keyword">FROM</span> COMPANY <span class="token keyword">WHERE</span> SALARY <span class="token operator">></span> <span class="token number">45000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- INSERT语句的子查询</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> COMPANY_BKP <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> COMPANY <span class="token keyword">WHERE</span> ID <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> ID <span class="token keyword">FROM</span> COMPANY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- UPDATE语句的子查询</span>
+<span class="token keyword">UPDATE</span> COMPANY <span class="token keyword">SET</span> SALARY <span class="token operator">=</span> SALARY <span class="token operator">*</span> <span class="token number">0.50</span> <span class="token keyword">WHERE</span> AGE <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> AGE <span class="token keyword">FROM</span> COMPANY_BKP <span class="token keyword">WHERE</span> AGE <span class="token operator">>=</span> <span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- UPDATE语句的子查询</span>
+<span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> COMPANY <span class="token keyword">WHERE</span> AGE <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> AGE <span class="token keyword">FROM</span> COMPANY_BKP <span class="token keyword">WHERE</span> AGE <span class="token operator">></span> <span class="token number">27</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="EXISTS-NOT-EXISTS"><a href="#EXISTS-NOT-EXISTS" class="headerlink" title="EXISTS / NOT EXISTS"></a>EXISTS / NOT EXISTS</h3><p><code>EXISTS</code>用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False。EXISTS指定一个子查询，检测行的存在。<code>NOT EXISTS</code>的作用与<code>EXISTS</code>正好相反。如果子查询没有返回行，则满足了<code>NOT EXISTS</code>中的<code>WHERE</code>子句。语法如下： </p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">EXISTS</span> subquery<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>EXISTS 和 IN 的比较：</p>
+<ul>
+<li>EXISTS(包括 NOT EXISTS )子句的返回值是一个BOOLEAN值。EXISTS内部有一个子查询语句(SELECT … FROM…)，我将其称为EXIST的内查询语句。其内查询语句返回一个结果集。EXISTS子句根据其内查询语句的结果集空或者非空，返回一个布尔值。而IN引导的子查询只能返回一个字段</li>
+<li>EXISTS : 强调的是是否返回结果集，不要求知道返回什么，IN则需要知道返回的字段值。</li>
+<li>EXISTS与IN的使用效率的问题，通常情况下采用exists要比in效率高，因为IN不走索引，但要看实际情况具体使用：IN适合于外表大而内表小的情况；EXISTS适合于外表小而内表大的情况。</li>
+</ul>
+<h3 id="CONCATENATE"><a href="#CONCATENATE" class="headerlink" title="CONCATENATE"></a>CONCATENATE</h3><p>连接字符串。有的时候，我们有需要将由不同列获得的资料串连在一起。每一种数据库都有提供方法来达到这个目的。</p>
+<ul>
+<li>Oracle: CONCAT(), || </li>
+<li>SQL Server: + </li>
+<li>MySQL: CONCAT() </li>
+<li>PostgreSQL: CONCAT(), || </li>
+</ul>
+<p>PostgreSQL的<code>CONCAT()</code>的语法如下：</p>
+<blockquote>
+<p>concat(str “any” [, str “any” [, …] ])</p>
+</blockquote>
+<p>PostgreSQL的<code>||</code>的语法如下：</p>
+<blockquote>
+<p>string || string<br>string || non-string 或 non-string || string</p>
+</blockquote>
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> u<span class="token punctuation">.</span>user_name <span class="token operator">||</span> <span class="token string">' '</span> <span class="token operator">||</span> u<span class="token punctuation">.</span>age <span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token keyword">AS</span> u<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="SUBSTRING"><a href="#SUBSTRING" class="headerlink" title="SUBSTRING"></a>SUBSTRING</h3><p>截取字符串。</p>
+<ul>
+<li>Oracle: SUBSTR()</li>
+<li>SQL Server: SUBSTRING()</li>
+<li>MySQL: SUBSTR(), SUBSTRING()</li>
+<li>PostgreSQL: SUBSTRING()</li>
+</ul>
+<p>PostgreSQL的SUBSTRING()语法如下：</p>
+<ul>
+<li>substring(string [from int] [for int]) 截取子字符串。</li>
+<li>substring(string from pattern) 截取匹配POSIX正则表达式的子字符串。</li>
+<li>substring(string from pattern for escape) 截取匹配SQL正则表达式的子字符串。</li>
+</ul>
+<p>例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 得到hom</span>
+substring<span class="token punctuation">(</span><span class="token string">'Thomas'</span> <span class="token keyword">from</span> <span class="token number">2</span> <span class="token keyword">for</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 得到mas</span>
+substring<span class="token punctuation">(</span><span class="token string">'Thomas'</span> <span class="token keyword">from</span> <span class="token string">'...$'</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- 得到oma</span>
+substring<span class="token punctuation">(</span><span class="token string">'Thomas'</span> <span class="token keyword">from</span> <span class="token string">'%#"o_a#"_'</span> <span class="token keyword">for</span> <span class="token string">'#'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="TRIM"><a href="#TRIM" class="headerlink" title="TRIM"></a>TRIM</h3><p>SQL中的<code>TRIM</code>函数是用来移除掉一个字符串中的字头或字尾。最常见的用途是移除字首或字尾的空白。这个函数在不同的数据库中有不同的名称： </p>
+<ul>
+<li>Oracle: LTRIM(), RTRIM()</li>
+<li>SQL Server: LTRIM(), RTRIM()</li>
+<li>MySQL: TRIM(), LTRIM(), RTRIM()</li>
+<li>PostgreSQL: TRIM(), BTRIM(), LTRIM(), RTRIM()</li>
+</ul>
+<p>PostgreSQL的TRIM()语法如下：</p>
+<ul>
+<li>trim([leading | trailing | both] [characters] from string) 从字符串string的开头/结尾/两边删除只包含characters中字符(缺省是空白)的最长的字符串。</li>
+<li>btrim(string text [, characters text]) 从string开头和结尾删除只包含 characters中字符(缺省是空白)的最长字符串。</li>
+<li>ltrim(string text [, characters text]) 从字符串string的开头删除只包含characters 中字符(缺省是一个空白)的最长的字符串。</li>
+<li>rtrim(string text [, characters text]) 从字符串string的结尾删除只包含characters中字符(缺省是个空白)的最长的字符串。</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 得到Tom</span>
+trim<span class="token punctuation">(</span>both <span class="token string">'x'</span> <span class="token keyword">from</span> <span class="token string">'xTomxx'</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- 得到trim</span>
+btrim<span class="token punctuation">(</span><span class="token string">'xyxtrimyyx'</span><span class="token punctuation">,</span> <span class="token string">'xy'</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- 得到trim</span>
+ltrim<span class="token punctuation">(</span><span class="token string">'zzzytrim'</span><span class="token punctuation">,</span> <span class="token string">'xyz'</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- 得到trim</span>
+rtrim<span class="token punctuation">(</span><span class="token string">'trimxxxx'</span><span class="token punctuation">,</span> <span class="token string">'x'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="CASE"><a href="#CASE" class="headerlink" title="CASE"></a>CASE</h3><p><code>CASE</code>表达式是一种通用的条件表达式，类似于其它编程语言中的<code>if/else</code>语句。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> <span class="token punctuation">[</span>condition<span class="token punctuation">]</span> <span class="token keyword">THEN</span> result
+     <span class="token punctuation">[</span><span class="token keyword">WHEN</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+     <span class="token punctuation">[</span><span class="token keyword">ELSE</span> result<span class="token punctuation">]</span>
+<span class="token keyword">END</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>示例如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> sex<span class="token punctuation">,</span> 
+    <span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> sex <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">THEN</span> <span class="token string">'女'</span> 
+         <span class="token keyword">WHEN</span> sex <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">THEN</span> <span class="token string">'男'</span> 
+         <span class="token keyword">ELSE</span> <span class="token string">'未知'</span> 
+    <span class="token keyword">END</span> 
+<span class="token keyword">FROM</span> <span class="token keyword">user</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="COALESCE"><a href="#COALESCE" class="headerlink" title="COALESCE"></a>COALESCE</h3><p><code>COALESCE</code>返回它的第一个非<code>NULL</code>的参数值。如果所有参数都是NULL那么返回NULL。它常用于在显示数据时用缺省值替换NULL。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token keyword">value</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使用示例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span> GETDATE<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="NULLIF"><a href="#NULLIF" class="headerlink" title="NULLIF"></a>NULLIF</h3><p>当且仅当value1等于value2时，<code>NULLIF</code>才返回null。否则它返回value1。这些可以用于执行上面给出的<code>COALESCE</code>例子的反例。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">NULLIF</span><span class="token punctuation">(</span>value1<span class="token punctuation">,</span> value2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="GREATEST-LEAST"><a href="#GREATEST-LEAST" class="headerlink" title="GREATEST / LEAST"></a>GREATEST / LEAST</h3><p>GREATEST和LEAST函数从一个任意数字表达式的列表里选取最大或者最小的数值。 这些表达式必须都可以转换成一个普通的数据类型，它将会是结果类型。列表中的NULL值将被忽略。只有所有表达式的结果都是 NULL 的时候，结果才会是 NULL。语法如下：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">GREATEST<span class="token punctuation">(</span><span class="token keyword">value</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+LEAST<span class="token punctuation">(</span><span class="token keyword">value</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注意</strong>：GREATEST和LEAST都不是 SQL 标准，但却是很常见的扩展。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">blinkfox</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blinkfox.github.io/2018/09/25/shu-ju-ku/postgresql-ji-chu-zhi-shi-zheng-li/">https://blinkfox.github.io/2018/09/25/shu-ju-ku/postgresql-ji-chu-zhi-shi-zheng-li/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">blinkfox</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/PostgreSQL/">
+                                    <span class="chip bg-color">PostgreSQL</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/09/27/hou-duan/java/commons/apache-commons-lang-zhi-stringutils/">
+                    <div class="card-image">
+                        
+                        <img src="https://statics.sh1a.qingstor.com/2018/09/27/commons-stringutils.jpg" class="responsive-img" alt="Apache Commons Lang之StringUtils">
+                        
+                        <span class="card-title">Apache Commons Lang之StringUtils</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-09-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Apache/">
+                        <span class="chip bg-color">Apache</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/09/24/ruan-jian-gong-ju/git/git-zhi-shi-dian-zheng-li/">
+                    <div class="card-image">
+                        
+                        <img src="https://statics.sh1a.qingstor.com/2018/09/24/git.jpg" class="responsive-img" alt="Git知识点整理">
+                        
+                        <span class="card-title">Git知识点整理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    软件工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2020</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">blinkfox</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">197k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "09";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
