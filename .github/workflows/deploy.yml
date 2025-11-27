@@ -33,6 +33,8 @@ jobs:
           hexo generate
       
       - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd ./public
           git init
@@ -40,4 +42,4 @@ jobs:
           git config user.email "1181062873@qq.com"
           git add .
           git commit -m "Auto update docs by GitHub Actions"
-          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:master
+          git push --force --quiet "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" HEAD:master
