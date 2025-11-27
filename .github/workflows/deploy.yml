@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 授予写权限以便推送到 master 分支
     
     steps:
       - name: Checkout
@@ -35,7 +37,7 @@ jobs:
           cd ./public
           git init
           git config user.name "blinkfox"
-          git config user.email "chenjiayin1990@163.com"
+          git config user.email "1181062873@qq.com"
           git add .
           git commit -m "Auto update docs by GitHub Actions"
           git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:master
