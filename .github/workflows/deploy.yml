@@ -1,0 +1,41 @@
+name: Deploy Hexo Blog
+
+on:
+  push:
+    branches:
+      - hexo  # 当推送到 hexo 分支时触发
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: hexo
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'  # 使用 Node.js 16，兼容 Hexo 5.x
+      
+      - name: Install Dependencies
+        run: |
+          npm install hexo-cli -g
+          npm install
+      
+      - name: Build Hexo
+        run: |
+          hexo clean
+          hexo generate
+      
+      - name: Deploy to GitHub Pages
+        run: |
+          cd ./public
+          git init
+          git config user.name "blinkfox"
+          git config user.email "chenjiayin1990@163.com"
+          git add .
+          git commit -m "Auto update docs by GitHub Actions"
+          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:master
