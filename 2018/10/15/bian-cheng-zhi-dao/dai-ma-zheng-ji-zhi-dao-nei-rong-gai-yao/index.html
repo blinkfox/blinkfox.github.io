@@ -1,0 +1,1480 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="代码整洁之道内容概要, 闪烁之狐, Blinkfox">
+    <meta name="description" content="从来没有真正的绝境，只有心灵的迷途">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>代码整洁之道内容概要 | 闪烁之狐</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="闪烁之狐" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">闪烁之狐</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">闪烁之狐</div>
+        <div class="logo-desc">
+            
+            从来没有真正的绝境，只有心灵的迷途
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/15/code.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">代码整洁之道内容概要</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81/">
+                                <span class="chip bg-color">整洁代码</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%87%8D%E6%9E%84/">
+                                <span class="chip bg-color">重构</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                                <span class="chip bg-color">测试</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%BC%96%E7%A8%8B%E4%B9%8B%E9%81%93/" class="post-category">
+                                编程之道
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-10-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        <!-- 代码块折行 -->
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>读了代码整洁之道，觉得这本书写的很好，所以就将里面自己觉得很经典的内容记录下来，作为自己以后写代码的标准和准则。同时也为那些曾经困惑过的人一点参考吧！</p>
+<h2 id="一、在正式开始之前，我们先思考几个几个问题："><a href="#一、在正式开始之前，我们先思考几个几个问题：" class="headerlink" title="一、在正式开始之前，我们先思考几个几个问题："></a>一、在正式开始之前，我们先思考几个几个问题：</h2><h3 id="1-需求与代码哪个重要？"><a href="#1-需求与代码哪个重要？" class="headerlink" title="1.需求与代码哪个重要？"></a>1.需求与代码哪个重要？</h3><p>答：并不是所有的产品都能提出合理的需求，当你面对一个提出不合理需求的产品的时候，你需要坚持自己的原则，不能妥协。</p>
+<h3 id="2-易读和易懂是一回事吗？"><a href="#2-易读和易懂是一回事吗？" class="headerlink" title="2.易读和易懂是一回事吗？"></a>2.易读和易懂是一回事吗？</h3><p>答：易读的代码和易懂的代码是有区别的，不是易读的代码就是易懂的代码。</p>
+<h3 id="3-什么是测试驱动代码？"><a href="#3-什么是测试驱动代码？" class="headerlink" title="3.什么是测试驱动代码？"></a>3.什么是测试驱动代码？</h3><p>答：测试驱动代码，你写的代码要可以执行单元测试。如果你发现你的代码很难写单元测试，那么你就要思考你的代码是不是已经不整洁了，或者说已经乱成一团了。</p>
+<h3 id="4-什么是简单的代码？"><a href="#4-什么是简单的代码？" class="headerlink" title="4.什么是简单的代码？"></a>4.什么是简单的代码？</h3><p>答：<br>1.能通过所有测试<br>2.没有重复代码<br>3.体现系统中全部设计理念<br>4.包含尽量少的实体，包括，类，函数，方法等</p>
+<p>如果某段代码在程序设计中反复出现，就证明想法在代码中没有很好的体现出来。总之，不要重复代码，只做一件事，表达力，小规模抽象。</p>
+<h2 id="二、第二章-有意义的命名"><a href="#二、第二章-有意义的命名" class="headerlink" title="二、第二章 有意义的命名"></a>二、第二章 有意义的命名</h2><h3 id="1-名副其实"><a href="#1-名副其实" class="headerlink" title="1.名副其实"></a>1.名副其实</h3><p>变量，函数或类的名称应该已经答复了所有的大问题。它应该告诉你，它为什么会存在，它做什么事情，应该怎么用。如果名称需要注释来补充，那么就不算名副其实。</p>
+<h3 id="2-避免误导"><a href="#2-避免误导" class="headerlink" title="2.避免误导"></a>2.避免误导</h3><p>必须避免留下掩藏代码本意的错误线索。</p>
+<h3 id="3-做有意义的区分"><a href="#3-做有意义的区分" class="headerlink" title="3.做有意义的区分"></a>3.做有意义的区分</h3><p>只要体现出有意义的区分，使用a和the这样的前缀就没有错。废话就是冗余。</p>
+<h3 id="4-使用读得出来的名称"><a href="#4-使用读得出来的名称" class="headerlink" title="4.使用读得出来的名称"></a>4.使用读得出来的名称</h3><p>不要用傻乎乎的自造词，而不是恰当的英语词。</p>
+<h3 id="5-使用可搜索的名称"><a href="#5-使用可搜索的名称" class="headerlink" title="5.使用可搜索的名称"></a>5.使用可搜索的名称</h3><p>使用便于搜索的名字。</p>
+<h3 id="6-避免使用编码"><a href="#6-避免使用编码" class="headerlink" title="6.避免使用编码"></a>6.避免使用编码</h3><p>把类型或者作用域编进名称里面，徒然增加了解码的负担。没理由要求每位新人都在弄清要应付的代码之外，还要再搞懂另一种编码”语言”。</p>
+<h3 id="7-避免思维映射"><a href="#7-避免思维映射" class="headerlink" title="7.避免思维映射"></a>7.避免思维映射</h3><p>不应当让读者在脑中把你的名称翻译为他们熟知的名称，尤其是在经常出现在选择是使用问题领域术语还是解决方案领域术语的时候。</p>
+<h3 id="8-类名或对象名最好使用名词或者名词短语"><a href="#8-类名或对象名最好使用名词或者名词短语" class="headerlink" title="8.类名或对象名最好使用名词或者名词短语"></a>8.类名或对象名最好使用名词或者名词短语</h3><h3 id="9-方法名最好使用动词或者动词短语"><a href="#9-方法名最好使用动词或者动词短语" class="headerlink" title="9.方法名最好使用动词或者动词短语"></a>9.方法名最好使用动词或者动词短语</h3><h3 id="10-别扮可爱"><a href="#10-别扮可爱" class="headerlink" title="10.别扮可爱"></a>10.别扮可爱</h3><p>命名一定要通俗易懂。</p>
+<h3 id="11-每一个概念对应一个词"><a href="#11-每一个概念对应一个词" class="headerlink" title="11.每一个概念对应一个词"></a>11.每一个概念对应一个词</h3><p>给每个抽象概念选择一个词，并一以贯之</p>
+<h3 id="12-别用双关语词"><a href="#12-别用双关语词" class="headerlink" title="12.别用双关语词"></a>12.别用双关语词</h3><p>避免将同一个词用于不同目的，遵循一词一义的原则</p>
+<h3 id="13-使用解决方案领域名"><a href="#13-使用解决方案领域名" class="headerlink" title="13.使用解决方案领域名"></a>13.使用解决方案领域名</h3><h3 id="14-使用源自所涉领域名"><a href="#14-使用源自所涉领域名" class="headerlink" title="14.使用源自所涉领域名"></a>14.使用源自所涉领域名</h3><h3 id="15-添加有意义的语境"><a href="#15-添加有意义的语境" class="headerlink" title="15.添加有意义的语境"></a>15.添加有意义的语境</h3><p>在一个bean中定义变量名的时候，变量名一定是基于实际使用场景。</p>
+<h3 id="16-不要添加没用的语境"><a href="#16-不要添加没用的语境" class="headerlink" title="16.不要添加没用的语境"></a>16.不要添加没用的语境</h3><h2 id="三、第三章-函数"><a href="#三、第三章-函数" class="headerlink" title="三、第三章 函数"></a>三、第三章 函数</h2><h3 id="1-短小"><a href="#1-短小" class="headerlink" title="1.短小"></a>1.短小</h3><p>函数第一规则是要短小。第二条规则是还要更短小。</p>
+<h3 id="2-只做一件事"><a href="#2-只做一件事" class="headerlink" title="2.只做一件事"></a>2.只做一件事</h3><ul>
+<li>函数应该做一件事。做好这件事。只做一件事。如果可以从你的函数中还能拆分出一个函数，该函数不仅只是单纯地重新诠释其实现，那么你设计的函数就不是一个好的函数。</li>
+<li>函数中的区段，如果函数被切分了多个区段，这就证明该函数做的事情太多了。</li>
+</ul>
+<h3 id="3-每个函数一个抽象层级"><a href="#3-每个函数一个抽象层级" class="headerlink" title="3.每个函数一个抽象层级"></a>3.每个函数一个抽象层级</h3><h3 id="4-switch语句"><a href="#4-switch语句" class="headerlink" title="4.switch语句"></a>4.switch语句</h3><p>确保每个switch都埋藏在较低的抽象层级，而且永远不重复。</p>
+<h3 id="5-使用描述性的名称"><a href="#5-使用描述性的名称" class="headerlink" title="5.使用描述性的名称"></a>5.使用描述性的名称</h3><p>命名方式要保持一致。使用与模块名一脉相承的短语、名词和动词给函数命名。例如：includeSetupPages。</p>
+<h3 id="6-函数参数"><a href="#6-函数参数" class="headerlink" title="6.函数参数"></a>6.函数参数</h3><ul>
+<li>最理想的函数参数的数量是零个，其次是一，再次是二，应尽量避免三。有足够的理由才能用上三个以上的参数。</li>
+<li>如果函数看来需要两个，三个或者三个以上参数，就说明其中一些参数应该封装为类了。</li>
+<li>函数和函数的参数命名一般是动名词比较好。</li>
+</ul>
+<h3 id="7-无副作用"><a href="#7-无副作用" class="headerlink" title="7.无副作用"></a>7.无副作用</h3><h3 id="8-分割指令与查询"><a href="#8-分割指令与查询" class="headerlink" title="8.分割指令与查询"></a>8.分割指令与查询</h3><p>函数要么做什么事，要么回答什么事，但二者不可兼得</p>
+<h3 id="9-使用异常替代返回错误码"><a href="#9-使用异常替代返回错误码" class="headerlink" title="9.使用异常替代返回错误码"></a>9.使用异常替代返回错误码</h3><ul>
+<li>返回错误码的时候，就是在要求调用者立刻处理错误。</li>
+<li>如果使用异常替代返回错误码，错误处理代码就能从住路径代码中分离出来，得到简化。</li>
+<li>抽离try/catch代码块</li>
+</ul>
+<h3 id="10-别重复自己"><a href="#10-别重复自己" class="headerlink" title="10.别重复自己"></a>10.别重复自己</h3><h3 id="11-结构化编程"><a href="#11-结构化编程" class="headerlink" title="11.结构化编程"></a>11.结构化编程</h3><h2 id="四、第四章-注释"><a href="#四、第四章-注释" class="headerlink" title="四、第四章 注释"></a>四、第四章 注释</h2><h3 id="1-如果你代码写的足够好的话，可以让人一看就懂，那么你就不需要再写注释。如果你的代码需要注释，那么你就需要想想是不是你的表达水平有问题。"><a href="#1-如果你代码写的足够好的话，可以让人一看就懂，那么你就不需要再写注释。如果你的代码需要注释，那么你就需要想想是不是你的表达水平有问题。" class="headerlink" title="1.如果你代码写的足够好的话，可以让人一看就懂，那么你就不需要再写注释。如果你的代码需要注释，那么你就需要想想是不是你的表达水平有问题。"></a>1.如果你代码写的足够好的话，可以让人一看就懂，那么你就不需要再写注释。如果你的代码需要注释，那么你就需要想想是不是你的表达水平有问题。</h3><h3 id="2-真正好的注释是想办法不用写注释，那么什么样的注释需要写呢？"><a href="#2-真正好的注释是想办法不用写注释，那么什么样的注释需要写呢？" class="headerlink" title="2.真正好的注释是想办法不用写注释，那么什么样的注释需要写呢？"></a>2.真正好的注释是想办法不用写注释，那么什么样的注释需要写呢？</h3><ul>
+<li>法律信息</li>
+<li>提供信息的注释</li>
+<li>提供意图的解释</li>
+<li>阐释</li>
+<li>警告</li>
+<li>TODO注释</li>
+<li>TODO是一种程序要认为应该要做的，但是由于某种原因没有做的</li>
+<li>放大,放大某些看似不合理的地方</li>
+</ul>
+<h2 id="五、第六章-对象和数据结构"><a href="#五、第六章-对象和数据结构" class="headerlink" title="五、第六章 对象和数据结构"></a>五、第六章 对象和数据结构</h2><h3 id="1-得墨忒定律"><a href="#1-得墨忒定律" class="headerlink" title="1.得墨忒定律"></a>1.得墨忒定律</h3><p>模块不应该了解他所操作对象的内部情形。对象隐藏数据曝露操作，这就意味着对象不应该通过存取器曝露其内部结构。</p>
+<h2 id="六、第七章-错误处理"><a href="#六、第七章-错误处理" class="headerlink" title="六、第七章 错误处理"></a>六、第七章 错误处理</h2><h3 id="1-将业务逻辑和出错处理一定要隔离开，但是并不是所有的情况都试用，在不适用的情况下我们可以创建一个配置对象将特殊情况给予返回。"><a href="#1-将业务逻辑和出错处理一定要隔离开，但是并不是所有的情况都试用，在不适用的情况下我们可以创建一个配置对象将特殊情况给予返回。" class="headerlink" title="1.将业务逻辑和出错处理一定要隔离开，但是并不是所有的情况都试用，在不适用的情况下我们可以创建一个配置对象将特殊情况给予返回。"></a>1.将业务逻辑和出错处理一定要隔离开，但是并不是所有的情况都试用，在不适用的情况下我们可以创建一个配置对象将特殊情况给予返回。</h3><h3 id="2-异常处理不能过多的曝露实现细节，主要提现在异常抛出的栈信息上。"><a href="#2-异常处理不能过多的曝露实现细节，主要提现在异常抛出的栈信息上。" class="headerlink" title="2.异常处理不能过多的曝露实现细节，主要提现在异常抛出的栈信息上。"></a>2.异常处理不能过多的曝露实现细节，主要提现在异常抛出的栈信息上。</h3><h2 id="七、第八章-边界"><a href="#七、第八章-边界" class="headerlink" title="七、第八章 边界"></a>七、第八章 边界</h2><h3 id="1-整洁的边界，边界上的代码要清晰的分割和定义了期望的测试。应该避免我们的代码过多地了解第三方代码中的特定信息。"><a href="#1-整洁的边界，边界上的代码要清晰的分割和定义了期望的测试。应该避免我们的代码过多地了解第三方代码中的特定信息。" class="headerlink" title="1.整洁的边界，边界上的代码要清晰的分割和定义了期望的测试。应该避免我们的代码过多地了解第三方代码中的特定信息。"></a>1.整洁的边界，边界上的代码要清晰的分割和定义了期望的测试。应该避免我们的代码过多地了解第三方代码中的特定信息。</h3><h2 id="八、第九章-单元测试"><a href="#八、第九章-单元测试" class="headerlink" title="八、第九章 单元测试"></a>八、第九章 单元测试</h2><h3 id="1-TDD三定律"><a href="#1-TDD三定律" class="headerlink" title="1.TDD三定律"></a>1.TDD三定律</h3><ul>
+<li>在编写不能通过的单元测试前，不可编写生产代码。</li>
+<li>只可编写刚好无法通过的单元测试，不能编译也算不通过</li>
+<li>只可编写刚好足以通过当前失败测试的生产代码</li>
+</ul>
+<h3 id="2-整洁测试三要素"><a href="#2-整洁测试三要素" class="headerlink" title="2.整洁测试三要素"></a>2.整洁测试三要素</h3><ul>
+<li>可读性</li>
+<li>可读性</li>
+<li>可读性</li>
+</ul>
+<h3 id="3-整洁测试的五条原则："><a href="#3-整洁测试的五条原则：" class="headerlink" title="3.整洁测试的五条原则："></a>3.整洁测试的五条原则：</h3><ul>
+<li>快速，测试应该够快</li>
+<li>独立，测试应该相互独立</li>
+<li>可重复，测试应当可在任何环境中重复通过。</li>
+<li>自足验证，测试应该有布尔值输出，无论测试是成功还是失败，不应该人工通过log来确认测试是否成功或者失败。</li>
+<li>及时，测试应及时编写。单元测试应该恰好在使其通过的生产代码之前编写。如果在编写生产代码之后编写测试，你会发现生产代码难以测试。你可能会认为某些生产代码本身难以测试。你可能不会去设计可测试的代码。</li>
+</ul>
+<h2 id="九、第十章-类"><a href="#九、第十章-类" class="headerlink" title="九、第十章 类"></a>九、第十章 类</h2><h3 id="1-单一权责原则，类或者模块应有且只有一条加以修改的理由。"><a href="#1-单一权责原则，类或者模块应有且只有一条加以修改的理由。" class="headerlink" title="1.单一权责原则，类或者模块应有且只有一条加以修改的理由。"></a>1.单一权责原则，类或者模块应有且只有一条加以修改的理由。</h3><h3 id="2-内聚，如果一个类中的每个变量都被每个方法所使用，则该类具有最大的内聚性。内聚性高，意味着类中的方法和变量相互依赖，相互结合成一个逻辑整体。"><a href="#2-内聚，如果一个类中的每个变量都被每个方法所使用，则该类具有最大的内聚性。内聚性高，意味着类中的方法和变量相互依赖，相互结合成一个逻辑整体。" class="headerlink" title="2.内聚，如果一个类中的每个变量都被每个方法所使用，则该类具有最大的内聚性。内聚性高，意味着类中的方法和变量相互依赖，相互结合成一个逻辑整体。"></a>2.内聚，如果一个类中的每个变量都被每个方法所使用，则该类具有最大的内聚性。内聚性高，意味着类中的方法和变量相互依赖，相互结合成一个逻辑整体。</h3><h2 id="十、第十一章-系统"><a href="#十、第十一章-系统" class="headerlink" title="十、第十一章 系统"></a>十、第十一章 系统</h2><h3 id="1-将系统的构造与使用分开"><a href="#1-将系统的构造与使用分开" class="headerlink" title="1.将系统的构造与使用分开"></a>1.将系统的构造与使用分开</h3><p>软件系统应将起始过程和启始过程之后的运行时逻辑分离开，在起始过程中构建应用对象，也会存在相互缠结的依赖关系。（延迟初始化可以加快程序运行速度）</p>
+<h4 id="1-1分解main"><a href="#1-1分解main" class="headerlink" title="1.1分解main"></a>1.1分解main</h4><p>将程序的构造放到main，并使其与运行时逻辑分开，main只管构造并将构造后的数据对象发送给各个应用，或者被各个应用使用。但是，不参与运行时的任何逻辑控制。</p>
+<h4 id="1-2工厂模式"><a href="#1-2工厂模式" class="headerlink" title="1.2工厂模式"></a>1.2工厂模式</h4><p>使用该模式可以将系统构造和系统运行时逻辑分开。</p>
+<h4 id="1-3依赖注入（需要强化理解）"><a href="#1-3依赖注入（需要强化理解）" class="headerlink" title="1.3依赖注入（需要强化理解）"></a>1.3依赖注入（需要强化理解）</h4><h4 id="1-4扩容"><a href="#1-4扩容" class="headerlink" title="1.4扩容"></a>1.4扩容</h4><p>“一开始就做对系统”纯属神话。反之，我们应该只去实现今天的用户故事，然后重构，明天再扩展系统，实现新用户的故事。这就是迭代和增量敏捷的精髓所在。测试驱动开发，重构以及他们打造出的整洁的代码。</p>
+<h4 id="1-5测试驱动系统架构"><a href="#1-5测试驱动系统架构" class="headerlink" title="1.5测试驱动系统架构"></a>1.5测试驱动系统架构</h4><p>最佳的系统架构由模块化的关注面领域组成，每个关注面均用纯编程语言对象实现。不同的领域之间用最不具有侵害性的方面或类方面工具结合起来。这种架构就能测试驱动，就像代码一样。(需要关注面向切片编程(POJO))</p>
+<h4 id="1-6优化决策"><a href="#1-6优化决策" class="headerlink" title="1.6优化决策"></a>1.6优化决策</h4><p>模块化和关注面切分成就了分散化管理和决策。在巨大的系统中，不管是一座城市或是一个软件项目，无人能做所有的决策。最好是授权给最有资格的人。拥有模块化关注面的POJO系统提供的敏捷能力，允许我们基于最新的知识做出优化的，时机刚好的决策。决策的复杂性降低了。</p>
+<h2 id="十一、第十二章-迭进"><a href="#十一、第十二章-迭进" class="headerlink" title="十一、第十二章 迭进"></a>十一、第十二章 迭进</h2><h3 id="1-通过迭进设计达到代码整洁的目的："><a href="#1-通过迭进设计达到代码整洁的目的：" class="headerlink" title="1. 通过迭进设计达到代码整洁的目的："></a>1. 通过迭进设计达到代码整洁的目的：</h3><p>通过这几个原则可以让你的设计变简单（DIP，SRP）</p>
+<ul>
+<li>运行所有测试</li>
+<li>不可重复，</li>
+<li>表达了程序员的意图</li>
+<li>尽可能减少类和方法的数量</li>
+<li>以上规则按其重要程度排序</li>
+</ul>
+<h3 id="2-简单设计规则1-运行所有测试"><a href="#2-简单设计规则1-运行所有测试" class="headerlink" title="2. 简单设计规则1:运行所有测试"></a>2. 简单设计规则1:运行所有测试</h3><p>编写的测试越多就越能持续走向编写较易测试的代码，紧耦合的代码很难编写测试。遵循有关编写测试并持续运行测试的简单，明确的规则，系统就会更贴近OO低耦合度，高内聚度的目标。编写测试引致更好的设计。</p>
+<h3 id="3-简单设计规则2-4：重构"><a href="#3-简单设计规则2-4：重构" class="headerlink" title="3. 简单设计规则2-4：重构"></a>3. 简单设计规则2-4：重构</h3><p>在重构过程中，可以应用有关优秀软件设计的一切知识。提升内聚性，降低耦合度，切分关注面，模块化系统性关注面，缩小函数和类的尺寸，选用更好的名称，如此等等。这也是简单设计原则后三条规则的地方:消除重复，保证表达力，尽可能减少类和方法的数量。</p>
+<h3 id="4-不可重复"><a href="#4-不可重复" class="headerlink" title="4. 不可重复"></a>4. 不可重复</h3><h3 id="5-表达力"><a href="#5-表达力" class="headerlink" title="5. 表达力"></a>5. 表达力</h3><h3 id="6-尽可能少的类和方法"><a href="#6-尽可能少的类和方法" class="headerlink" title="6. 尽可能少的类和方法"></a>6. 尽可能少的类和方法</h3><h2 id="十二、第十三章-并发编程"><a href="#十二、第十三章-并发编程" class="headerlink" title="十二、第十三章 并发编程"></a>十二、第十三章 并发编程</h2><h3 id="1-为什么要并发"><a href="#1-为什么要并发" class="headerlink" title="1. 为什么要并发"></a>1. 为什么要并发</h3><p>并发是一种解耦策略。它帮我们把做什么和何时做分解开。</p>
+<h3 id="2-并发的防御原则"><a href="#2-并发的防御原则" class="headerlink" title="2. 并发的防御原则"></a>2. 并发的防御原则</h3><h3 id="13-1-单一权责原则（SRP）"><a href="#13-1-单一权责原则（SRP）" class="headerlink" title="13.1 单一权责原则（SRP）"></a>13.1 单一权责原则（SRP）</h3><p>并发代码应该从其他代码中分离出来，因为，并发代码相比于其他的代码是很复杂的存在。但是，并发实现细节常常直接嵌入到其他生产代码中。那么下面几个问题需要考虑，</p>
+<ul>
+<li>并发相关代码由自己的开发，修改和调优生命周期</li>
+<li>开发相关代码由自己要对付的挑战，和非并发相关代码不同，而且往往更为困难</li>
+<li>即便没有周边应用程序增加负担，写得不好的并发代码可能的出错方式数量已经足具挑战性。</li>
+</ul>
+<blockquote>
+<p>建议：分离并发相关代码与其他代码。</p>
+</blockquote>
+<h3 id="13-2-限制数据作用域"><a href="#13-2-限制数据作用域" class="headerlink" title="13.2 限制数据作用域"></a>13.2 限制数据作用域</h3><p>两个线程修改共享对象的同一字段时，可能相互干扰，导致未预期的行为。解决方案之一是采用<code>synchronized</code>关键字在代码中保护一块使用共享对象的临界区。限制临界区的数量很重要。更新共享数据的地方越多，就越可能出错。</p>
+<blockquote>
+<p>建议：谨记数据封装，严格限制对可能被共享的数据的访问。</p>
+</blockquote>
+<h3 id="13-3-使用数据副本"><a href="#13-3-使用数据副本" class="headerlink" title="13.3 使用数据副本"></a>13.3 使用数据副本</h3><p>避免共享数据的好方法之一就是一开始就避免共享数据。在某些情况下，有可能复制对象并以只读方式对待。在另外一种情况下，有可能复制对象，从多个线程收集所有副本的结果，并在单个线程中合并这些结果。</p>
+<h3 id="13-4-线程尽可能地独立"><a href="#13-4-线程尽可能地独立" class="headerlink" title="13.4　线程尽可能地独立"></a>13.4　线程尽可能地独立</h3><p>让每个线程在自己的世界中存在，不与其他线程共享数据。每个线程处理一个客户端请求，从不共享的源头接纳所有请求数据，存储为本地变量。</p>
+<p>建议：尝试将数据分解到可被独立线程操作的独立子集。</p>
+<h3 id="13-5-了解执行模型"><a href="#13-5-了解执行模型" class="headerlink" title="13.5 了解执行模型"></a>13.5 了解执行模型</h3><h4 id="13-5-1-生产者－－－消费者模型"><a href="#13-5-1-生产者－－－消费者模型" class="headerlink" title="13.5.1 生产者－－－消费者模型"></a>13.5.1 生产者－－－消费者模型</h4><p>一个或多个生产者线程创建某些工作，并置于缓存或队列中。一个或多个消费者线程从队列中获取并完成这些工作。生产者和消费者之间的队列是一种限定资源。</p>
+<h4 id="13-5-2-读者－－－作者模型"><a href="#13-5-2-读者－－－作者模型" class="headerlink" title="13.5.2 读者－－－作者模型"></a>13.5.2 读者－－－作者模型</h4><p>当存在一个主要为读者线程提供信息源，但只偶尔被作者线程更新的共享资源，吞吐量就会是个问题。增加吞吐量，会导致线程饥饿和过时信息的积累。更新会影响吞吐量。协调读者线程，不去读作者线程正在更新的消息，这是一种辛苦的平衡工作。作者线程倾向于长期锁定许多读者线程，从而导致吞吐量问题。</p>
+<p>挑战之处在于平衡读者线程和作者线程的需求，实现正确的操作，提供合理的吞吐量，避免线程饥饿。</p>
+<h4 id="13-5-3哲学家问题（故事内容不在这里描述）"><a href="#13-5-3哲学家问题（故事内容不在这里描述）" class="headerlink" title="13.5.3哲学家问题（故事内容不在这里描述）"></a>13.5.3哲学家问题（故事内容不在这里描述）</h4><p>从哲学家问题可以反映出编写并发经常遇到的问题，死锁，活锁，吞吐量和效率降低等问题。那么学习这些基础问题的解决算法可以帮助你解决大多数的并发问题，因为大多的并发问题都是上述问题的变种。</p>
+<h3 id="13-6-警惕同步方法之间的依赖"><a href="#13-6-警惕同步方法之间的依赖" class="headerlink" title="13.6 警惕同步方法之间的依赖"></a>13.6 警惕同步方法之间的依赖</h3><p>同步方法之间的依赖会导致并发代码中的狡猾缺陷。Java语言有synchronized概念，可以用来保护单个方法。然而，如果在同一共享类中由多个同步方法，系统就可能写得不太正确了。</p>
+<blockquote>
+<p>建议：避免使用一个共享对象的多个方法。如果有时必须使用一个共享对象的多个方法。这种情况发生时，有３中写对代码的手段：</p>
+</blockquote>
+<ul>
+<li>基于客户端的锁定－－客户端代码在调用第一个方法前锁定服务端，确保锁的范围覆盖了调用最后一个方法的代码。</li>
+<li>基于服务端的锁定－－在服务端内创建锁定服务端的方法，调用所有方法，然后解锁。让客户端代码调用新的方法。</li>
+<li>适配服务端－－创建执行锁定的中间层。这是一种基于服务端的锁定例子，但不修改原始服务端代码。</li>
+</ul>
+<h3 id="13-7保持同步区域微小"><a href="#13-7保持同步区域微小" class="headerlink" title="13.7保持同步区域微小"></a>13.7保持同步区域微小</h3><p>应该尽可能少地设计临界区，如果有请尽可能减小同步区域。</p>
+<h3 id="13-8-编写线程需要注意的几点："><a href="#13-8-编写线程需要注意的几点：" class="headerlink" title="13.8　编写线程需要注意的几点："></a>13.8　编写线程需要注意的几点：</h3><h4 id="1-将伪失败看作可能的线程问题。线程代码中的缺陷可能在一千或者一百万次执行中才会显现一次。所以，不要将系统错误归咎于偶发事件。"><a href="#1-将伪失败看作可能的线程问题。线程代码中的缺陷可能在一千或者一百万次执行中才会显现一次。所以，不要将系统错误归咎于偶发事件。" class="headerlink" title="(1). 将伪失败看作可能的线程问题。线程代码中的缺陷可能在一千或者一百万次执行中才会显现一次。所以，不要将系统错误归咎于偶发事件。"></a>(1). 将伪失败看作可能的线程问题。线程代码中的缺陷可能在一千或者一百万次执行中才会显现一次。所以，不要将系统错误归咎于偶发事件。</h4><h4 id="2-先使非线程代码可工作。确保线程之外的代码可以工作。不要同时追踪非线程缺陷和线程缺陷。确保代码在线程之外可以工作。"><a href="#2-先使非线程代码可工作。确保线程之外的代码可以工作。不要同时追踪非线程缺陷和线程缺陷。确保代码在线程之外可以工作。" class="headerlink" title="(2). 先使非线程代码可工作。确保线程之外的代码可以工作。不要同时追踪非线程缺陷和线程缺陷。确保代码在线程之外可以工作。"></a>(2). 先使非线程代码可工作。确保线程之外的代码可以工作。不要同时追踪非线程缺陷和线程缺陷。确保代码在线程之外可以工作。</h4><h4 id="3-编写可插拔的线程代码。编写在数个环境下运行的线程代码"><a href="#3-编写可插拔的线程代码。编写在数个环境下运行的线程代码" class="headerlink" title="(3). 编写可插拔的线程代码。编写在数个环境下运行的线程代码"></a>(3). 编写可插拔的线程代码。编写在数个环境下运行的线程代码</h4><ul>
+<li>1.单线程与多线程在执行时不同的情况</li>
+<li>2.线程代码与实物或测试替身互动</li>
+<li>3.用运行速度,缓慢和有变动的测试替身执行</li>
+<li>4.将测试配置为能运行一定数量的迭代</li>
+</ul>
+<blockquote>
+<p>建议：编写可插拔的线程代码，这样就能在不同的配置环境下运行。</p>
+</blockquote>
+<h4 id="4-编写可调整的线程代码"><a href="#4-编写可调整的线程代码" class="headerlink" title="(4). 编写可调整的线程代码"></a>(4). 编写可调整的线程代码</h4><p>在系统运行时允许线程发生变动。允许线程依据吞吐量和使用率自我调整。</p>
+<h4 id="5-运行多余处理器数量的线程"><a href="#5-运行多余处理器数量的线程" class="headerlink" title="(5). 运行多余处理器数量的线程"></a>(5). 运行多余处理器数量的线程</h4><p>任务交换越频繁，越有可能找到错过临界区或导致死锁的代码。</p>
+<h4 id="6-在不同平台上运行"><a href="#6-在不同平台上运行" class="headerlink" title="(6). 在不同平台上运行"></a>(6). 在不同平台上运行</h4><h4 id="7-调整代码并强迫错误发生"><a href="#7-调整代码并强迫错误发生" class="headerlink" title="(7). 调整代码并强迫错误发生"></a>(7). 调整代码并强迫错误发生</h4><h2 id="十三、第14章-逐步改进"><a href="#十三、第14章-逐步改进" class="headerlink" title="十三、第14章 逐步改进"></a>十三、第14章 逐步改进</h2><p>代码并不是一次就能写的很干净的，需要我们不断的迭代和优化。</p>
+<h2 id="十四、第17章-味道与启发"><a href="#十四、第17章-味道与启发" class="headerlink" title="十四、第17章 味道与启发"></a>十四、第17章 味道与启发</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1. 注释"></a>1. 注释</h3><h4 id="1-不恰当的注释信息"><a href="#1-不恰当的注释信息" class="headerlink" title="(1). 不恰当的注释信息"></a>(1). 不恰当的注释信息</h4><p>让注释传达本该更好地在源代码控制系统，问题追踪系统或任何其他记录系统中保存的信息，是不恰当的。例如，修改历史记录只会用大量过时而无趣的文本搞乱源代码文件。注释只应该描述有关代码和设计的技术性信息。</p>
+<h4 id="2-废弃的注释"><a href="#2-废弃的注释" class="headerlink" title="(2). 废弃的注释"></a>(2). 废弃的注释</h4><p>过时，无关或不正确的注释就是废弃的注释。</p>
+<h4 id="3-冗余注释"><a href="#3-冗余注释" class="headerlink" title="(3). 冗余注释"></a>(3). 冗余注释</h4><p>如果注释描述的是某种充分自我描述了的东西，那么注释就是多余的。注释应该谈及代码自身没有提到的东西。</p>
+<h4 id="4-注释要写就要写最好的注释，别画蛇添足"><a href="#4-注释要写就要写最好的注释，别画蛇添足" class="headerlink" title="(4). 注释要写就要写最好的注释，别画蛇添足"></a>(4). 注释要写就要写最好的注释，别画蛇添足</h4><h4 id="5-注释掉的代码，看到注释掉的代码就删。"><a href="#5-注释掉的代码，看到注释掉的代码就删。" class="headerlink" title="(5). 注释掉的代码，看到注释掉的代码就删。"></a>(5). 注释掉的代码，看到注释掉的代码就删。</h4><h3 id="2-环境"><a href="#2-环境" class="headerlink" title="2. 环境"></a>2. 环境</h3><h4 id="1-需要多步才能实现的构建"><a href="#1-需要多步才能实现的构建" class="headerlink" title="(1). 需要多步才能实现的构建"></a>(1). 需要多步才能实现的构建</h4><p>构建系统应该是单步的小操作。不应该从源代码控制系统中一小点一小点签出代码。不应该需要一系列神秘指令或环境依赖脚本来构建单个元素。不应该四出寻找额外的小jar,xml文件和其他系统所需的杂物。你应该能够用单个命令签出系统，并单个指令构建它。</p>
+<h4 id="2-需要多步才能做到测试"><a href="#2-需要多步才能做到测试" class="headerlink" title="(2). 需要多步才能做到测试"></a>(2). 需要多步才能做到测试</h4><p>你应该能够用单个指令就可以运行全部单元测试。能够运行全部测试是如此基础和重要，应该快速，轻易和直接了当地做到。</p>
+<h3 id="3-函数"><a href="#3-函数" class="headerlink" title="3. 函数"></a>3. 函数</h3><ul>
+<li>函数的参数应该少。</li>
+<li>输出参数违反直觉。如果非要修改，那就修改函数所在对象好了。</li>
+<li>标示参数，布尔值参数宣告函数做了不止一件事，应该消灭掉，即函数只做一件事。</li>
+<li>永不被调用的方法应该丢弃。</li>
+</ul>
+<h3 id="4-一般性问题"><a href="#4-一般性问题" class="headerlink" title="4. 一般性问题"></a>4. 一般性问题</h3><p>(1). 如果代码需要有多种语言，那么应该尽力减少源文件中额外语言的数量和范围。</p>
+<p>(2). 明显的行为未被实现，如果明显的行为未被实现，读者和用户就不能再依靠他们对函数名称的直觉。他们不再信任原作者，不得不阅读代码细节。</p>
+<p>(3). 不正确的边界行为，追索每种边界条件，编写测试。</p>
+<p>(4). 忽视安全</p>
+<p>(5). 重复，尽可能找到并消除重复。</p>
+<p>(6). 在错误的抽象层级上的代码，创建分离较高层级一般性概念与较低层级细节概念的抽象模型，这很重要。</p>
+<p>(7). 基类不可多度依赖于派生类，基类应该对派生类一无所知。</p>
+<p>(8). 信息过多，设计良好的模块有着非常小的接口，让你事半功倍。设计良好的接口并不提供许多需要依靠的函数，所以耦合度比较低。</p>
+<p>优秀的软件开发人员学会限制类或模块中暴露的接口数量。类中的方法越少越好。函数知道的变量越少越好。类拥有的实体变量越少越好。隐藏你的数据。隐藏你的工具函数。隐藏你的常量和你的临时变量。不要创建拥有大量方法或大量实体变量的类。不要为子类创建大量受保护变量和函数。尽力保持接口紧凑。通过限制信息来控制耦合度。</p>
+<p>(9). 死代码一定要删除。</p>
+<p>(10). 垂直分隔，变量和函数应该在靠近被使用的地方定义。私有函数应该刚好在其首次被使用的位置下面定义。</p>
+<p>(11). 前后不一致，从一而终即一旦选中，就小心持续遵循。如果在特定函数中用了response的变量来持有HttpServletResponse对象，则在其他用到HttpServletResponse对象的函数中也用同样的变量名。这样会让你的代码更易阅读。</p>
+<p>(12). 混淆视听，没用的变量或者函数直接删掉，以免造成不必要的干扰。</p>
+<p>(13). 人为耦合，不互相依赖的东西不该耦合。一般来说，人为耦合是指两个没有直接目的之间的模块的耦合。其根源是将变量，常量或函数不恰当地放在临时方便的位置。</p>
+<p>(14). 特性依恋，类的方法只应对其所属类中的变量和函数感兴趣，不该垂青其他类中的变量和函数。当方法通过某个其他对象的访问器和修改器来操作该对象内部数据，则它就依恋于该对象所属类的范围。</p>
+<p>(15). 选择算子参数，尽量不要把boolean作为函数参数</p>
+<p>(16). 晦涩意图，代码要尽可能具有表达力。</p>
+<p>(17). 位置错误的权责，我们可以采用最小惊异原则来帮助我们即代码应该放在读者自然而然期待它所在的地方。</p>
+<p>(18). 不恰当的静态方法，对于没有机会打算让它有多态行为的函数可以作为动态函数，否则可选用静态函数。</p>
+<p>(19). 使用解释性变量，命名要有意义。</p>
+<p>(20). 函数名称应该表达其行为</p>
+<p>(21). 理解算法</p>
+<p>(22). 把逻辑依赖改为物理依赖：</p>
+<ul>
+<li>1.逻辑依赖：原始数据和业务逻辑之间的依赖关系。例如：定义的常量和业务逻辑存在着依赖关系或者说被捆绑在了一起，即当业务逻辑发生变化或者存在其他可能性的时候且定义的常量无法满足导致常量需要修改。</li>
+<li>2.物理依赖：函数方法和业务逻辑之间的依赖关系。例如：为了解决逻辑依赖的问题，我们可以通过构造一个方法将数据和业务隔离。</li>
+</ul>
+<p>(23). 用多态替代<code>if/else</code> 或 <code>switch/case</code></p>
+<p>(24). 遵循标准约定</p>
+<p>(25). 用命名常量替代魔术数，魔术数不仅仅指的是数字，也泛指任何不能自我描述的符号。</p>
+<p>(26). 准确，在可以用List的时候，非要把变量声明为ArrayList就过分拘束了。在代码中做决定时，确认自己足够准确。明确自己为何要这么做，如果遇到异常情况如何处理。别懒得理会决定的准确性。代码中的含糊和不准确性要么是意见不同的结果，要么源于懒惰。无论原因是什么，都要消除。</p>
+<p>(27). 结构甚于约定，坚守结构甚于约定的设计决策。</p>
+<p>(28). 封装条件，如果没有if或while语句的上下文，布尔逻辑就难以理解。应该把解释了条件意图的函数抽离出来。</p>
+<p>例如：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">shouldBeDeleted</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>要好于</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">.</span><span class="token function">hasExpired</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>timer<span class="token punctuation">.</span><span class="token function">isRecurrent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>(29). 避免否定性条件，尽可能将条件表示为肯定形式。</p>
+<p>(30). 函数只该做一件事</p>
+<p>(31). 掩蔽时序耦合，排列函数参数，好让它们被调用的次序显而易见。</p>
+<p>(32). 别随意，构建代码需要理由，而且理由应于代码结构相契合。</p>
+<p>(33). 封装边界条件，把处理边界条件的代码集中到一处，不要散落于代码中。</p>
+<p>(34). 函数应该只在一个抽象层级上，函数中的语句应该在同意抽象级上，该层级应该是函数名所示操作的下一层。</p>
+<p>(35). 在较高层级放置可配置数据，如果你有个已知并在较高抽象层级的默认常量或配置值，不要将它埋藏到较低层级的函数中。把它作为较高层级函数调用较低层级函数时的一个参数。位于较高层级的配置性常量易于修改。它们向下贯穿应用程序。应用程序的较低层级并不拥有这些常量的值。</p>
+<p>(36). 避免传递浏览，编写害羞代码。</p>
+<p>(37). 不要继承常量</p>
+<h3 id="17-5-测试"><a href="#17-5-测试" class="headerlink" title="17.5 测试"></a>17.5 测试</h3><ol>
+<li>使用覆盖率工具，覆盖率工具能汇报你测试策略中的缺口。使用测试覆盖率工具能更容易地找到不足的模块，类和函数。</li>
+<li>别略过小测试</li>
+<li>被忽略的测试就是对不确定事物的疑问。</li>
+<li>测试边界条件</li>
+<li>全面测试相近的缺陷，缺陷趋向于扎堆。</li>
+<li>测试失败的模式有启发性。</li>
+<li>测试覆盖率的模式有启发性，查看被或未被以通过的测试执行的代码，往往能发现失败的测试为何失败的线索。</li>
+<li>测试应该快速。</li>
+</ol>
+<p>来自：<a target="_blank" rel="noopener" href="http://www.uml.org.cn/codeNorms/201701162.asp">代码整洁之道内容概要</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">blinkfox</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blinkfox.github.io/2018/10/15/bian-cheng-zhi-dao/dai-ma-zheng-ji-zhi-dao-nei-rong-gai-yao/">https://blinkfox.github.io/2018/10/15/bian-cheng-zhi-dao/dai-ma-zheng-ji-zhi-dao-nei-rong-gai-yao/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">blinkfox</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81/">
+                                    <span class="chip bg-color">整洁代码</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%87%8D%E6%9E%84/">
+                                    <span class="chip bg-color">重构</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                                    <span class="chip bg-color">测试</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/10/16/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ming-ling-mo-shi/">
+                    <div class="card-image">
+                        
+                        <img src="https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/16/command.jpg" class="responsive-img" alt="Java面向对象设计之命令模式">
+                        
+                        <span class="card-title">Java面向对象设计之命令模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-10-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    软件设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/10/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-guan-cha-zhe-mo-shi/">
+                    <div class="card-image">
+                        
+                        <img src="https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/14/observer.jpg" class="responsive-img" alt="Java面向对象设计之观察者模式">
+                        
+                        <span class="card-title">Java面向对象设计之观察者模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-10-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    软件设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2025</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">blinkfox</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">197k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "09";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

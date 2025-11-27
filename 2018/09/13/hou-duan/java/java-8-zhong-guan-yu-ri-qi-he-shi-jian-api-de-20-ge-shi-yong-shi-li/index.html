@@ -1,0 +1,1529 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java8中关于日期和时间API的20个使用示例, 闪烁之狐, Blinkfox">
+    <meta name="description" content="从来没有真正的绝境，只有心灵的迷途">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java8中关于日期和时间API的20个使用示例 | 闪烁之狐</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="闪烁之狐" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">闪烁之狐</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">闪烁之狐</div>
+        <div class="logo-desc">
+            
+            从来没有真正的绝境，只有心灵的迷途
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java8中关于日期和时间API的20个使用示例</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-09-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        <!-- 代码块折行 -->
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>随着<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/02/10-example-of-lambda-expressions-in-java8.html"><code>lambda</code></a>表达式、<a target="_blank" rel="noopener" href="http://java67.blogspot.sg/2014/04/java-8-stream-api-examples-filter-map.html">streams</a>以及一系列小优化，Java8推出了全新的日期时间API，在一下的指南中我们将通过一些简单的示例来学习如何使用新API。Java处理日期、日历和时间的方式一直为社区所诟病，将<code>java.util.Date</code>设定为可变类型，以及<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/03/simpledateformat-in-java-is-not-thread.html"><code>SimpleDateFormat</code>的非线程安全</a>使其应用非常受限。<code>Java</code>也意识到需要一个更好的<code>API</code>来满足社区中已经习惯了使用<code>JodaTime API</code>的人们。全新<code>API</code>的众多好处之一就是，明确了日期时间概念，例如：瞬时（instant）、期间（duration）、日期、时间、时区和周期。同时继承了<code>Joda</code>库按人类语言和计算机各自解析的时间处理方式。不同于老版本，新<code>API</code>基于ISO标准日历系统，<code>java.time</code>包下的所有类都是不可变类型而且线程安全。下面是新版API中<code>java.time</code>包里的一些关键类：</p>
+<ul>
+<li><code>Instant</code>：瞬时实例。</li>
+<li><code>LocalDate</code>：本地日期，不包含具体时间。例如：<code>2014-01-14</code>可以用来记录生日、纪念日、加盟日等。</li>
+<li><code>LocalTime</code>：本地时间，不包含日期。</li>
+<li><code>LocalDateTime</code>：组合了日期和时间，但不包含时差和时区信息。</li>
+<li><code>ZonedDateTime</code>：最完整的日期时间，包含时区和相对UTC或格林威治的时差。</li>
+</ul>
+<p>新API还引入了<code>ZoneOffSet</code>和<code>ZoneId</code>类，使得解决时区问题更为简便。<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2011/09/step-by-step-guide-to-convert-string-to.html">解析和格式化时间</a>的<code>DateTimeFormatter</code>类也全部重新设计。<strong>注意，这篇文章是翻译自<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2015/03/20-examples-of-date-and-time-api-from-Java8.html">Java 8 - 20 Examples of Date and Time API</a>，以下示例代码我做过一些简单的修改，当运行这些例子时会返回你当前的时间</strong>。</p>
+<h2 id="二、在Java8中如何处理日期和时间"><a href="#二、在Java8中如何处理日期和时间" class="headerlink" title="二、在Java8中如何处理日期和时间"></a>二、在Java8中如何处理日期和时间</h2><p>常有人问我学习一个新库的最好方式是什么？我的答案是在实际项目中使用它。项目中有很多真正的需求驱使开发者去发掘并学习新库。简单得说就是任务驱动学习探索。这对Java8新日期时间<code>API</code>也不例外。我创建了20个基于任务的实例来学习Java8的新特性。从最简单创建当天的日期开始，然后创建时间及时区，接着模拟一个日期提醒应用中的任务——计算重要日期的到期天数，例如生日、纪念日、账单日、保费到期日、信用卡过期日等。</p>
+<h3 id="示例-1、在Java8中获取今天的日期"><a href="#示例-1、在Java8中获取今天的日期" class="headerlink" title="示例 1、在Java8中获取今天的日期"></a>示例 1、在Java8中获取今天的日期</h3><p>Java8中的<code>LocalDate</code>用于表示当天日期。和<code>java.util.Date</code>不同，它只有日期，不包含时间。当你仅需要表示日期时就用这个类。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天的日期是："</span> <span class="token operator">+</span> today<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 今天的日期是：2016-04-18</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面的代码创建了当天的日期，不含时间信息。打印出的日期格式非常友好，不像老的<code>Date</code>类打印出一堆没有格式化的信息。</p>
+<h3 id="示例-2、在Java8中获取当前的年、月、日信息"><a href="#示例-2、在Java8中获取当前的年、月、日信息" class="headerlink" title="示例 2、在Java8中获取当前的年、月、日信息"></a>示例 2、在Java8中获取当前的年、月、日信息</h3><p><code>LocalDate</code>类提供了获取年、月、日的快捷方法，其实例还包含很多其它的日期属性。通过调用这些方法就可以很方便的得到需要的日期信息，不用像以前一样需要依赖<code>java.util.Calendar</code>类了。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> year <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> month <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getMonthValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> day <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getDayOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"当前的年 : %d  月 : %d  日 : %d%n"</span><span class="token punctuation">,</span> year<span class="token punctuation">,</span> month<span class="token punctuation">,</span> day<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 当前的年 : 2016  月 : 4  日 : 18</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>看到了吧，在Java8中得到年、月、日信息是这么简单直观，想用就用，没什么需要记的。对比看看以前Java是怎么处理年月日信息的吧。</p>
+<h3 id="示例-3、在Java8中获取特定日期"><a href="#示例-3、在Java8中获取特定日期" class="headerlink" title="示例 3、在Java8中获取特定日期"></a>示例 3、在Java8中获取特定日期</h3><p>在第一个例子里，我们通过静态工厂方法<code>now()</code>非常容易地创建了当天日期，你还可以调用另一个有用的工厂方法<code>LocalDate.of()</code>创建任意日期，该方法需要传入年、月、日做参数，返回对应的<code>LocalDate</code>实例。这个方法的好处是没再犯老<code>API</code>的设计错误，比如年度起始于1900，月份是从0开始等等。日期所见即所得，就像下面这个例子表示了1月14日，没有任何隐藏机关。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> dateOfBirth <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"你的出生日期是："</span> <span class="token operator">+</span> dateOfBirth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 你的出生日期是：2016-04-18</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到创建的日期完全符合预期，与你写入的2016年4月18日完全一致。</p>
+<h3 id="示例-4、在Java8中判断两个日期是否相等"><a href="#示例-4、在Java8中判断两个日期是否相等" class="headerlink" title="示例 4、在Java8中判断两个日期是否相等"></a>示例 4、在Java8中判断两个日期是否相等</h3><p>现实生活中有一类时间处理就是判断两个日期是否相等。你常常会检查今天是不是个特殊的日子，比如生日、纪念日或非交易日。这时就需要把指定的日期与某个特定日期做比较，例如判断这一天是否是假期。下面这个例子会帮助你用Java8的方式去解决，你肯定已经想到了，<code>LocalDate</code>重载了<code>equal</code>方法，请看下面的例子：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> date1 <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>date1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>today<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"今天 %s 和 date1 %s 是同一天!%n"</span><span class="token punctuation">,</span> today<span class="token punctuation">,</span> date1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 今天 2016-04-18 和 date1 2016-04-18 是同一天!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这个例子中我们比较的两个日期相同。注意，如果比较的日期是字符型的，需要先解析成日期对象再作判断。对比<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/02/3-example-to-compare-two-dates-in-java.html"><code>Java</code>老的日期比较方式</a>，你会感到清风拂面。</p>
+<h3 id="示例-5、在Java8中检查像生日这种周期性事件"><a href="#示例-5、在Java8中检查像生日这种周期性事件" class="headerlink" title="示例 5、在Java8中检查像生日这种周期性事件"></a>示例 5、在Java8中检查像生日这种周期性事件</h3><p><code>Java</code>中另一个日期时间的处理就是检查类似每月账单、结婚纪念日、EMI日或保险缴费日这些周期性事件。如果你在电子商务网站工作，那么一定会有一个模块用来在圣诞节、感恩节这种节日时向客户发送问候邮件。<code>Java</code>中如何检查这些节日或其它周期性事件呢？答案就是<code>MonthDay</code>类。这个类组合了月份和日，去掉了年，这意味着你可以用它判断每年都会发生事件。和这个类相似的还有一个<code>YearMonth</code>类。这些类也都是不可变并且线程安全的值类型。下面我们通过<code>MonthDay</code>来检查周期性事件：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> dateOfBirth <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">MonthDay</span> birthday <span class="token operator">=</span> <span class="token class-name">MonthDay</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>dateOfBirth<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dateOfBirth<span class="token punctuation">.</span><span class="token function">getDayOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">MonthDay</span> currentMonthDay <span class="token operator">=</span> <span class="token class-name">MonthDay</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>today<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>currentMonthDay<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>birthday<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"好高兴今天是您的生日!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"对不起，今天不是您的生日!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 好高兴今天是您的生日!!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>只要当天的日期和生日匹配，无论是哪一年都会打印出祝贺信息。你可以把程序整合进系统时钟，看看生日时是否会受到提醒，或者写一个单元测试来检测代码是否运行正确。</p>
+<h3 id="示例-6、在Java8中获取当前时间"><a href="#示例-6、在Java8中获取当前时间" class="headerlink" title="示例 6、在Java8中获取当前时间"></a>示例 6、在Java8中获取当前时间</h3><p>与Java8获取日期的例子很像，获取时间使用的是<code>LocalTime</code>类，一个只有时间没有日期的<code>LocalDate</code>的近亲。可以调用静态工厂方法<code>now()</code>来获取当前时间。默认的格式是<code>hh:mm:ss:nnn</code>。对比一下<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/01/get-current-date-timestamps-java.html">Java8之前获取当前时间的方式</a>。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalTime</span> time <span class="token operator">=</span> <span class="token class-name">LocalTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"当前时间是:"</span> <span class="token operator">+</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 当前时间是:23:43:42.200</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到当前时间就只包含时间信息，没有日期。</p>
+<h3 id="示例-7、如何在现有的时间上增加小时"><a href="#示例-7、如何在现有的时间上增加小时" class="headerlink" title="示例 7、如何在现有的时间上增加小时"></a>示例 7、如何在现有的时间上增加小时</h3><p>通过增加小时、分、秒来计算将来的时间很常见。Java8除了不变类型和线程安全的好处之外，还提供了更好的<code>plusHours()</code>方法替换<code>add()</code>，并且是兼容的。注意，这些方法返回一个全新的<code>LocalTime</code>实例，由于其不可变性，返回后一定要用变量赋值。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalTime</span> time <span class="token operator">=</span> <span class="token class-name">LocalTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalTime</span> newTime <span class="token operator">=</span> time<span class="token punctuation">.</span><span class="token function">plusHours</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 添加两小时</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"当前时间:"</span> <span class="token operator">+</span> time <span class="token operator">+</span> <span class="token string">",两小时后的时间: "</span> <span class="token operator">+</span>  newTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 当前时间:23:50:56.195,两小时后的时间: 01:50:56.195</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到，新的时间在当前时间<code>23:50:56.195</code>的基础上增加了2个小时。和<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/12/how-to-add-subtract-days-months-years-to-date-time-java.html">旧版<code>Java</code>的增减时间的处理方式</a>对比一下，看看哪种更好。</p>
+<h3 id="示例-8、如何计算一周后的日期"><a href="#示例-8、如何计算一周后的日期" class="headerlink" title="示例 8、如何计算一周后的日期"></a>示例 8、如何计算一周后的日期</h3><p>和上个例子计算两小时以后的时间类似，这个例子会计算一周后的日期。<code>LocalDate</code>日期不包含时间信息，它的<code>plus()</code>方法用来增加天、周、月，<code>ChronoUnit</code>类声明了这些时间单位。由于<code>LocalDate</code>也是不变类型，返回后一定要用变量赋值。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> nextWeek <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span><span class="token constant">WEEKS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天是:"</span> <span class="token operator">+</span> today <span class="token operator">+</span> <span class="token string">",一周以后的日期: "</span> <span class="token operator">+</span> nextWeek<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 今天是:2016-04-18,一周以后的日期: 2016-04-25</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到新日期离当天日期是7天，也就是一周。你可以用同样的方法增加1个月、1年、1小时、1分钟甚至一个世纪，更多选项可以查看<code>Java 8 API</code>中<code>的ChronoUnit</code>类。</p>
+<h3 id="示例-9、计算一年前或一年后的日期"><a href="#示例-9、计算一年前或一年后的日期" class="headerlink" title="示例 9、计算一年前或一年后的日期"></a>示例 9、计算一年前或一年后的日期</h3><p>继续上面的例子，上个例子中我们通过<code>LocalDate</code>的<code>plus()</code>方法增加天数、周数或月数，这个例子我们利用<code>minus()</code>方法计算一年前的日期。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> preYear <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span><span class="token constant">YEARS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> nextYear <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span><span class="token constant">YEARS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天是:"</span> <span class="token operator">+</span> today <span class="token operator">+</span> <span class="token string">",一年前的日期: "</span> <span class="token operator">+</span> preYear <span class="token operator">+</span> <span class="token string">",一年后的日期: "</span> <span class="token operator">+</span> nextYear<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 今天是:2016-04-18,一年前的日期: 2015-04-18,一年后的日期: 2017-04-18</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>例子结果中得到了两个日期，一个2015年、一个2017年、分别是2016年的前一年和后一年。</p>
+<h3 id="示例-10、使用Java8的Clock时钟类"><a href="#示例-10、使用Java8的Clock时钟类" class="headerlink" title="示例 10、使用Java8的Clock时钟类"></a>示例 10、使用Java8的Clock时钟类</h3><p>Java8增加了一个<code>Clock</code>时钟类用于获取当时的时间戳，或当前时区下的日期时间信息。以前用到<code>System.currentTimeInMillis()</code>和<code>TimeZone.getDefault()</code>的地方都可用<code>Clock</code>替换。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 得到UTC的时区的日期时间clock对象</span>
+<span class="token class-name">Clock</span> clock <span class="token operator">=</span> <span class="token class-name">Clock</span><span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Clock : "</span> <span class="token operator">+</span> clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Clock : SystemClock[Z]</span>
+
+<span class="token comment">// 得到基于当前时区的日期时间clock对象</span>
+<span class="token class-name">Clock</span> defaultClock <span class="token operator">=</span> <span class="token class-name">Clock</span><span class="token punctuation">.</span><span class="token function">systemDefaultZone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Clock : "</span> <span class="token operator">+</span> clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Clock : SystemClock[Z]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>还可以针对clock时钟做比较，像下面这个例子：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 依赖注入</span>
+    <span class="token keyword">private</span> <span class="token class-name">Clock</span> clock<span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">process</span><span class="token punctuation">(</span><span class="token class-name">LocalDate</span> eventDate<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>eventDate<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span>clock<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这种方式在不同时区下处理日期时会非常管用。</p>
+<h3 id="示例-11、如何用Java判断日期是早于还是晚于另一个日期"><a href="#示例-11、如何用Java判断日期是早于还是晚于另一个日期" class="headerlink" title="示例 11、如何用Java判断日期是早于还是晚于另一个日期"></a>示例 11、如何用Java判断日期是早于还是晚于另一个日期</h3><p>另一个工作中常见的操作就是如何判断给定的一个日期是大于某天还是小于某天？在Java8中，<code>LocalDate</code>类有两类方法<code>isBefore()</code>和<code>isAfter()</code>用于比较日期。调用<code>isBefore()</code>方法时，如果给定日期小于当前日期则返回<code>true</code>。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">LocalDate</span> tomorrow <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>tomorrow<span class="token punctuation">.</span><span class="token function">isAfter</span><span class="token punctuation">(</span>today<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"明天晚于今天！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 明天晚于今天！</span>
+
+<span class="token class-name">LocalDate</span> yesterday <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span><span class="token constant">DAYS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>yesterday<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>today<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"昨天先于今天！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 昨天先于今天！</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在Java 8中比较日期非常方便，不需要使用额外的<code>Calendar</code>类来做这些基础工作了。</p>
+<h3 id="示例-12、在Java8中处理时区"><a href="#示例-12、在Java8中处理时区" class="headerlink" title="示例 12、在Java8中处理时区"></a>示例 12、在Java8中处理时区</h3><p>Java8不仅分离了日期和时间，也把时区分离出来了。现在有一系列单独的类如<code>ZoneId</code>来处理特定时区，<code>ZoneDateTime</code>类来表示某时区下的时间。这在Java8以前都是<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2013/02/convert-xmlgregoriancalendar-to-date-xmlgregoriancalendar-java-example-tutorial.html"><code>GregorianCalendar</code>类</a>来做的。下面这个例子展示了如何把本时区的时间转换成另一个时区的时间。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Java 8中某时区下的日期和时间</span>
+<span class="token class-name">ZoneId</span> america <span class="token operator">=</span> <span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"America/New_York"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDateTime</span> localtDateAndTime <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ZonedDateTime</span> dateAndTimeInNewYork  <span class="token operator">=</span> <span class="token class-name">ZonedDateTime</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>localtDateAndTime<span class="token punctuation">,</span> america <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Current date and time in a particular timezone : "</span> <span class="token operator">+</span> dateAndTimeInNewYork<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Current date and time in a particular timezone : 2016-04-19T23:10:09.251-04:00[America/New_York]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>和以前<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/04/how-to-convert-local-time-to-gmt-in.html">使用<code>GMT</code>的方式转换本地时间</a>对比一下。注意，在Java8以前，一定要牢牢记住时区的名称，不然就会抛出下面的异常：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Exception</span> in thread <span class="token string">"main"</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>zone<span class="token punctuation">.</span></span>ZoneRulesException</span><span class="token operator">:</span> <span class="token class-name">Unknown</span> time<span class="token operator">-</span>zone <span class="token constant">ID</span><span class="token operator">:</span> <span class="token constant">ASIA</span><span class="token operator">/</span><span class="token class-name">Tokyo</span>
+        at <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>zone<span class="token punctuation">.</span></span>ZoneRulesProvider</span><span class="token punctuation">.</span><span class="token function">getProvider</span><span class="token punctuation">(</span><span class="token class-name">ZoneRulesProvider</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">272</span><span class="token punctuation">)</span>
+        at <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>zone<span class="token punctuation">.</span></span>ZoneRulesProvider</span><span class="token punctuation">.</span><span class="token function">getRules</span><span class="token punctuation">(</span><span class="token class-name">ZoneRulesProvider</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">227</span><span class="token punctuation">)</span>
+        at <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span>ZoneRegion</span><span class="token punctuation">.</span><span class="token function">ofId</span><span class="token punctuation">(</span><span class="token class-name">ZoneRegion</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">120</span><span class="token punctuation">)</span>
+        at <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span>ZoneId</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">403</span><span class="token punctuation">)</span>
+        at <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span>ZoneId</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">351</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="示例-13、如何表示信用卡到期这类固定日期，答案就在YearMonth"><a href="#示例-13、如何表示信用卡到期这类固定日期，答案就在YearMonth" class="headerlink" title="示例 13、如何表示信用卡到期这类固定日期，答案就在YearMonth"></a>示例 13、如何表示信用卡到期这类固定日期，答案就在<code>YearMonth</code></h3><p>与<code>MonthDay</code>检查重复事件的例子相似，<code>YearMonth</code>是另一个组合类，用于表示信用卡到期日、FD到期日、期货期权到期日等。还可以用这个类得到当月共有多少天，<code>YearMonth</code>实例的<code>lengthOfMonth()</code>方法可以返回当月的天数，在判断2月有28天还是29天时非常有用。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">YearMonth</span> currentYearMonth <span class="token operator">=</span> <span class="token class-name">YearMonth</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"该月的天数 %s: %d%n"</span><span class="token punctuation">,</span> currentYearMonth<span class="token punctuation">,</span> currentYearMonth<span class="token punctuation">.</span><span class="token function">lengthOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 该月的天数 2016-04: 30</span>
+
+<span class="token class-name">YearMonth</span> creditCardExpiry <span class="token operator">=</span> <span class="token class-name">YearMonth</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2018</span><span class="token punctuation">,</span> <span class="token class-name">Month</span><span class="token punctuation">.</span><span class="token constant">FEBRUARY</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"您的信用卡到期是： %s%n"</span><span class="token punctuation">,</span> creditCardExpiry<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 您的信用卡到期是： 2018-02</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>根据上述数据，你可以提醒客户信用卡快要到期了，个人认为这个类非常有用。</p>
+<h3 id="示例-14、如何在Java8中检查闰年"><a href="#示例-14、如何在Java8中检查闰年" class="headerlink" title="示例 14、如何在Java8中检查闰年"></a>示例 14、如何在Java8中检查闰年</h3><p><code>LocalDate</code>类有一个很实用的方法<code>isLeapYear()</code>判断该实例是否是一个闰年，如果你还是想重新发明轮子，这有一个代码示例，纯<a target="_blank" rel="noopener" href="http://java67.blogspot.sg/2012/12/how-to-check-leap-year-in-java-program.html">Java逻辑编写的判断闰年</a>的程序。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>today<span class="token punctuation">.</span><span class="token function">isLeapYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今年是闰年！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今年不是闰年！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 今年是闰年！</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>你可以多写几个日期来验证是否是闰年，最好是写<code>JUnit</code>单元测试做判断。</p>
+<h3 id="示例-15、计算两个日期之间的天数和月数"><a href="#示例-15、计算两个日期之间的天数和月数" class="headerlink" title="示例 15、计算两个日期之间的天数和月数"></a>示例 15、计算两个日期之间的天数和月数</h3><p>有一个常见日期操作是计算两个日期之间的天数、周数或月数。在Java8中可以用<code>java.time.Period</code>类来做计算。下面这个例子中，我们计算了当天和将来某一天之间的月数。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> today <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> java8Release <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">,</span> <span class="token class-name">Month</span><span class="token punctuation">.</span><span class="token constant">APRIL</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Period</span> periodToNext <span class="token operator">=</span> <span class="token class-name">Period</span><span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>today<span class="token punctuation">,</span> java8Release<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"2016年4月21日距离今天的天数："</span> <span class="token operator">+</span> periodToNext<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2016年4月21日距离今天的天数：3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>从上面可以看到现在是一月，Java8的中计算的当前日期是4月18日，中间相隔3天。</p>
+<h3 id="示例-16、包含时差信息的日期和时间"><a href="#示例-16、包含时差信息的日期和时间" class="headerlink" title="示例 16、包含时差信息的日期和时间"></a>示例 16、包含时差信息的日期和时间</h3><p>在Java8中，<code>ZoneOffset</code>类用来表示时区，举例来说印度与GMT或UTC标准时区相差<code>+05:30</code>，可以通过<code>ZoneOffset.of()</code>静态方法来 获取对应的时区。一旦得到了时差就可以通过传入<code>LocalDateTime</code>和<code>ZoneOffset</code>来创建一个<code>OffSetDateTime</code>对象。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDateTime</span> datetime <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">,</span> <span class="token class-name">Month</span><span class="token punctuation">.</span><span class="token constant">APRIL</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">35</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ZoneOffset</span> offset <span class="token operator">=</span> <span class="token class-name">ZoneOffset</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"+05:30"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">OffsetDateTime</span> date <span class="token operator">=</span> <span class="token class-name">OffsetDateTime</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>datetime<span class="token punctuation">,</span> offset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"包含时差信息的日期和时间 : "</span> <span class="token operator">+</span> date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//包含时差信息的日期和时间 : 2016-04-19T23:35+05:30</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>现在的时间信息里已经包含了时区信息了。注意：<code>OffSetDateTime</code>是对计算机友好的，<code>ZoneDateTime</code>则对人更友好。</p>
+<h3 id="示例-17、在Java8中获取当前的时间戳"><a href="#示例-17、在Java8中获取当前的时间戳" class="headerlink" title="示例 17、在Java8中获取当前的时间戳"></a>示例 17、在Java8中获取当前的时间戳</h3><p>如果你还记得Java8以前是如何获得当前时间戳，那么现在你终于解脱了。<code>Instant</code>类有一个静态工厂方法<code>now()</code>会返回当前的时间戳，如下所示：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Instant</span> timestamp <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"时间戳是："</span> <span class="token operator">+</span> timestamp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 时间戳是：2016-04-18T15:41:06.876Z</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>时间戳信息里同时包含了日期和时间，这和<code>java.util.Date</code>很像。实际上<code>Instant</code>类确实等同于Java8之前的<code>Date</code>类，你可以使用<code>Date</code>类和<code>Instant</code>类各自的转换方法互相转换，例如：<code>Date.from(Instant)</code> 将<code>Instant</code>转换成<code>java.util.Date</code>，<code>Date.toInstant()</code>则是将<code>Date</code>类转换成<code>Instant</code>类。</p>
+<h3 id="示例-18、在Java8中如何使用预定义的格式化工具去解析或格式化日期"><a href="#示例-18、在Java8中如何使用预定义的格式化工具去解析或格式化日期" class="headerlink" title="示例 18、在Java8中如何使用预定义的格式化工具去解析或格式化日期"></a>示例 18、在Java8中如何使用预定义的格式化工具去解析或格式化日期</h3><p>在Java8以前的世界里，日期和时间的格式化非常诡异，唯一的帮助类<code>SimpleDateFormat</code>也是非线程安全的，而且用作局部变量解析和格式化日期时显得很笨重。幸好线程局部变量能使它在多线程环境中变得可用，不过这都是过去时了。Java8引入了全新的日期时间格式工具，线程安全而且使用方便。它自带了一些常用的内置格式化工具。下面这个例子使用了<code>BASIC_ISO_DATE</code>格式化工具将2016年4月18日格式化成20160418。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> day <span class="token operator">=</span> <span class="token string">"20160418"</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> formatted <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>day<span class="token punctuation">,</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token constant">BASIC_ISO_DATE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"从字符串中解析的日期: %s 是 %s %n"</span><span class="token punctuation">,</span> day<span class="token punctuation">,</span> formatted<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 从字符串中解析的日期: 20160418 是 2016-04-18 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>很明显的看出得到的日期和给出的日期是同一天，但是格式不同。</p>
+<h3 id="示例-19、如何在Java中使用自定义格式化工具解析日期"><a href="#示例-19、如何在Java中使用自定义格式化工具解析日期" class="headerlink" title="示例 19、如何在Java中使用自定义格式化工具解析日期"></a>示例 19、如何在Java中使用自定义格式化工具解析日期</h3><p>上个例子使用了<a target="_blank" rel="noopener" href="http://java67.blogspot.sg/2014/12/string-to-date-example-in-java-multithreading.html"><code>Java</code>内置的格式化工具</a>去解析日期字符串。尽管内置格式化工具很好用，有时还是需要定义特定的日期格式，下面这个例子展示了如何创建自定义日期格式化工具。例子中的日期格式是“MMM dd yyyy”。可以调用<code>DateTimeFormatter</code>的<code>ofPattern()</code>静态方法并传入任意格式返回其实例，格式中的字符和以前代表的一样，M代表月，m代表分。如果格式不规范会抛出<code>DateTimeParseException</code>异常，不过如果只是把M写成m这种逻辑错误是不会抛异常的。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> day <span class="token operator">=</span> <span class="token string">"2016 04 18"</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">DateTimeFormatter</span> formatter <span class="token operator">=</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy MM dd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">LocalDate</span> holiday <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>day<span class="token punctuation">,</span> formatter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"成功解析字符串：%s, 时间是：%s%n"</span><span class="token punctuation">,</span> day<span class="token punctuation">,</span> holiday<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DateTimeParseException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s 解析失败!"</span><span class="token punctuation">,</span> day<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ex<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 成功解析字符串：2016 04 18, 时间是：2016-04-18</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>日期值与传入的字符串是匹配的，只是格式不同而已。</p>
+<h3 id="示例-20、在Java8中如何把日期转换成字符串"><a href="#示例-20、在Java8中如何把日期转换成字符串" class="headerlink" title="示例 20、在Java8中如何把日期转换成字符串"></a>示例 20、在Java8中如何把日期转换成字符串</h3><p>上 两个例子都用到了<code>DateTimeFormatter</code>类，主要是从字符串解析日期。现在我们反过来，把<code>LocalDateTime</code>日期实例转换成特定格式的字符串。这是迄今为止<a target="_blank" rel="noopener" href="http://java67.blogspot.sg/2013/01/how-to-format-date-in-java-simpledateformat-example.html"><code>Java</code>日期转字符串最为简单的方式</a>了。下面的例子将返回一个代表日期的格式化字符串。和前面类似，还是需要创建<code>DateTimeFormatter</code>实例并传入格式，但这回调用的是<code>format()</code>方法，而非<code>parse()</code>方法。这个方法会把传入的日期转化成指定格式的字符串。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDateTime</span> arrivalDate  <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">DateTimeFormatter</span> format <span class="token operator">=</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"MMM dd yyyy  hh:mm a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> landing <span class="token operator">=</span> arrivalDate<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"格式化的日期时间:  %s %n"</span><span class="token punctuation">,</span> landing<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DateTimeException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s 不能格式化!%n"</span><span class="token punctuation">,</span> arrivalDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ex<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 格式化的日期时间:  四月 19 2016  12:02 上午</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当前时间被指定的“MMM dd yyyy hh:mm a”格式格式化，格式包含3个代表月的字符串，时间后面带有AM和PM标记。</p>
+<h2 id="Java-8日期时间API的重点"><a href="#Java-8日期时间API的重点" class="headerlink" title="Java 8日期时间API的重点"></a>Java 8日期时间API的重点</h2><p>通过这些例子，你肯定已经掌握了Java8日期时间API的新知识点。现在我们来回顾一下这个优雅<code>API</code>的使用要点：</p>
+<ol>
+<li>提供了<code>javax.time.ZoneId</code>获取时区。</li>
+<li>提供了<code>LocalDate``和LocalTime</code>类。</li>
+<li>Java8的所有日期和时间<code>API</code>都是不可变类并且线程安全，而现有的<code>Date</code>和<code>Calendar</code> API中的<code>java.util.Date</code>和<code>SimpleDateFormat</code>是非线程安全的。</li>
+<li>主包是<code>java.time</code>,包含了表示日期、时间、时间间隔的一些类。里面有两个子包<code>java.time.format</code>用于格式化， <code>java.time.temporal</code>用于更底层的操作。</li>
+<li>时区代表了地球上某个区域内普遍使用的标准时间。每个时区都有一个代号，格式通常由区域/城市构成（Asia/Tokyo），在加上与格林威治或<code>UTC</code>的时差。例如：东京的时差是+09:00。</li>
+<li><code>OffsetDateTime</code>类实际上组合了<code>LocalDateTime</code>类和<code>ZoneOffset</code>类。用来表示包含和格林威治或UTC时差的完整日期（年、月、日）和时间（时、分、秒、纳秒）信息。</li>
+<li><code>DateTimeFormatter</code>类用来格式化和解析时间。与<code>SimpleDateFormat</code>不同，这个类不可变并且线程安全，需要时可以给静态常量赋值。<code>DateTimeFormatter</code>类提供了大量的内置格式化工具，同时也允许你自定义。在转换方面也提供了<code>parse()</code>将字符串解析成日期，如果解析出错会抛出<code>DateTimeParseException</code>。<code>DateTimeFormatter</code>类同时还有<code>format()</code>用来格式化日期，如果出错会抛出<code>DateTimeException</code>异常。</li>
+<li>再补充一点，日期格式“MMM d yyyy”和“MMM dd yyyy”有一些微妙的不同，第一个格式可以解析“Jan 2 2014”和“Jan 14 2014”，而第二个在解析“Jan 2 2014”就会抛异常，因为第二个格式里要求日必须是两位的。如果想修正，你必须在日期只有个位数时在前面补零，就是说“Jan 2 2014”应该写成 “Jan 02 2014”。</li>
+</ol>
+<p>如何使用Java8的全新日期时间API就介绍到这了。这些简单的例子对帮助理解新API非常有用。由于这些例子都基于真实任务，你在做<code>Java</code>日期编程时不用再东张西望了。我们学会了如何创建并操作日期实例，学习了纯日期、以及包含时间信息和时差信息的日期、学会了怎样计算两个日期的间隔，这些在计算当天与某个特定日期间隔的例子中都有所展示。 我们还学到了在Java8中如何线程安全地解析和格式化日期，不用再使用蹩脚的线程局部变量技巧，也不用依赖<code>Joda Time</code>第三方库。新<code>API</code>可以作为处理日期时间操作的标准。</p>
+<p>如果你喜欢这个教程并希望看到更多关于Java 8的教程，下面这些精彩的文章都值得一看：</p>
+<ul>
+<li>如何在Java8中用一行代码搞定文件读取？(<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2015/02/how-to-read-file-in-one-line-java-8.html">示例</a>)</li>
+<li>学习Java8的十大教程（<a target="_blank" rel="noopener" href="http://java67.blogspot.sg/2014/09/top-10-java-8-tutorials-best-of-lot.html">教程</a>）</li>
+<li>免费的Java8教程和图书 （<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2013/11/java-8-tutorials-resources-and-examples-lambda-expression-stream-api-functional-interfaces.html">资源</a>）</li>
+<li>Java 8 <code>Comparator</code>例子 （<a target="_blank" rel="noopener" href="http://java67.blogspot.com/2014/11/java-8-comparator-example-using-lambda-expression.html">示例</a>）</li>
+<li>如何使用Java8的<code>Map</code>函数（<a target="_blank" rel="noopener" href="http://java67.blogspot.sg/2015/01/java-8-map-function-examples.html">示例</a>）</li>
+<li>你准备好学习Java8的认证了吗 （<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/09/latest-OCPJP-exam-java-8-certification-oracle-java-se-8.html">更多</a>）</li>
+<li>如何使用Java8的默认方法。（<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/07/default-defender-or-extension-method-of-Java8-example-tutorial.html">看这里</a>）</li>
+<li>开始Java8之前需要温习的十个<code>Java 7</code>特性（<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/04/10-jdk-7-features-to-revisit-before-you.html">更多</a>）</li>
+<li>Java8学习<code>Stream API</code>十例（<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/03/2-examples-of-streams-with-Java8-collections.html">示例</a>）</li>
+<li>如何在匿名类中使用<code>Lambda</code>表达式（<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2015/01/how-to-use-lambda-expression-in-place-anonymous-class-java8.html">答案</a>）</li>
+<li>如何使用Java8的<code>Predicates</code>类过滤<code>Collection</code>？（<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2015/02/how-to-filter-collections-in-java-8.html">答案</a>）</li>
+<li><code>Java</code>中如何随即访问文件？（<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2015/02/randomaccessfile-example-in-java-read-write-String.html">答案</a>）</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">blinkfox</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blinkfox.github.io/2018/09/13/hou-duan/java/java-8-zhong-guan-yu-ri-qi-he-shi-jian-api-de-20-ge-shi-yong-shi-li/">https://blinkfox.github.io/2018/09/13/hou-duan/java/java-8-zhong-guan-yu-ri-qi-he-shi-jian-api-de-20-ge-shi-yong-shi-li/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">blinkfox</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/09/13/hou-duan/java/commons/commons-collections-bao-he-jian-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Apache Commons Collections包和简介">
+                        
+                        <span class="card-title">Apache Commons Collections包和简介</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-09-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Apache/">
+                        <span class="chip bg-color">Apache</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/09/12/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2025</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">blinkfox</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">197k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "09";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
