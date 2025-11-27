@@ -2,7 +2,7 @@
 title: Java面向对象设计之观察者模式
 date: 2018-10-14 17:30:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/10/14/observer.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/14/observer.jpg
 categories: 软件设计
 tags:
   - Java
@@ -205,5 +205,5 @@ public class ObserverClient {
 - 观察者模式适用情况包括：一个抽象模型有两个方面，其中一个方面依赖于另一个方面；一个对象的改变将导致其他一个或多个对象也发生改变，而不知道具体有多少对象将发生改变；一个对象必须通知其他对象，而并不知道这些对象是谁；需要在系统中创建一个触发链。
 - 在JDK的`java.util`包中，提供了`Observable`类以及`Observer`接口，它们构成了Java语言对观察者模式的支持。
 
-[1]: https://statics.sh1a.qingstor.com/2018/10/14/obeserver-structure.jpg
-[2]: https://statics.sh1a.qingstor.com/2018/10/14/obeserver-seq.jpg
+[1]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/14/obeserver-structure.jpg
+[2]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/14/obeserver-seq.jpg

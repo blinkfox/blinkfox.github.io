@@ -398,15 +398,15 @@ tags:
 
 ## 效果截图
 
-![首页](https://statics.sh1a.qingstor.com/2018/12/02/matery-20181202-1.png)
+![首页](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-20181202-1.png)
 
-![首页推荐文章](https://statics.sh1a.qingstor.com/2018/12/02/matery-20181202-2.png)
+![首页推荐文章](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-20181202-2.png)
 
-![首页文章列表](https://statics.sh1a.qingstor.com/2018/12/02/matery-20181202-3.png)
+![首页文章列表](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-20181202-3.png)
 
-![首页文章列表](https://statics.sh1a.qingstor.com/2018/12/02/matery-20181202-7.png)
+![首页文章列表](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-20181202-7.png)
 
-![首页文章列表](https://statics.sh1a.qingstor.com/2018/12/02/matery-20181202-8.png)
+![首页文章列表](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-20181202-8.png)
 
 ## 自定制修改
 

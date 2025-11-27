@@ -2,7 +2,7 @@
 title: Java面向对象设计之策略模式
 date: 2018-09-14 00:20:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/09/14/strategy.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/14/strategy.jpg
 categories: 软件设计
 tags:
   - 设计模式
@@ -175,5 +175,5 @@ public class Client {
 - 策略模式主要优点在于对“开闭原则”的完美支持，在不修改原有系统的基础上可以更换算法或者增加新的算法，它很好地管理算法族，提高了代码的复用性，是一种替换继承，避免多重条件转移语句的实现方式；其缺点在于客户端必须知道所有的策略类，并理解其区别，同时在一定程度上增加了系统中类的个数，可能会存在很多策略类。
 - 策略模式适用情况包括：在一个系统里面有许多类，它们之间的区别仅在于它们的行为，使用策略模式可以动态地让一个对象在许多行为中选择一种行为；一个系统需要动态地在几种算法中选择一种；避免使用难以维护的多重条件选择语句；希望在具体策略类中封装算法和与相关的数据结构。
 
-  [1]: https://statics.sh1a.qingstor.com/2018/09/14/strategy-structure.jpg
-  [2]: https://statics.sh1a.qingstor.com/2018/09/14/strategy-seq.jpg
+  [1]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/14/strategy-structure.jpg
+  [2]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/14/strategy-seq.jpg

@@ -542,15 +542,15 @@ tags:
 
 ## Screenshot
 
-![Index Page](https://statics.sh1a.qingstor.com/2018/12/02/matery-1.png)
+![Index Page](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-1.png)
 
-![Index Recommend Page](https://statics.sh1a.qingstor.com/2018/12/02/matery-2.png)
+![Index Recommend Page](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-2.png)
 
-![Index Posts](https://statics.sh1a.qingstor.com/2018/12/02/matery-3.png)
+![Index Posts](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-3.png)
 
-![About Me](https://statics.sh1a.qingstor.com/2018/12/02/matery-4.png)
+![About Me](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-4.png)
 
-![Post Detail](https://statics.sh1a.qingstor.com/2018/12/02/matery-5.png)
+![Post Detail](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/02/matery-5.png)
 
 ## Custom modification
 

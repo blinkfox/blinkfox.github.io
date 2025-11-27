@@ -2,7 +2,7 @@
 title: Java面向对象设计之代理模式
 date: 2018-09-20 21:50:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/09/20/proxy.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/20/proxy.jpg
 categories: 软件设计
 tags:
   - Java
@@ -174,4 +174,4 @@ public class ProxyClient {
 - 如果需要创建一个资源消耗较大的对象，先创建一个消耗相对较小的对象来表示，真实对象只在需要时才会被真正创建，这个小对象称为虚拟代理。虚拟代理通过使用一个小对象来代表一个大对象，可以减少系统资源的消耗，对系统进行优化并提高运行速度。
 - 保护代理可以控制对一个对象的访问，可以给不同的用户提供不同级别的使用权限。
 
-  [1]: https://statics.sh1a.qingstor.com/2018/09/20/proxy-structure.jpg
+  [1]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/20/proxy-structure.jpg

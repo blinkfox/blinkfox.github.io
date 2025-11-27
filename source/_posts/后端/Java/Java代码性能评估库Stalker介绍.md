@@ -2,7 +2,7 @@
 title: Java代码性能评估库Stalker介绍
 date: 2019-02-14 12:00:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2019/02/14/stalker.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2019/02/14/stalker.jpg
 cover: true
 categories: 后端
 tags:

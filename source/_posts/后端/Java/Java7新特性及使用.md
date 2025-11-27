@@ -2,7 +2,7 @@
 title: Java7新特性及使用
 date: 2018-11-12 00:30:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/11/12/coffee.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/12/coffee.jpg
 categories: 后端
 tags:
   - Java

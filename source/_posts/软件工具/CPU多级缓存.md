@@ -2,7 +2,7 @@
 title: CPU多级缓存
 date: 2018-11-18 21:55:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/11/18/cpu.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/cpu.jpg
 categories: 软件工具
 tags:
   - CPU缓存
@@ -46,7 +46,7 @@ CPU往往需要重复处理相同的数据、重复执行相同的指令，如�
 
 下图是Intel Core i5-4285U的CPU三级缓存示意图：
 
-![CPU三级缓存](https://statics.sh1a.qingstor.com/2018/11/18/javabf-cpu-1.png)
+![CPU三级缓存](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/javabf-cpu-1.png)
 
 就像数据库缓存一样，获取数据时首先会在最快的缓存中找数据，如果缓存没有命中(Cache miss) 则往下一级找, 直到三级缓存都找不到时，那只有向内存要数据了。一次次地未命中，代表取数据消耗的时间越长。
 
@@ -59,7 +59,7 @@ CPU往往需要重复处理相同的数据、重复执行相同的指令，如�
 
 目前流行的多级缓存结构如下图：
 
-![多级缓存结构](https://statics.sh1a.qingstor.com/2018/11/18/javabf-cpu-2.png)
+![多级缓存结构](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/javabf-cpu-2.png)
 
 ## 三、CPU缓存一致性协议(MESI)
 
@@ -83,7 +83,7 @@ CPU中每个缓存行（Caceh line)使用`4`种状态进行标记，使用`2bit`
 
 MESI状态转换图：
 
-![MESI状态转换图](https://statics.sh1a.qingstor.com/2018/11/18/javabf-cpu-3.png)
+![MESI状态转换图](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/javabf-cpu-3.png)
 
 下图表示了当一个缓存行(Cache line)的调整的状态的时候，另外一个缓存行(Cache line)需要调整的状态。
 
@@ -105,7 +105,7 @@ MESI状态转换图：
 
 假设有三个CPU A、B、C，对应三个缓存分别是cache a、b、c。在主内存中定义了`x`的引用值为0。
 
-![内存变量](https://statics.sh1a.qingstor.com/2018/11/18/javabf-cpu-4.png)
+![内存变量](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/javabf-cpu-4.png)
 
 #### (2) 单核读取
 
@@ -114,7 +114,7 @@ MESI状态转换图：
 - CPU A发出了一条指令，从主内存中读取`x`。
 - 从主内存通过 bus 读取到 CPU A 的缓存中（远端读取 Remote read）,这时该 Cache line 修改为 E 状态（独享）。
 
-![单核读取](https://statics.sh1a.qingstor.com/2018/11/18/javabf-cpu-5.png)
+![单核读取](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/javabf-cpu-5.png)
 
 #### (3) 双核读取
 
@@ -125,7 +125,7 @@ MESI状态转换图：
 - CPU B发出了一条指令，从主内存中读取`x`。
 - CPU B试图从主内存中读取`x`时，CPU A检测到了地址冲突。这时CPU A对相关数据做出响应。此时`x`存储于 cache a 和 cache b 中，`x`在 chche a 和 cache b 中都被设置为S状态(共享)。
 
-![双核读取](https://statics.sh1a.qingstor.com/2018/11/18/javabf-cpu-6.png)
+![双核读取](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/javabf-cpu-6.png)
 
 #### (4) 修改数据
 
@@ -135,7 +135,7 @@ MESI状态转换图：
 - CPU A 将`x`设置为M状态（修改）并通知缓存了`x`的 CPU B, CPU B 将本地 cache b 中的`x`设置为`I`状态(无效)
 - CPU A 对`x`进行赋值。
 
-![修改数据](https://statics.sh1a.qingstor.com/2018/11/18/javabf-cpu-7.png)
+![修改数据](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/javabf-cpu-7.png)
 
 #### (5) 同步数据
 
@@ -145,7 +145,7 @@ MESI状态转换图：
 - CPU B 通知CPU A,CPU A将修改后的数据同步到主内存时cache a 修改为E（独享）
 - CPU A同步CPU B的x,将cache a和同步后cache b中的x设置为S状态（共享）。
 
-![同步数据](https://statics.sh1a.qingstor.com/2018/11/18/javabf-cpu-8.png)
+![同步数据](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/18/javabf-cpu-8.png)
 
 ### 3. CPU 存储模型简介
 

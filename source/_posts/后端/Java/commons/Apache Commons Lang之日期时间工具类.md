@@ -2,7 +2,7 @@
 title: Apache Commons Lang之日期时间工具类
 date: 2018-09-29 22:10:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/09/29/commons-datetime.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/29/commons-datetime.jpg
 categories: 后端
 tags:
   - Java

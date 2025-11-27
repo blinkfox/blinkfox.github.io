@@ -2,7 +2,7 @@
 title: Java面向对象设计之适配器模式
 date: 2018-12-12 22:00:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/12/12/adapter.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/12/adapter.jpg
 categories: 软件设计
 tags:
   - Java
@@ -34,7 +34,7 @@ tags:
 
 ### UML类图
 
-![适配器模式UML](https://statics.sh1a.qingstor.com/2018/12/12/adapter-structure.jpg)
+![适配器模式UML](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/12/12/adapter-structure.jpg)
 
 ## 代码示例
 

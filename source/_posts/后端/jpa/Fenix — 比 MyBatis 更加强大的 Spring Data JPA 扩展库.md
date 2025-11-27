@@ -2,7 +2,7 @@
 title: Fenix — 比 MyBatis 更加强大的 Spring Data JPA 扩展库
 date: 2019-08-20 00:10:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2019/08/20/jpa.png
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2019/08/20/jpa.png
 cover: true
 categories: 后端
 tags:
@@ -43,7 +43,7 @@ tags:
 
 下面将通过一个多条件查询**操作日志**的功能，来初步了解和比较 `MyBatis` 与 `Fenix` 在写“**多条件模糊分页**”查询时 SQL 写法的一些差异。
 
-![查询页面](https://statics.sh1a.qingstor.com/2019/08/20/search.png)
+![查询页面](https://staticdn.oss-cn-beijing.aliyuncs.com/2019/08/20/search.png)
 
 由于是查询的场景，上面的几个查询条件都是**非必填**的，字段含义解释如下：
 

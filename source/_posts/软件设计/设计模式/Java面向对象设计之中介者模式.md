@@ -37,7 +37,7 @@ tags:
 
 ![命令模式结构图][1]
 
-[1]: https://statics.sh1a.qingstor.com/2018/10/17/mediator.jpg
+[1]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/17/mediator.jpg
 
 ## 四、示例代码
 

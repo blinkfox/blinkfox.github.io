@@ -2,7 +2,7 @@
 title: Java面向对象设计之命令模式
 date: 2018-10-16 22:40:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/10/16/command.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/16/command.jpg
 categories: 软件设计
 tags:
   - Java
@@ -35,7 +35,7 @@ tags:
 
 ![命令模式结构图][1]
 
-[1]: https://statics.sh1a.qingstor.com/2018/10/16/command-structure.jpg
+[1]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/16/command-structure.jpg
 
 ## 四、示例代码
 

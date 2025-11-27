@@ -642,6 +642,6 @@ public class AopMain {
 ```
 
   [1]: https://spring.io/
-  [2]: https://statics.sh1a.qingstor.com/2019/03/02/spring-moudle.png
+  [2]: https://staticdn.oss-cn-beijing.aliyuncs.com/2019/03/02/spring-moudle.png
   [3]: http://maven.apache.org/
-  [5]: https://statics.sh1a.qingstor.com/2019/03/02/maven-build-project.png
+  [5]: https://staticdn.oss-cn-beijing.aliyuncs.com/2019/03/02/maven-build-project.png

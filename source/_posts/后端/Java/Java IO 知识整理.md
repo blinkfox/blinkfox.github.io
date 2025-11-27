@@ -2,7 +2,7 @@
 title: Java IO 知识整理
 date: 2018-11-05 11:30:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/11/05/io.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/05/io.jpg
 top: true
 categories: 后端
 tags:
@@ -70,17 +70,17 @@ tags:
   - CharArrayWriter: 继承自`Writer`的字符数组输出流类。
   - PrintWriter: 继承自`Writer`的打印写入类，提供了PrintStream的所有打印方法，其方法也从不抛出IOException。与PrintStream的区别：作为处理流使用时，PrintStream只能封装OutputStream类型的字节流，而PrintWriter既可以封装OutputStream类型的字节流，还能够封装Writer类型的字符输出流并增强其功能。
 
-![Java IO Mind](https://statics.sh1a.qingstor.com/2018/11/05/Javaio-mind-all.png)
+![Java IO Mind](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/05/Javaio-mind-all.png)
 
 ## IO UML类图
 
-![Java InputStream UML](https://statics.sh1a.qingstor.com/2018/11/05/java-inputstream-uml.png)
+![Java InputStream UML](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/05/java-inputstream-uml.png)
 
-![Java OutputStream UML](https://statics.sh1a.qingstor.com/2018/11/05/java-outputstream-uml.png)
+![Java OutputStream UML](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/05/java-outputstream-uml.png)
 
-![Java Reader UML](https://statics.sh1a.qingstor.com/2018/11/05/java-reader-uml.png)
+![Java Reader UML](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/05/java-reader-uml.png)
 
-![Java Writer UML](https://statics.sh1a.qingstor.com/2018/11/05/java-writer-uml.png)
+![Java Writer UML](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/05/java-writer-uml.png)
 
 ## 流的分类
 
@@ -96,9 +96,9 @@ tags:
 
 > **注**：输入输出流中的入和出，都是相对于系统内存而言的。为什么要有处理流？直接使用节点流，读写不方便，为了更快的读写文件，才有了处理流。
 
-![流按类型分类](https://statics.sh1a.qingstor.com/2018/11/05/javaio-mind-optype.png)
+![流按类型分类](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/05/javaio-mind-optype.png)
 
-![流按用途分类](https://statics.sh1a.qingstor.com/2018/11/05/javaio-mind-object.png)
+![流按用途分类](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/05/javaio-mind-object.png)
 
 ## 流中主要方法梳理
 

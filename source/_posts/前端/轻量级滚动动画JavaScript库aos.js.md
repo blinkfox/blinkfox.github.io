@@ -2,7 +2,7 @@
 title: 轻量级滚动动画JavaScript库aos.js
 date: 2018-10-08 22:30:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/10/08/1.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/08/1.jpg
 categories: 前端
 tags:
   - JavaScript
@@ -382,7 +382,7 @@ body {
 - ease-in-out-quart
 
   [1]: http://michalsnik.github.io/aos/
-  [2]: https://statics.sh1a.qingstor.com/2018/10/08/aos.png
+  [2]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/08/aos.png
   [3]: https://bower.io/
   [4]: https://www.npmjs.com/
   [5]: https://github.com/michalsnik/aos/archive/master.zip

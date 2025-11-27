@@ -2,7 +2,7 @@
 title: 使用Java调用PhantomJS动态导出ECharts图片到Word文件中
 date: 2018-10-01 22:50:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/10/01/java-word-chart.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/01/java-word-chart.jpg
 categories: 后端
 tags:
   - Java
@@ -516,5 +516,5 @@ public class HttpTest {
   [2]: http://phantomjs.org/
   [3]: https://poi.apache.org/
   [4]: https://github.com/Sayi/poi-tl
-  [5]: https://statics.sh1a.qingstor.com/2018/10/01/test-word-template.jpg
-  [6]: https://statics.sh1a.qingstor.com/2018/10/01/test-out-result.jpg
+  [5]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/01/test-word-template.jpg
+  [6]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/01/test-out-result.jpg

@@ -2,7 +2,7 @@
 title: Java6新特性及使用
 date: 2018-11-11 22:40:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/11/11/java.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/11/java.jpg
 categories: 后端
 tags:
   - Java

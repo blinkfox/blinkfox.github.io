@@ -2,7 +2,7 @@
 title: Java面向对象设计之建造者模式
 date: 2018-10-20 15:55:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/10/20/builder.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/20/builder.jpg
 categories: 软件设计
 tags:
   - Java
@@ -252,4 +252,4 @@ public class BuilderClient {
 - 建造者模式的主要优点在于客户端不必知道产品内部组成的细节，将产品本身与产品的创建过程解耦，使得相同的创建过程可以创建不同的产品对象，每一个具体建造者都相对独立，而与其他的具体建造者无关，因此可以很方便地替换具体建造者或增加新的具体建造者，符合“开闭原则”，还可以更加精细地控制产品的创建过程；其主要缺点在于由于建造者模式所创建的产品一般具有较多的共同点，其组成部分相似，因此其使用范围受到一定的限制，如果产品的内部变化复杂，可能会导致需要定义很多具体建造者类来实现这种变化，导致系统变得很庞大。
 - 建造者模式适用情况包括：需要生成的产品对象有复杂的内部结构，这些产品对象通常包含多个成员属性；需要生成的产品对象的属性相互依赖，需要指定其生成顺序；对象的创建过程独立于创建该对象的类；隔离复杂对象的创建和使用，并使得相同的创建过程可以创建不同类型的产品。
 
-[1]: https://statics.sh1a.qingstor.com/2018/10/20/builder-structure.jpg
+[1]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/10/20/builder-structure.jpg

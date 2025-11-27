@@ -2,7 +2,7 @@
 title: JavaScript基础教程
 date: 2018-09-14 00:12:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/09/14/js.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/14/js.jpg
 categories: 前端
 tags:
   - JavaScript
@@ -1462,7 +1462,7 @@ Math.cos(Math.PI)  // 预定义常量π，-1
   [4]: http://extjs.org.cn/
   [5]: http://underscorejs.org/
   [6]: http://backbonejs.org/
-  [7]: https://statics.sh1a.qingstor.com/2020/11/29/js.png
+  [7]: https://staticdn.oss-cn-beijing.aliyuncs.com/2020/11/29/js.png
   [8]: https://github.com/
   [9]: https://segmentfault.com/u/puyart
   [10]: https://segmentfault.com/a/1190000003767058

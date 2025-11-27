@@ -2,7 +2,7 @@
 title: Apache Commons Lang之StringUtils
 date: 2018-09-27 00:19:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/09/27/commons-stringutils.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/27/commons-stringutils.jpg
 categories: 后端
 tags:
   - Java

@@ -2,7 +2,7 @@
 title: Java面向对象设计之装饰模式
 date: 2018-09-14 00:30:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/09/14/decorator.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/14/decorator.jpg
 categories: 软件设计
 tags:
   - 设计模式
@@ -250,5 +250,5 @@ public class Client {
 - 装饰模式适用情况包括：在不影响其他对象的情况下，以动态、透明的方式给单个对象添加职责；需要动态地给一个对象增加功能，这些功能也可以动态地被撤销；当不能采用继承的方式对系统进行扩充或者采用继承不利于系统扩展 和维护时。
 - 装饰模式可分为透明装饰模式和半透明装饰模式：在透明装饰模式中，要求客户端完全针对抽象编程，装饰模式的透明性要求客户端程序不应该声明具体构件类型和具体装饰类型，而应该全部声明为抽象构件类型；半透明装饰模式允许用户在客户端声明具体装饰者类型的对象，调用在具体装饰者中新增的方法。
 
-  [1]: https://statics.sh1a.qingstor.com/2018/09/14/decorator-structure.jpg
-  [2]: https://statics.sh1a.qingstor.com/2018/09/14/decorator-seq.jpg
+  [1]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/14/decorator-structure.jpg
+  [2]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/14/decorator-seq.jpg

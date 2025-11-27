@@ -2,7 +2,7 @@
 title: Java面向对象设计之状态模式
 date: 2018-09-21 23:44:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/09/21/state.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/21/state.jpg
 categories: 软件设计
 tags:
   - Java
@@ -217,6 +217,6 @@ public class StateClient {
 - 状态模式的主要优点在于封装了转换规则，并枚举可能的状态，它将所有与某个状态有关的行为放到一个类中，并且可以方便地增加新的状态，只需要改变对象状态即可改变对象的行为，还可以让多个环境对象共享一个状态对象，从而减少系统中对象的个数；其缺点在于使用状态模式会增加系统类和对象的个数，且状态模式的结构与实现都较为复杂，如果使用不当将导致程序结构和代码的混乱，对于可以切换状态的状态模式不满足“开闭原则”的要求。
 - 状态模式适用情况包括：对象的行为依赖于它的状态（属性）并且可以根据它的状态改变而改变它的相关行为；代码中包含大量与对象状态有关的条件语句，这些条件语句的出现，会导致代码的可维护性和灵活性变差，不能方便地增加和删除状态，使客户类与类库之间的耦合增强。
 
-[1]: https://statics.sh1a.qingstor.com/2018/09/21/state-structure.jpg
-[2]: https://statics.sh1a.qingstor.com/2018/09/21/state-seq.jpg
+[1]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/21/state-structure.jpg
+[2]: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/21/state-seq.jpg
 

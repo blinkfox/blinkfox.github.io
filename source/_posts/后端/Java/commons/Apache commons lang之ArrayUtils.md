@@ -2,7 +2,7 @@
 title: Apache Commons Lang之ArrayUtils
 date: 2018-09-28 23:09:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/09/28/feature.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/09/28/feature.jpg
 categories: 后端
 tags:
   - Java

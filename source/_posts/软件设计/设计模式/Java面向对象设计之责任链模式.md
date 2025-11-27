@@ -2,7 +2,7 @@
 title: Java面向对象设计之责任链模式
 date: 2018-11-4 22:00:00
 author: blinkfox
-img: https://statics.sh1a.qingstor.com/2018/11/04/chain.jpg
+img: https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/04/chain.jpg
 categories: 软件设计
 tags:
   - Java
@@ -30,7 +30,7 @@ tags:
 
 ### UML类图
 
-![责任链模式UML类图](https://statics.sh1a.qingstor.com/2018/11/04/chain-of-responsibility.png)
+![责任链模式UML类图](https://staticdn.oss-cn-beijing.aliyuncs.com/2018/11/04/chain-of-responsibility.png)
 
 ## 代码示例
 
